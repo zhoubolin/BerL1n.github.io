@@ -5,12 +5,12 @@
   
   <title>XSS Challenges | 绝世狂龙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Stage#1http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9第一题往往最简单查看源代码可看到输入框，很简单直接闭合value  “&amp;gt;alert(document.domain)   Stage#2http://xss-quiz.int21h.jp/stage2.php?sid=f2d7d60125">
+  <meta name="description" content="Stage#1http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9第一题往往最简单查看源代码可看到输入框，很简单直接闭合value1&amp;quot;&amp;gt;&amp;lt;script&amp;gt;alert(document.domain)&amp;lt;/script&amp;gt;  Stage#2http://xss-quiz.int">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XSS Challenges">
 <meta property="og:url" content="http://yoursite.com/2018/06/01/xsschallenges/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="Stage#1http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9第一题往往最简单查看源代码可看到输入框，很简单直接闭合value  “&amp;gt;alert(document.domain)   Stage#2http://xss-quiz.int21h.jp/stage2.php?sid=f2d7d60125">
+<meta property="og:description" content="Stage#1http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9第一题往往最简单查看源代码可看到输入框，很简单直接闭合value1&amp;quot;&amp;gt;&amp;lt;script&amp;gt;alert(document.domain)&amp;lt;/script&amp;gt;  Stage#2http://xss-quiz.int">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-40e344e9a228f27a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2f8ac169da610dff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -47,10 +47,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-67f8b76aae21c60b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-14244d31177f2295.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6c195116fbd777c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-01T14:23:01.144Z">
+<meta property="og:updated_time" content="2018-06-01T14:35:58.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS Challenges">
-<meta name="twitter:description" content="Stage#1http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9第一题往往最简单查看源代码可看到输入框，很简单直接闭合value  “&amp;gt;alert(document.domain)   Stage#2http://xss-quiz.int21h.jp/stage2.php?sid=f2d7d60125">
+<meta name="twitter:description" content="Stage#1http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9第一题往往最简单查看源代码可看到输入框，很简单直接闭合value1&amp;quot;&amp;gt;&amp;lt;script&amp;gt;alert(document.domain)&amp;lt;/script&amp;gt;  Stage#2http://xss-quiz.int">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-40e344e9a228f27a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="绝世狂龙" type="application/atom+xml">
@@ -136,111 +136,62 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Stage-1"><a href="#Stage-1" class="headerlink" title="Stage#1"></a>Stage#1</h1><p><strong><a href="http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9</a></strong><br>第一题往往最简单<br><img src="https://upload-images.jianshu.io/upload_images/9113981-40e344e9a228f27a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-2f8ac169da610dff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可看到输入框，很简单直接闭合value</p>
-<blockquote>
-<p>“&gt;<script>alert(document.domain)</script></p>
-</blockquote>
+        <h1 id="Stage-1"><a href="#Stage-1" class="headerlink" title="Stage#1"></a>Stage#1</h1><p><strong><a href="http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9</a></strong><br>第一题往往最简单<br><img src="https://upload-images.jianshu.io/upload_images/9113981-40e344e9a228f27a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-2f8ac169da610dff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可看到输入框，很简单直接闭合value<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-5ecaa24217c602a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <h1 id="Stage-2"><a href="#Stage-2" class="headerlink" title="Stage#2"></a>Stage#2</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage2.php?sid=f2d7d60125bdddb208fa757ee5cdae22f6818cd1" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage2.php?sid=f2d7d60125bdddb208fa757ee5cdae22f6818cd1</a></strong></p>
-<h3 id="基本上和第一题完全一样"><a href="#基本上和第一题完全一样" class="headerlink" title="基本上和第一题完全一样"></a>基本上和第一题完全一样</h3><blockquote>
-<p>“&gt;<script>alert(document.domain)</script></p>
-</blockquote>
-<p>#Stage#3<br><strong><a href="http://xss-quiz.int21h.jp/stage-3.php?sid=9b217ccdc6e28f1a018d6df366553a6152bc65f5" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-3.php?sid=9b217ccdc6e28f1a018d6df366553a6152bc65f5</a></strong><br>这题就有点变化了，当我们尝试输入<script>alert(document.domain)</script>时，发现不行了，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a654140850384b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现&lt;&gt;被过滤了<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c35413cb39fec518.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>但我们可以尝试从country入手<br>使用burp抓包，然后修改country内容<br><img src="https://upload-images.jianshu.io/upload_images/9113981-de026fe350f62314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>修改成我们想要的<br><img src="https://upload-images.jianshu.io/upload_images/9113981-69f2b986f0efb764.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h3 id="基本上和第一题完全一样"><a href="#基本上和第一题完全一样" class="headerlink" title="基本上和第一题完全一样"></a>基本上和第一题完全一样</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>#Stage#3<br><strong><a href="http://xss-quiz.int21h.jp/stage-3.php?sid=9b217ccdc6e28f1a018d6df366553a6152bc65f5" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-3.php?sid=9b217ccdc6e28f1a018d6df366553a6152bc65f5</a></strong><br>这题就有点变化了，当我们尝试输入( <script>alert(document.domain)</script> )时，发现不行了，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a654140850384b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现&lt;&gt;被过滤了<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c35413cb39fec518.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>但我们可以尝试从country入手<br>使用burp抓包，然后修改country内容<br><img src="https://upload-images.jianshu.io/upload_images/9113981-de026fe350f62314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>修改成我们想要的<br><img src="https://upload-images.jianshu.io/upload_images/9113981-69f2b986f0efb764.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <h1 id="Stage-4"><a href="#Stage-4" class="headerlink" title="Stage#4"></a>Stage#4</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage_4.php?sid=293c09bc53b81045a43ac5a79ac535daacbeae87" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage_4.php?sid=293c09bc53b81045a43ac5a79ac535daacbeae87</a></strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-037295985e1cd782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>看起来和上关很相似，但我们尝试在search和country处插入xss，但是查看源码发现都被转义了<br>抓包吧<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e68efbc5650a267f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>抓包发现有三个参数，这时我们利用了第三个参数，得到结果<br><img src="https://upload-images.jianshu.io/upload_images/9113981-57e8effc7b9a0b32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<h1 id="Stage-5"><a href="#Stage-5" class="headerlink" title="Stage#5"></a>Stage#5</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage--5.php?sid=40b33710efa4a848d21b5a6dd47671e82c31d853" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage--5.php?sid=40b33710efa4a848d21b5a6dd47671e82c31d853</a></strong><br>先查看源代码，发现对长度进行了限制，最大长度只有15<br><img src="https://upload-images.jianshu.io/upload_images/9113981-4b4f0b6fb40ce2ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>正常情况下我们可以构造</p>
-<blockquote>
-<p>“&gt;<script>alert(document.domain)</script></p>
-</blockquote>
+<h1 id="Stage-5"><a href="#Stage-5" class="headerlink" title="Stage#5"></a>Stage#5</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage--5.php?sid=40b33710efa4a848d21b5a6dd47671e82c31d853" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage--5.php?sid=40b33710efa4a848d21b5a6dd47671e82c31d853</a></strong><br>先查看源代码，发现对长度进行了限制，最大长度只有15<br><img src="https://upload-images.jianshu.io/upload_images/9113981-4b4f0b6fb40ce2ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>正常情况下我们可以构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p>但这里我们可以看到这是不行的<br><img src="https://upload-images.jianshu.io/upload_images/9113981-903a9d88003f3ebb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>只能输入这些，所以只好另寻他法，先用BURP尝试一下抓包后能不能完整输入<br><img src="https://upload-images.jianshu.io/upload_images/9113981-630cfaea90591a4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以看到完整输入，毫无限制<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a88b3d4a01c78ecb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>成功弹窗</p>
-<h1 id="Stage-6"><a href="#Stage-6" class="headerlink" title="Stage #6"></a>Stage #6</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage-no6.php?sid=236f8f125f43d1efffd8f96d6f8f5b590d880847" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-no6.php?sid=236f8f125f43d1efffd8f96d6f8f5b590d880847</a></strong><br>这题按照前面的方法已经不行了，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6f8fd678403baf18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现应该是对<strong>&gt;</strong>标签进行了过滤，并且根据提示event handler attributes（事件处理程序属性 ），提示我们要用事件属性来处理了，下面构造</p>
-<blockquote>
-<p>“ onmouseover=”alert(document.domain)</p>
-</blockquote>
+<h1 id="Stage-6"><a href="#Stage-6" class="headerlink" title="Stage #6"></a>Stage #6</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage-no6.php?sid=236f8f125f43d1efffd8f96d6f8f5b590d880847" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-no6.php?sid=236f8f125f43d1efffd8f96d6f8f5b590d880847</a></strong><br>这题按照前面的方法已经不行了，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6f8fd678403baf18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现应该是对<strong>&gt;</strong>标签进行了过滤，并且根据提示event handler attributes（事件处理程序属性 ），提示我们要用事件属性来处理了，下面构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot; onmouseover=&quot;alert(document.domain)</span><br></pre></td></tr></table></figure></p>
 <p>试一下</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-a5efc1e3ec33bea0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>成功</p>
-<h1 id="Stage-7"><a href="#Stage-7" class="headerlink" title="Stage #7"></a>Stage #7</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage07.php?sid=6fbeba7fd57ce51cf3bb463c8cae1da350722b2e" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage07.php?sid=6fbeba7fd57ce51cf3bb463c8cae1da350722b2e</a></strong><br>看起来与上题相似，试一下发现出错，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-31cab25e07111bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现将<strong>“</strong>也过滤掉了<br>那就需要对<strong>“</strong>进行绕过了，我们可以采用空格分割属性，不使用<strong>“</strong>，从而绕过<strong>“</strong>。</p>
-<blockquote>
-<p>test onmouseover=alert(document.domain)</p>
-</blockquote>
+<h1 id="Stage-7"><a href="#Stage-7" class="headerlink" title="Stage #7"></a>Stage #7</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage07.php?sid=6fbeba7fd57ce51cf3bb463c8cae1da350722b2e" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage07.php?sid=6fbeba7fd57ce51cf3bb463c8cae1da350722b2e</a></strong><br>看起来与上题相似，试一下发现出错，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-31cab25e07111bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现将<strong>“</strong>也过滤掉了<br>那就需要对<strong>“</strong>进行绕过了，我们可以采用空格分割属性，不使用<strong>“</strong>，从而绕过<strong>“</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test onmouseover=alert(document.domain)</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-95cd60e42befaff3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-b9c7022d202ecc53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现可以<br><img src="https://upload-images.jianshu.io/upload_images/9113981-d58938223ea7d055.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>这就是在源代码中的形式</p>
 <h1 id="Stage-8"><a href="#Stage-8" class="headerlink" title="Stage #8"></a>Stage #8</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage008.php?sid=b3d0fe99bca156329272fa022f49c556e0a30d80" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage008.php?sid=b3d0fe99bca156329272fa022f49c556e0a30d80</a></strong></p>
-<p>####本关就是考查 javascript:伪协议在a标签的使用了<br><strong>PAYLAOD：</strong></p>
-<blockquote>
-<p>javascript:alert(document.domain)</p>
-</blockquote>
+<p>####本关就是考查 javascript:伪协议在a标签的使用了<br><strong>PAYLAOD：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:alert(document.domain)</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-de9b80431ca34925.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-96cde57625a5b8f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<h1 id="Stage-10"><a href="#Stage-10" class="headerlink" title="Stage #10"></a>Stage #10</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage00010.php?sid=ebbdd5208bce92c3c26c5da4e79c3a0086f16d5e" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage00010.php?sid=ebbdd5208bce92c3c26c5da4e79c3a0086f16d5e</a></strong><br>通过提示查看应该是对domain进行了过滤<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14abad72fb5225d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>所以我们要想办法绕过<strong>domain</strong>的过滤因此采用</p>
-<blockquote>
-<p>“&gt;<script>alert(document.domdomainain)</script></p>
-</blockquote>
+<h1 id="Stage-10"><a href="#Stage-10" class="headerlink" title="Stage #10"></a>Stage #10</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage00010.php?sid=ebbdd5208bce92c3c26c5da4e79c3a0086f16d5e" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage00010.php?sid=ebbdd5208bce92c3c26c5da4e79c3a0086f16d5e</a></strong><br>通过提示查看应该是对domain进行了过滤<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14abad72fb5225d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>所以我们要想办法绕过<strong>domain</strong>的过滤因此采用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domdomainain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p>因为客户端会自动过滤掉domain,这dom(domain)ain变为domain<br><img src="https://upload-images.jianshu.io/upload_images/9113981-49ae3b2f003ee8dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-76a5849c5f49e8b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>成功绕过</p>
 <h1 id="Stage-11"><a href="#Stage-11" class="headerlink" title="Stage #11"></a>Stage #11</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage11th.php?sid=2ea843cedd78f5b9dfd684cc00be42481f72449c" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage11th.php?sid=2ea843cedd78f5b9dfd684cc00be42481f72449c</a></strong><br>查看源代码，发现对关键字进行了不少过滤<br><img src="https://upload-images.jianshu.io/upload_images/9113981-297b0c491b52852f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>所以只能想办法不利用这些串绕过，尝试构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. &quot;&gt;&lt;a href=javascri&amp;#09pt:alert(document.domain)&gt;test&lt;/a&gt; //&amp;#09 tab制表符html十进制编码</span><br><span class="line">2. &quot;&gt;&lt;a href=javascri&amp;NewLine;pt&amp;colon;alert(document.domain)&gt;test&lt;/a&gt; //&amp;NewLine;是html5的换行符,&amp;colon;是冒号</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-6a22ecd061c537e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-ab2fda601e4f70f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>点击test弹窗</p>
-<h1 id="Stage-12"><a href="#Stage-12" class="headerlink" title="Stage #12"></a>Stage #12</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage_no012.php?sid=b6b9666eca49506330251b9c3e9b0603081e7cae" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage_no012.php?sid=b6b9666eca49506330251b9c3e9b0603081e7cae</a></strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-62732d2a1715ca81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现也进行了过滤<br>把\x00-\x20的字符与及&lt;,&gt;,”,’都替换为空，那也只能寻求绕过的方法了,经发现这个<code></code>符号会在ie8中解析为引号，所以利用它便可成功绕过，但只能在ie中<br>payload:</p>
-<blockquote>
-<p><code></code>onmousemove=alert(document.domain)</p>
-</blockquote>
-<h1 id="Stage-13"><a href="#Stage-13" class="headerlink" title="Stage #13"></a>Stage #13</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage13_0.php?sid=9eb9941d92e5506584eb05f5f9ce3d39dfec842f" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage13_0.php?sid=9eb9941d92e5506584eb05f5f9ce3d39dfec842f</a></strong><br><strong>本关提示style attribute，也就是style的属性问题。<br>发现双引号被过滤了，那么就只能是style的payload了。</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-c1bea86ae2548339.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<blockquote>
-<p>xss:expression(onmousemove=function(){alert(document.domain)})</p>
-</blockquote>
-<p>(为什么这么写，<a href="http://vod.sjtu.edu.cn/help/Article_Show.asp?ArticleID=2224，说CSS样式的定义应该写进函数里，不然会报错" target="_blank" rel="noopener">http://vod.sjtu.edu.cn/help/Article_Show.asp?ArticleID=2224，说CSS样式的定义应该写进函数里，不然会报错</a>)<br>background-color:#f00;background:url(“javascript:alert(document.domain);”); 这种方式没有成功</p>
-<blockquote>
-<p>xss:expr/<em>XSS</em>/ession(alert(document.domain));</p>
-</blockquote>
-<blockquote>
-<p>background-color:#f00;background:url(“javascript:alert(document.domain);”);</p>
-</blockquote>
+<h1 id="Stage-12"><a href="#Stage-12" class="headerlink" title="Stage #12"></a>Stage #12</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage_no012.php?sid=b6b9666eca49506330251b9c3e9b0603081e7cae" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage_no012.php?sid=b6b9666eca49506330251b9c3e9b0603081e7cae</a></strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-62732d2a1715ca81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现也进行了过滤<br>把\x00-\x20的字符与及&lt;,&gt;,”,’都替换为空，那也只能寻求绕过的方法了,经发现这个<code></code>符号会在ie8中解析为引号，所以利用它便可成功绕过，但只能在ie中<br>payload:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">``onmousemove=alert(document.domain)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Stage-13"><a href="#Stage-13" class="headerlink" title="Stage #13"></a>Stage #13</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage13_0.php?sid=9eb9941d92e5506584eb05f5f9ce3d39dfec842f" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage13_0.php?sid=9eb9941d92e5506584eb05f5f9ce3d39dfec842f</a></strong><br><strong>本关提示style attribute，也就是style的属性问题。<br>发现双引号被过滤了，那么就只能是style的payload了。</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-c1bea86ae2548339.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xss:expression(onmousemove=function()&#123;alert(document.domain)&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>(为什么这么写，<a href="http://vod.sjtu.edu.cn/help/Article_Show.asp?ArticleID=2224，说CSS样式的定义应该写进函数里，不然会报错" target="_blank" rel="noopener">http://vod.sjtu.edu.cn/help/Article_Show.asp?ArticleID=2224，说CSS样式的定义应该写进函数里，不然会报错</a>)<br>background-color:#f00;background:url(“javascript:alert(document.domain);”); 这种方式没有成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xss:expr/*XSS*/ession(alert(document.domain));</span><br><span class="line"></span><br><span class="line">background-color:#f00;background:url(&quot;javascript:alert(document.domain);&quot;);</span><br></pre></td></tr></table></figure></p>
 <p>这两种应该只能在ie下，然而我并未成功</p>
 <h1 id="Stage-15"><a href="#Stage-15" class="headerlink" title="Stage #15"></a>Stage #15</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage__15.php?sid=f530a129f54ea7c80420c9c8cd5ea68f3ea139c6" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage__15.php?sid=f530a129f54ea7c80420c9c8cd5ea68f3ea139c6</a></strong><br>这一关考的是dom xss<br>这个是document.write()<br>实验可知道这个会过滤掉&lt;&gt;<br>由于ducument.write写的时候，<br>script自解码机制<br>HTML：进制编码：&#xH;（十六进制格式）、&#D;（十进制格式），最后的分号（;）可以不要。<br>HTML实体编码：即上面的那个HtmlEncode。&lt;&gt; &amp;lt,&amp;gt<br>onclick里的这段JavaScript出现在HTML标签内，意味着这里的JavaScript可以进行HTML形式的编码</p>
-<p>如果用户输入出现在<script>里的JavaScript中用户输入的这段内容上下文环境是JavaScript，不是HTML（可以认为<script>标签里的内容和HTML环境毫无关系），此时用户输入的这段内容要遵守的是JavaScript法则，即JavaScript编码，具体有如下几种形式。</p>
+<p>如果用户输入出现在&lt; script&gt;里的JavaScript中用户输入的这段内容上下文环境是JavaScript，不是HTML（可以认为&lt; script&gt;标签里的内容和HTML环境毫无关系），此时用户输入的这段内容要遵守的是JavaScript法则，即JavaScript编码，具体有如下几种形式。</p>
 <blockquote>
 <p>Unicode形式：\uH(十六进制)。<br>普通十六进制：\xH。<br>纯转义：\’、\”、\&lt;、>这样在特殊字符之前加\进行转义。<br>在JavaScript执行之前，这样的编码会自动解码</p>
 </blockquote>
-<p>既然这个地方会过滤掉&lt;&gt;，就可以先按照JS编码</p>
-<blockquote>
-<p>源码：</p>
-<script>alert(document.domain)</script>
-
-</p><p>因为是在js范畴，document.write在输出的时候会JavascriptDecode一下数据，会把数据原有\去除，即php里面的stripslashes<br>所以我们最终的payload应该是这样的。</p>
-<blockquote>
-<p>\x3cscript\x3ealert(document.domain)\x3c/script\x3e</p>
-</blockquote>
+<p>既然这个地方会过滤掉&lt;&gt;，就可以先按照JS编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">源码：</span><br><span class="line">&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>因为是在js范畴，document.write在输出的时候会JavascriptDecode一下数据，会把数据原有\去除，即php里面的stripslashes<br>所以我们最终的payload应该是这样的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\x3cscript\\x3ealert(document.domain)\\x3c/script\\x3e</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-e473543e86ccc133.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<h1 id="Stage-16"><a href="#Stage-16" class="headerlink" title="Stage #16"></a>Stage #16</h1><p><img src="https://upload-images.jianshu.io/upload_images/9113981-3ae6e6d97b8ef026.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>提示内容;把\x 替换成了\\x，就是过滤掉了\x，但是js编码又不止16进制，还有八进制，unicode编码<br>用unicode编码尝试</p>
-<blockquote>
-<p>\u003cscript\u003ealert(document.domain);\u003c/script\u003e</p>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-67f8b76aae21c60b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>用八进制编码,同样可以</p>
-<blockquote>
-<p>\74img src=x onerror=alert(document.domain)\76</p>
-</blockquote>
+<h1 id="Stage-16"><a href="#Stage-16" class="headerlink" title="Stage #16"></a>Stage #16</h1><p><img src="https://upload-images.jianshu.io/upload_images/9113981-3ae6e6d97b8ef026.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>提示内容;把\x 替换成了\\x，就是过滤掉了\x，但是js编码又不止16进制，还有八进制，unicode编码<br>用unicode编码尝试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\u003cscript\\u003ealert(document.domain);\\u003c/script\\u003e</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-67f8b76aae21c60b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>用八进制编码,同样可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\74img src=x onerror=alert(document.domain)\\76</span><br></pre></td></tr></table></figure></p>
 <p>这是别人总结的能引起Dom XSS的入口函数：</p>
 <blockquote>
 <p>document.write()<br>document.writeln()<br>document.body.innerHtml<br>eval()<br>window.execScript()<br>window.setInterval()<br>window.setTimeout() </p>
 </blockquote>
-<p>#Stage #17<br><strong><a href="http://xss-quiz.int21h.jp/stage-No17.php?sid=463e60e61219d8df193508ef13f2c6626ee40ff6" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-No17.php?sid=463e60e61219d8df193508ef13f2c6626ee40ff6</a></strong><br><strong>提示：multi-byte character</strong><br><strong>思路类似于宽字节注入，利用特殊字节吃掉双引号</strong><br>半角片假名使用两个字节来表示。</p>
+<h1 id="Stage-17"><a href="#Stage-17" class="headerlink" title="Stage #17"></a>Stage #17</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage-No17.php?sid=463e60e61219d8df193508ef13f2c6626ee40ff6" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-No17.php?sid=463e60e61219d8df193508ef13f2c6626ee40ff6</a></strong><br><strong>提示：multi-byte character</strong><br><strong>思路类似于宽字节注入，利用特殊字节吃掉双引号</strong><br>半角片假名使用两个字节来表示。</p>
 <p>“第一位字节”使用0x8E<br>“第二位字节”使用0xA1-0xDF</p>
 <p>JIS X 0208字元使用两个字节来表示。</p>
 <p>“第一位字节”使用0xA1-0xFE<br>“第二位字节”使用0xA1-0xFE</p>
 <p>JIS X 0212字元使用三个字节来表示。</p>
-<p>“第一位字节”使用0x8F<br>“第二位字节”使用0xA1-0xFE<br>“第三位字节”使用0xA1-0xFE<br>查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14244d31177f2295.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>目的是吃掉上面和下面一个双引号，然后使他们闭合，抓包修改p1，p2</p>
-<blockquote>
-<p>p1=1%A7&amp;p2=+onmouseover%3Dalert%28document.domain%29%3B+%A7</p>
-</blockquote>
+<p>“第一位字节”使用0x8F<br>“第二位字节”使用0xA1-0xFE<br>“第三位字节”使用0xA1-0xFE<br>查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14244d31177f2295.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>目的是吃掉上面和下面一个双引号，然后使他们闭合，抓包修改p1，p2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1=1%A7&amp;p2=+onmouseover%3Dalert%28document.domain%29%3B+%A7</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-6c195116fbd777c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>%A7，是随意的，只要是符合上面说的第一个字节范围即可。。<br>由于浏览器版本问题无法显示结果</p>
-<p>#Stage #18<br><strong><a href="http://xss-quiz.int21h.jp/stage__No18.php?sid=b23d6719a639f5655a2966a2f5ade6ec86841851" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage__No18.php?sid=b23d6719a639f5655a2966a2f5ade6ec86841851</a></strong><br> 提示：us-ascii high bit issue<br>     将每个字符的二进制最高位置为1，然后再转为16进制<br>比如说：</p>
+<h1 id="Stage-18"><a href="#Stage-18" class="headerlink" title="Stage #18"></a>Stage #18</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage__No18.php?sid=b23d6719a639f5655a2966a2f5ade6ec86841851" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage__No18.php?sid=b23d6719a639f5655a2966a2f5ade6ec86841851</a></strong><br> 提示：us-ascii high bit issue<br>     将每个字符的二进制最高位置为1，然后再转为16进制<br>比如说：</p>
 <p>&lt; 的16进制是3C，2进制是0011 1011，最高位置为1之后，变成1011 1011 ，也就是BC</p>
 <p> ’     &gt;同理变成BE</p>
 <p>“ 同理变成A2</p>
 <p>所以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/scirpt&gt;</span><br></pre></td></tr></table></figure></p>
-<p>就变成：</p>
-<p>%A2%BE%BCscript%BEalert(document.domain);%BC/script%BE</p>
+<p>就变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">%A2%BE%BCscript%BEalert(document.domain);%BC/script%BE</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/01/xsschallenges/" data-id="cjhw26lwk0002jgg4v4owzloj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/01/xsschallenges/" data-id="cjhw2n2l200023wg4h8n1glze" class="article-share-link">Share</a>
       
       
     </footer>
