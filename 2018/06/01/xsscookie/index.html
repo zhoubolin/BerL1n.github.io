@@ -5,12 +5,12 @@
   
   <title>XSS获取cookie并发送自己邮箱 | 绝世狂龙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#####关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。 这是登录界面，输入用户名进去后可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧  alert(document.cookie)    可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是">
+  <meta name="description" content="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。这是登录界面，输入用户名进去后可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧  alert(document.cookie)    可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是自己的，这时">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XSS获取cookie并发送自己邮箱">
 <meta property="og:url" content="http://yoursite.com/2018/06/01/xsscookie/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="#####关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。 这是登录界面，输入用户名进去后可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧  alert(document.cookie)    可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是">
+<meta property="og:description" content="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。这是登录界面，输入用户名进去后可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧  alert(document.cookie)    可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是自己的，这时">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6c1b9164cc3a5ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-295de31871759ab4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2ffd35f9a0d3f380.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6e5cd6f39e79655e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-01T13:52:23.204Z">
+<meta property="og:updated_time" content="2018-06-01T14:19:02.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS获取cookie并发送自己邮箱">
-<meta name="twitter:description" content="#####关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。 这是登录界面，输入用户名进去后可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧  alert(document.cookie)    可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是">
+<meta name="twitter:description" content="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。这是登录界面，输入用户名进去后可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧  alert(document.cookie)    可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是自己的，这时">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternate" href="/atom.xml" title="绝世狂龙" type="application/atom+xml">
@@ -115,15 +115,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#####关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>这是登录界面，输入用户名进去后<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6c1b9164cc3a5ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧</p>
+        <h3 id="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"><a href="#关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。" class="headerlink" title="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"></a>关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。</h3><p><img src="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>这是登录界面，输入用户名进去后<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6c1b9164cc3a5ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧</p>
 <blockquote>
 <script>alert(document.cookie)</script>
 </blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-aff2b20eaa82e378.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-1ea640b695bf4436.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br> 可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是自己的，这时别人登录也会弹出cookie但只能本人看到，因此我们要想办法获取别人的<br>然后我自己写了个小脚本，用来获取别人的cookie，同样的方法插入xss代码，如果别人登录将会把别人的cookie发送到我邮箱里。<br>因为是用php和js写的，所以我这里将php发送qq邮箱的方法说一下，毕竟这是困我好久的难题。<br>其实方法也不难，不过遇到各种各样的麻烦<br>关于配置sendmail,这是windows下的配置，ubuntu下没成功，有高手可以指点下。</p>
 <blockquote>
-<p>######首先，这里我用的是wamp和用php mail()函数发送的邮件，php mail()函数在windows不能用，需要安装sendmail，假如是用的XAMPP，则已经下载好，不需要重新下载~<br>1.从<a href="http://glob.com.au/sendmail/下载sendmail.zip" target="_blank" rel="noopener">http://glob.com.au/sendmail/下载sendmail.zip</a><br>2.解压到C(其他一样):下，例如C:\php\sendmail，最好短路径，长路径名有可能产生问题。<br>3.开启SMTP服务：因为这里我用的qq发送，所以要开启qq邮箱的SMTP服务。<br>所有的主流邮箱都支持 SMTP 协议，但并非所有邮箱都默认开启，您可以在邮箱的设置里面手动开启。<br>第三方服务在提供了账号和密码之后就可以登录 SMTP 服务器，通过它来控制邮件的中转方式。<br>（1）开启邮箱（进入qq邮箱点设置-&gt;帐户）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-4213d2d568648d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>（2）验证密保（图片临时找的不方便再）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-8b448c349aa74c8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>（3）生成授权码（授权码就是下面要用的东西，忘了图一会看到有生成授权码，没必要详记）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-13025315af6a631c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>4.配置sendmail文件：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-93df513b6d2c73bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-e81ea1c8b93da416.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>首先，这里我用的是wamp和用php mail()函数发送的邮件，php mail()函数在windows不能用，需要安装sendmail，假如是用的XAMPP，则已经下载好，不需要重新下载~<br>1.从<a href="http://glob.com.au/sendmail/下载sendmail.zip" target="_blank" rel="noopener">http://glob.com.au/sendmail/下载sendmail.zip</a><br>2.解压到C(其他一样):下，例如C:\php\sendmail，最好短路径，长路径名有可能产生问题。<br>3.开启SMTP服务：因为这里我用的qq发送，所以要开启qq邮箱的SMTP服务。<br>所有的主流邮箱都支持 SMTP 协议，但并非所有邮箱都默认开启，您可以在邮箱的设置里面手动开启。<br>第三方服务在提供了账号和密码之后就可以登录 SMTP 服务器，通过它来控制邮件的中转方式。<br>（1）开启邮箱（进入qq邮箱点设置-&gt;帐户）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-4213d2d568648d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>（2）验证密保（图片临时找的不方便再）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-8b448c349aa74c8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>（3）生成授权码（授权码就是下面要用的东西，忘了图一会看到有生成授权码，没必要详记）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-13025315af6a631c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>4.配置sendmail文件：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-93df513b6d2c73bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-e81ea1c8b93da416.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">以下都是修改项</span><br><span class="line">[sendmail] </span><br><span class="line">; you must change mail.mydomain.com to your smtp server </span><br><span class="line">smtp_server=smtp.qq.com </span><br><span class="line">smtp_port=465 //特别注意：端口这里是465，不是25，网上有很多填25，腾讯邮箱特别说明了为465，还有一个忘了，困死我的地方，一直没发现这有错。</span><br><span class="line">auth_username=QQ号码@qq.com</span><br><span class="line">auth_password=授权码 //注意：这里是qq授权码不是邮箱密码，第一次就栽这个了，，网上有很多写密码的</span><br><span class="line">force_sender=QQ号码@qq.com</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -154,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/01/xsscookie/" data-id="cjhw1397u0000zcg4281undrd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/01/xsscookie/" data-id="cjhw26ltq0000jgg4zp7mk39j" class="article-share-link">Share</a>
       
       
     </footer>
