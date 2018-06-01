@@ -41,7 +41,7 @@
     <h2 class="author">berlin</h2>
     <h3 class="description">每天都是美好的一天</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>2</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>3</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>
@@ -68,6 +68,105 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-xsschallenges" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/01/xsschallenges/" class="article-date">
+  <time class="post-time" datetime="2018-06-01T14:43:29.697Z" itemprop="datePublished">
+    <span class="post-month">6月</span><br/>
+    <span class="post-day">01</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/01/xsschallenges/">XSS Challenges</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Stage-1"><a href="#Stage-1" class="headerlink" title="Stage#1"></a>Stage#1</h1><p><strong><a href="http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/?sid=2a75ff06e0147586b7ceb0fe68ee443b86a6e7b9</a></strong><br>第一题往往最简单<br><img src="https://upload-images.jianshu.io/upload_images/9113981-40e344e9a228f27a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-2f8ac169da610dff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可看到输入框，很简单直接闭合value<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-5ecaa24217c602a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h1 id="Stage-2"><a href="#Stage-2" class="headerlink" title="Stage#2"></a>Stage#2</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage2.php?sid=f2d7d60125bdddb208fa757ee5cdae22f6818cd1" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage2.php?sid=f2d7d60125bdddb208fa757ee5cdae22f6818cd1</a></strong></p>
+<h3 id="基本上和第一题完全一样"><a href="#基本上和第一题完全一样" class="headerlink" title="基本上和第一题完全一样"></a>基本上和第一题完全一样</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>#Stage#3<br><strong><a href="http://xss-quiz.int21h.jp/stage-3.php?sid=9b217ccdc6e28f1a018d6df366553a6152bc65f5" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-3.php?sid=9b217ccdc6e28f1a018d6df366553a6152bc65f5</a></strong><br>这题就有点变化了，当我们尝试输入( <script>alert(document.domain)</script> )时，发现不行了，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a654140850384b55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现&lt;&gt;被过滤了<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c35413cb39fec518.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>但我们可以尝试从country入手<br>使用burp抓包，然后修改country内容<br><img src="https://upload-images.jianshu.io/upload_images/9113981-de026fe350f62314.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>修改成我们想要的<br><img src="https://upload-images.jianshu.io/upload_images/9113981-69f2b986f0efb764.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h1 id="Stage-4"><a href="#Stage-4" class="headerlink" title="Stage#4"></a>Stage#4</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage_4.php?sid=293c09bc53b81045a43ac5a79ac535daacbeae87" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage_4.php?sid=293c09bc53b81045a43ac5a79ac535daacbeae87</a></strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-037295985e1cd782.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>看起来和上关很相似，但我们尝试在search和country处插入xss，但是查看源码发现都被转义了<br>抓包吧<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e68efbc5650a267f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>抓包发现有三个参数，这时我们利用了第三个参数，得到结果<br><img src="https://upload-images.jianshu.io/upload_images/9113981-57e8effc7b9a0b32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h1 id="Stage-5"><a href="#Stage-5" class="headerlink" title="Stage#5"></a>Stage#5</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage--5.php?sid=40b33710efa4a848d21b5a6dd47671e82c31d853" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage--5.php?sid=40b33710efa4a848d21b5a6dd47671e82c31d853</a></strong><br>先查看源代码，发现对长度进行了限制，最大长度只有15<br><img src="https://upload-images.jianshu.io/upload_images/9113981-4b4f0b6fb40ce2ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>正常情况下我们可以构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>但这里我们可以看到这是不行的<br><img src="https://upload-images.jianshu.io/upload_images/9113981-903a9d88003f3ebb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>只能输入这些，所以只好另寻他法，先用BURP尝试一下抓包后能不能完整输入<br><img src="https://upload-images.jianshu.io/upload_images/9113981-630cfaea90591a4f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以看到完整输入，毫无限制<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a88b3d4a01c78ecb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>成功弹窗</p>
+<h1 id="Stage-6"><a href="#Stage-6" class="headerlink" title="Stage #6"></a>Stage #6</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage-no6.php?sid=236f8f125f43d1efffd8f96d6f8f5b590d880847" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-no6.php?sid=236f8f125f43d1efffd8f96d6f8f5b590d880847</a></strong><br>这题按照前面的方法已经不行了，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6f8fd678403baf18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现应该是对<strong>&gt;</strong>标签进行了过滤，并且根据提示event handler attributes（事件处理程序属性 ），提示我们要用事件属性来处理了，下面构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot; onmouseover=&quot;alert(document.domain)</span><br></pre></td></tr></table></figure></p>
+<p>试一下</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-a5efc1e3ec33bea0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>成功</p>
+<h1 id="Stage-7"><a href="#Stage-7" class="headerlink" title="Stage #7"></a>Stage #7</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage07.php?sid=6fbeba7fd57ce51cf3bb463c8cae1da350722b2e" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage07.php?sid=6fbeba7fd57ce51cf3bb463c8cae1da350722b2e</a></strong><br>看起来与上题相似，试一下发现出错，查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-31cab25e07111bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现将<strong>“</strong>也过滤掉了<br>那就需要对<strong>“</strong>进行绕过了，我们可以采用空格分割属性，不使用<strong>“</strong>，从而绕过<strong>“</strong>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test onmouseover=alert(document.domain)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-95cd60e42befaff3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-b9c7022d202ecc53.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现可以<br><img src="https://upload-images.jianshu.io/upload_images/9113981-d58938223ea7d055.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>这就是在源代码中的形式</p>
+<h1 id="Stage-8"><a href="#Stage-8" class="headerlink" title="Stage #8"></a>Stage #8</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage008.php?sid=b3d0fe99bca156329272fa022f49c556e0a30d80" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage008.php?sid=b3d0fe99bca156329272fa022f49c556e0a30d80</a></strong></p>
+<p>####本关就是考查 javascript:伪协议在a标签的使用了<br><strong>PAYLAOD：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javascript:alert(document.domain)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-de9b80431ca34925.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-96cde57625a5b8f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h1 id="Stage-10"><a href="#Stage-10" class="headerlink" title="Stage #10"></a>Stage #10</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage00010.php?sid=ebbdd5208bce92c3c26c5da4e79c3a0086f16d5e" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage00010.php?sid=ebbdd5208bce92c3c26c5da4e79c3a0086f16d5e</a></strong><br>通过提示查看应该是对domain进行了过滤<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14abad72fb5225d8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>所以我们要想办法绕过<strong>domain</strong>的过滤因此采用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;&gt;&lt;script&gt;alert(document.domdomainain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>因为客户端会自动过滤掉domain,这dom(domain)ain变为domain<br><img src="https://upload-images.jianshu.io/upload_images/9113981-49ae3b2f003ee8dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-76a5849c5f49e8b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>成功绕过</p>
+<h1 id="Stage-11"><a href="#Stage-11" class="headerlink" title="Stage #11"></a>Stage #11</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage11th.php?sid=2ea843cedd78f5b9dfd684cc00be42481f72449c" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage11th.php?sid=2ea843cedd78f5b9dfd684cc00be42481f72449c</a></strong><br>查看源代码，发现对关键字进行了不少过滤<br><img src="https://upload-images.jianshu.io/upload_images/9113981-297b0c491b52852f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>所以只能想办法不利用这些串绕过，尝试构造<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. &quot;&gt;&lt;a href=javascri&amp;#09pt:alert(document.domain)&gt;test&lt;/a&gt; //&amp;#09 tab制表符html十进制编码</span><br><span class="line">2. &quot;&gt;&lt;a href=javascri&amp;NewLine;pt&amp;colon;alert(document.domain)&gt;test&lt;/a&gt; //&amp;NewLine;是html5的换行符,&amp;colon;是冒号</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-6a22ecd061c537e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-ab2fda601e4f70f1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>点击test弹窗</p>
+<h1 id="Stage-12"><a href="#Stage-12" class="headerlink" title="Stage #12"></a>Stage #12</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage_no012.php?sid=b6b9666eca49506330251b9c3e9b0603081e7cae" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage_no012.php?sid=b6b9666eca49506330251b9c3e9b0603081e7cae</a></strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-62732d2a1715ca81.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>发现也进行了过滤<br>把\x00-\x20的字符与及&lt;,&gt;,”,’都替换为空，那也只能寻求绕过的方法了,经发现这个<code></code>符号会在ie8中解析为引号，所以利用它便可成功绕过，但只能在ie中<br>payload:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">``onmousemove=alert(document.domain)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Stage-13"><a href="#Stage-13" class="headerlink" title="Stage #13"></a>Stage #13</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage13_0.php?sid=9eb9941d92e5506584eb05f5f9ce3d39dfec842f" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage13_0.php?sid=9eb9941d92e5506584eb05f5f9ce3d39dfec842f</a></strong><br><strong>本关提示style attribute，也就是style的属性问题。<br>发现双引号被过滤了，那么就只能是style的payload了。</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-c1bea86ae2548339.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xss:expression(onmousemove=function()&#123;alert(document.domain)&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>(为什么这么写，<a href="http://vod.sjtu.edu.cn/help/Article_Show.asp?ArticleID=2224，说CSS样式的定义应该写进函数里，不然会报错" target="_blank" rel="noopener">http://vod.sjtu.edu.cn/help/Article_Show.asp?ArticleID=2224，说CSS样式的定义应该写进函数里，不然会报错</a>)<br>background-color:#f00;background:url(“javascript:alert(document.domain);”); 这种方式没有成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xss:expr/*XSS*/ession(alert(document.domain));</span><br><span class="line"></span><br><span class="line">background-color:#f00;background:url(&quot;javascript:alert(document.domain);&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>这两种应该只能在ie下，然而我并未成功</p>
+<h1 id="Stage-15"><a href="#Stage-15" class="headerlink" title="Stage #15"></a>Stage #15</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage__15.php?sid=f530a129f54ea7c80420c9c8cd5ea68f3ea139c6" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage__15.php?sid=f530a129f54ea7c80420c9c8cd5ea68f3ea139c6</a></strong><br>这一关考的是dom xss<br>这个是document.write()<br>实验可知道这个会过滤掉&lt;&gt;<br>由于ducument.write写的时候，<br>script自解码机制<br>HTML：进制编码：&#xH;（十六进制格式）、&#D;（十进制格式），最后的分号（;）可以不要。<br>HTML实体编码：即上面的那个HtmlEncode。&lt;&gt; &amp;lt,&amp;gt<br>onclick里的这段JavaScript出现在HTML标签内，意味着这里的JavaScript可以进行HTML形式的编码</p>
+<p>如果用户输入出现在&lt; script&gt;里的JavaScript中用户输入的这段内容上下文环境是JavaScript，不是HTML（可以认为&lt; script&gt;标签里的内容和HTML环境毫无关系），此时用户输入的这段内容要遵守的是JavaScript法则，即JavaScript编码，具体有如下几种形式。</p>
+<blockquote>
+<p>Unicode形式：\uH(十六进制)。<br>普通十六进制：\xH。<br>纯转义：\’、\”、\&lt;、>这样在特殊字符之前加\进行转义。<br>在JavaScript执行之前，这样的编码会自动解码</p>
+</blockquote>
+<p>既然这个地方会过滤掉&lt;&gt;，就可以先按照JS编码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">源码：</span><br><span class="line">&lt;script&gt;alert(document.domain)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>因为是在js范畴，document.write在输出的时候会JavascriptDecode一下数据，会把数据原有\去除，即php里面的stripslashes<br>所以我们最终的payload应该是这样的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\x3cscript\\x3ealert(document.domain)\\x3c/script\\x3e</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-e473543e86ccc133.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h1 id="Stage-16"><a href="#Stage-16" class="headerlink" title="Stage #16"></a>Stage #16</h1><p><img src="https://upload-images.jianshu.io/upload_images/9113981-3ae6e6d97b8ef026.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>提示内容;把\x 替换成了\\x，就是过滤掉了\x，但是js编码又不止16进制，还有八进制，unicode编码<br>用unicode编码尝试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\u003cscript\\u003ealert(document.domain);\\u003c/script\\u003e</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-67f8b76aae21c60b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>用八进制编码,同样可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\\74img src=x onerror=alert(document.domain)\\76</span><br></pre></td></tr></table></figure></p>
+<p>这是别人总结的能引起Dom XSS的入口函数：</p>
+<blockquote>
+<p>document.write()<br>document.writeln()<br>document.body.innerHtml<br>eval()<br>window.execScript()<br>window.setInterval()<br>window.setTimeout() </p>
+</blockquote>
+<h1 id="Stage-17"><a href="#Stage-17" class="headerlink" title="Stage #17"></a>Stage #17</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage-No17.php?sid=463e60e61219d8df193508ef13f2c6626ee40ff6" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage-No17.php?sid=463e60e61219d8df193508ef13f2c6626ee40ff6</a></strong><br><strong>提示：multi-byte character</strong><br><strong>思路类似于宽字节注入，利用特殊字节吃掉双引号</strong><br>半角片假名使用两个字节来表示。</p>
+<p>“第一位字节”使用0x8E<br>“第二位字节”使用0xA1-0xDF</p>
+<p>JIS X 0208字元使用两个字节来表示。</p>
+<p>“第一位字节”使用0xA1-0xFE<br>“第二位字节”使用0xA1-0xFE</p>
+<p>JIS X 0212字元使用三个字节来表示。</p>
+<p>“第一位字节”使用0x8F<br>“第二位字节”使用0xA1-0xFE<br>“第三位字节”使用0xA1-0xFE<br>查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14244d31177f2295.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>目的是吃掉上面和下面一个双引号，然后使他们闭合，抓包修改p1，p2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1=1%A7&amp;p2=+onmouseover%3Dalert%28document.domain%29%3B+%A7</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-6c195116fbd777c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>%A7，是随意的，只要是符合上面说的第一个字节范围即可。。<br>由于浏览器版本问题无法显示结果</p>
+<h1 id="Stage-18"><a href="#Stage-18" class="headerlink" title="Stage #18"></a>Stage #18</h1><p><strong><a href="http://xss-quiz.int21h.jp/stage__No18.php?sid=b23d6719a639f5655a2966a2f5ade6ec86841851" target="_blank" rel="noopener">http://xss-quiz.int21h.jp/stage__No18.php?sid=b23d6719a639f5655a2966a2f5ade6ec86841851</a></strong><br> 提示：us-ascii high bit issue<br>     将每个字符的二进制最高位置为1，然后再转为16进制<br>比如说：</p>
+<p>&lt; 的16进制是3C，2进制是0011 1011，最高位置为1之后，变成1011 1011 ，也就是BC</p>
+<p> ’     &gt;同理变成BE</p>
+<p>“ 同理变成A2</p>
+<p>所以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&quot;&gt;&lt;script&gt;alert(document.domain)&lt;/scirpt&gt;</span><br></pre></td></tr></table></figure></p>
+<p>就变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">%A2%BE%BCscript%BEalert(document.domain);%BC/script%BE</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/01/xsschallenges/" data-id="cjhw309in0002w8g4h6rsub3f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-xsscookie" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -139,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/01/xsscookie/" data-id="cjhw2sfcm0000i8g4h47m9eik" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/01/xsscookie/" data-id="cjhw309g60000w8g4qbvoed5c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,50 +286,33 @@
 <h2 id="XSS的原理："><a href="#XSS的原理：" class="headerlink" title="XSS的原理："></a>XSS的原理：</h2><p>  1.攻击者对含有漏洞的服务器发起XSS攻击（注入JS代码）。<br>    2.诱使受害者打开受到攻击的服务器URL。<br>   3.受害者在Web浏览器中打开URL，恶意脚本执行。</p>
 <h2 id="XSS攻击的危害包括："><a href="#XSS攻击的危害包括：" class="headerlink" title="XSS攻击的危害包括："></a>XSS攻击的危害包括：</h2><p>1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>3、盗窃企业重要的具有商业价值的资料<br>4、非法转账<br>5、强制发送电子邮件<br>6、网站挂马<br>7、控制受害者机器向其它网站发起攻击</p>
 <h2 id="XSS攻击分类"><a href="#XSS攻击分类" class="headerlink" title="XSS攻击分类"></a>XSS攻击分类</h2><p>（1）反射型： 又称为非持久性跨站点脚本攻击，它是最常见的类型的XSS。漏洞产生的原因是攻击者注入的数据反映在响应中。一个典型的非持久性XSS包含一个带XSS攻击向量的链接(即每次攻击需要用户的点击)。详细说就是发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器端解析后响应，XSS随响应内容一起返回给浏览器，最后浏览器解析执行XSS代码，这个过程就像一次发射，所以叫反射型XSS。<br>简单例子</p>
-<p>正常发送消息：</p>
-<blockquote>
-<p><a href="http://www.test.com/message.php?send=Hello,World！" target="_blank" rel="noopener">http://www.test.com/message.php?send=Hello,World！</a></p>
-</blockquote>
+<p>正常发送消息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.test.com/message.php?send=Hello,World！</span><br></pre></td></tr></table></figure></p>
 <p>接收者将会接收信息并显示Hello,Word</p>
 <p>非正常发送消息：</p>
-<blockquote>
-<p><a href="http://www.test.com/message.php?send=" target="_blank" rel="noopener">http://www.test.com/message.php?send=</a><script>alert(‘foolish!’)</script>！</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.test.com/message.php?send=&lt;script&gt;alert(‘foolish!’)&lt;/script&gt;！</span><br></pre></td></tr></table></figure>
 <p>接收者接收消息显示的时候将会弹出警告窗口</p>
 <p>（2）存储型: 存储型XSS和反射型的XSS差别就在于，存储型的XSS提交的代码会存储在服务器端（数据库，内存，文件系统等），下次请求目标页面时不用再提交XSS代码。又称为持久型跨站点脚本，当一个页面被用户打开的时候执行。每当用户打开浏览器,脚本执行。持久的XSS相比非持久性XSS攻击危害性更大,因为每当用户打开页面，查看内容时脚本将自动执行。谷歌的orkut曾经就遭受到XSS。</p>
 <p>简单例子：</p>
 <p>从名字就可了解到存储型XSS攻击就是将攻击代码存入数据库中，然后客户端打开时就执行这些攻击代码。例如留言板</p>
-<p>留言板表单中的表单域：<input type="“text”" name="“content”" value="“这里是用户填写的数据”"></p>
+<p>留言板表单中的表单域：&lt; input type=“text” name=“content” value=“这里是用户填写的数据”&gt;</p>
 <p>正常操作：</p>
 <p>用户是提交相应留言信息；将数据存储到数据库；其他用户访问留言板，应用去数据并显示。</p>
 <p>非正常操作：</p>
-<p>攻击者在value填写</p>
-<blockquote>
-<p><script>alert(‘foolish!’)</script>【或者html其他标签（破坏样式。。。）、一段攻击型代码】；</p>
-</blockquote>
+<p>攻击者在value填写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(‘foolish!’)&lt;/script&gt;【或者html其他标签（破坏样式。。。）、一段攻击型代码】；</span><br></pre></td></tr></table></figure></p>
 <p>将数据存储到数据库中；</p>
 <p>其他用户取出数据显示的时候，将会执行这些攻击性代码</p>
 <h2 id="DOMBasedXSS（基于dom的跨站点脚本攻击）"><a href="#DOMBasedXSS（基于dom的跨站点脚本攻击）" class="headerlink" title="DOMBasedXSS（基于dom的跨站点脚本攻击）"></a>DOMBasedXSS（基于dom的跨站点脚本攻击）</h2><p>基于DOM的XSS有时也称为type0XSS。当用户能够通过交互修改浏览器页面中的DOM(DocumentObjectModel)并显示在浏览器上时，就有可能产生这种漏洞，从效果上来说它也是反射型XSS。</p>
 <p>　　通过修改页面的DOM节点形成的XSS，称之为DOMBasedXSS。</p>
 <p>　　前提是易受攻击的网站有一个HTML页面采用不安全的方式从document.location 或document.URL 或 document.referrer获取数据（或者任何其他攻击者可以修改的对象）。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT&gt;</span><br><span class="line">  var pos=document.URL.indexOf(&quot;name=&quot;)+5;</span><br><span class="line"> document.write(document.URL.substring(pos,document.URL.length));</span><br><span class="line">  &lt;/SCRIPT&gt;</span><br></pre></td></tr></table></figure></p>
-<p>name是截取URL中get过来的name参数<br>正常操作：</p>
-<blockquote>
-<p><a href="http://www.vulnerable.site/welcome.html?name=Joe" target="_blank" rel="noopener">http://www.vulnerable.site/welcome.html?name=Joe</a></p>
-</blockquote>
-<p>非正常操作：</p>
-<blockquote>
-<p><a href="http://www.vulnerable.site/welcome.html?name=" target="_blank" rel="noopener">http://www.vulnerable.site/welcome.html?name=</a><script>alert(document.cookie)</script></p>
-</blockquote>
+<p>name是截取URL中get过来的name参数<br>正常操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.vulnerable.site/welcome.html?name=Joe</span><br></pre></td></tr></table></figure></p>
+<p>非正常操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.vulnerable.site/welcome.html?name=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <h4 id="受害者的浏览器接收到这个链接，发送HTTP请求到www-vulnerable-site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document-URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到-alert-…-并且在同一个页面执行它，这就产生了xss的条件。"><a href="#受害者的浏览器接收到这个链接，发送HTTP请求到www-vulnerable-site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document-URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到-alert-…-并且在同一个页面执行它，这就产生了xss的条件。" class="headerlink" title="受害者的浏览器接收到这个链接，发送HTTP请求到www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。"></a>受害者的浏览器接收到这个链接，发送HTTP请求到<a href="http://www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。" target="_blank" rel="noopener">www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。</a></h4><h2 id="XSS攻击实例"><a href="#XSS攻击实例" class="headerlink" title="XSS攻击实例"></a>XSS攻击实例</h2><h4 id="1-简单XSS攻击"><a href="#1-简单XSS攻击" class="headerlink" title="1.简单XSS攻击"></a>1.简单XSS攻击</h4><p>留言类，简单注入javascript</p>
-<p>有个表单域：<input type="“text”" name="“content”" value="“这里是用户填写的数据”"></p>
-<p>1、假若用户填写数据为：</p>
-<blockquote>
-<p><script>alert(‘foolish!’)</script>（或者<script type="text/javascript" src="./xss.js"></script>）</p>
-</blockquote>
+<p>有个表单域：&lt; input type=“text” name=“content” value=“这里是用户填写的数据”&gt;</p>
+<p>1、假若用户填写数据为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(&apos;foolish!&apos;)&lt;/script&gt;（或者&lt;script type=&quot;text/javascript&quot; src=&quot;./xss.js&quot;&gt;&lt;/script&gt;）</span><br></pre></td></tr></table></figure></p>
 <p>2、提交后将会弹出一个foolish警告窗口，接着将数据存入数据库</p>
 <p>3、等到别的客户端请求这个留言的时候，将数据取出显示留言时将执行攻击代码，将会显示一个foolish警告窗口。</p>
 <p>【将数据改成html标签进行攻击，则会将原本的样式打乱。。。。。。。。】</p>
-<h4 id="2-盗取cookie"><a href="#2-盗取cookie" class="headerlink" title="2.盗取cookie"></a>2.盗取cookie</h4><h5 id="什么是Cookie？"><a href="#什么是Cookie？" class="headerlink" title="什么是Cookie？"></a>什么是Cookie？</h5><p>Cookie，有时也用其复数形式 <a href="https://baike.baidu.com/item/Cookies/187064" target="_blank" rel="noopener">Cookies</a>，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。定义于 RFC2109 和 2965 中的都已废弃，最新取代的规范是 RFC6265 <sup>[1]</sup>  。（可以叫做浏览器缓存）</p>
+<h4 id="2-盗取cookie"><a href="#2-盗取cookie" class="headerlink" title="2.盗取cookie"></a>2.盗取cookie</h4><h5 id="什么是Cookie？"><a href="#什么是Cookie？" class="headerlink" title="什么是Cookie？"></a>什么是Cookie？</h5><p>Cookie，有时也用其复数形式 <a href="https://baike.baidu.com/item/Cookies/187064" target="_blank" rel="noopener">Cookies</a>，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。定义于 RFC2109 和 2965 中的都已废弃，最新取代的规范是 RFC6265 &lt; sup&gt;[1]  。（可以叫做浏览器缓存）</p>
 <p>这里，我们只是直观的感受一下Cookie。<br>在浏览器的地址栏输入：javascript:alert(document.cookie)，按下Enter键，即能看到当前Cookie值。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-5abbd2cb612b8ac4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <p>有人可能会疑惑：这么复杂的一段代码，攻击者难道真的能破解出明文，然后冒充我们的身份？</p>
 <p>事实上，攻击者并不需要知道这段代码的含义！</p>
@@ -258,15 +340,15 @@
 <p>　　因此我们需要将这些实体全部转换为相应的实体编号。<br><strong>编码：</strong>对用户输入的数据进行HTML Entity编码<br><img src="http://upload-images.jianshu.io/upload_images/9113981-9d3da14ff69a7b52?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>用户将数据提交上来的时候进行HTML编码，将相应的符号转换为实体名称再进行下一步的处理。<br>在PHP中已经存在这样子功能的函数，即是htmlentities($str)函数。<br>与之相反的就是html_entity_decode($str)函数，它将实体名称转换为相应的符号。<br><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop" target="_blank" rel="noopener"></a><br><strong>过滤：</strong>移除用户上传的DOM属性，如onerror等，移除用户上传的style节点，script节点，iframe节点等。<br>1、将重要的cookie标记为http only, 这样的话Javascript 中的document.cookie语句就不能获取到cookie了.</p>
 <p>2、表单数据规定值的类型，例如：年龄应为只能为int、name只能为字母数字组合。。。。</p>
 <p>4、对数据进行Html Encode 处理</p>
-<p>5、过滤或移除特殊的Html标签， 例如: <script>, <iframe> , &lt; for &lt;, &gt; for &gt;, &amp;quot for</p>
+<p>5、过滤或移除特殊的Html标签， 例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;, &lt;iframe&gt; , &amp;lt; for &lt;, &amp;gt; for &gt;, &amp;quot for</span><br></pre></td></tr></table></figure></p>
 <p>6、过滤JavaScript 事件的标签。例如 “onclick=”, “onfocus” 等等。</p>
 <p>【特别注意：】</p>
 <p>在有些应用中是允许html标签出现的，甚至是javascript代码出现。因此我们在过滤数据的时候需要仔细分析哪些数据是有特殊要求（例如输出需要html代码、javascript代码拼接、或者此表单直接允许使用等等），然后区别处理！<br><strong>校正：</strong>避免直接对HTML Entity编码，使用DOM Prase转换，校正不配对的DOM标签。</p>
-</script></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/01/XSS/" data-id="cjhw2sfdu0001i8g4galuzq84" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/01/XSS/" data-id="cjhw309ih0001w8g4zgws8a1l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,7 +400,7 @@
     <h2 class="author">berlin</h2>
     <h3 class="description">每天都是美好的一天</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>2</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>3</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>
