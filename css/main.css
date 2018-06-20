@@ -1090,7 +1090,7 @@ pre .javascript .function {
   bottom: 30px;
 }
 .header {
-  background: transparent;
+  background: url("../image/zhen.jpg");
 }
 .header-inner {
   position: relative;
@@ -1884,7 +1884,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cdff5b;
+  background: #4b3377;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3216,7 +3216,7 @@ pre {
 }
 @media screen and (min-width: 1200px) {
   body {
-    background-image: url("/images/xiaozhen.jpg");
+    background-image: url("/images/zhen.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 50% 50%;
