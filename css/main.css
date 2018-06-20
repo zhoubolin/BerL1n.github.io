@@ -1884,7 +1884,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #11a311;
+  background: #bd133e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3212,5 +3212,5 @@ pre {
   cursor: url("/images/icon.ico"), auto !important;
 }
 .site-meta {
-  background: url("/images/zhen.jpg");
+  background: #fc6423;
 }
