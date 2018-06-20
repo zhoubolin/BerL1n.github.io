@@ -83,13 +83,13 @@
 
 
 
-<meta name="description" content="第二课filereader.html(上传图片文件)123456789101112131415161718192021222324252627282930313233343536373839404142434445&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;		&amp;lt;t">
+<meta name="description" content="第二课filereader.html(上传图片文件)">
 <meta name="keywords" content="web前端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="课堂内容">
 <meta property="og:url" content="http://yoursite.com/2018/06/01/class0/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="第二课filereader.html(上传图片文件)123456789101112131415161718192021222324252627282930313233343536373839404142434445&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;		&amp;lt;t">
+<meta property="og:description" content="第二课filereader.html(上传图片文件)">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4e7fb898fe6b00f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-69d09665d7143bac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -100,10 +100,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-7b68e402ec324d1d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-31a59e671adf7b63.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-abe3b08b67cf6fcb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-19T10:24:46.295Z">
+<meta property="og:updated_time" content="2018-06-20T07:32:56.539Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="课堂内容">
-<meta name="twitter:description" content="第二课filereader.html(上传图片文件)123456789101112131415161718192021222324252627282930313233343536373839404142434445&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;		&amp;lt;t">
+<meta name="twitter:description" content="第二课filereader.html(上传图片文件)">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-4e7fb898fe6b00f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -317,6 +317,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -344,9 +366,10 @@
       
 
       
-        <h1 id="第二课"><a href="#第二课" class="headerlink" title="第二课"></a>第二课</h1><h1 id="filereader-html-上传图片文件"><a href="#filereader-html-上传图片文件" class="headerlink" title="filereader.html(上传图片文件)"></a>filereader.html(上传图片文件)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;事件处理&lt;/title&gt;</span><br><span class="line">		&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">			#result&#123;</span><br><span class="line">				width: 100px;</span><br><span class="line">				height: 120px;</span><br><span class="line">				margin-bottom: 10px;</span><br><span class="line">				border: 1px solid black;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/style&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">			function clickA()&#123;</span><br><span class="line">				//创建FileReader</span><br><span class="line">				var reader = new FileReader();</span><br><span class="line">				</span><br><span class="line">				var file = document.getElementById(&apos;file&apos;).files[0];</span><br><span class="line">				//console.log(file);</span><br><span class="line">				//判断文件类型</span><br><span class="line">				if(/image\/\w+/.test(file.type))&#123; //图片</span><br><span class="line">					reader.readAsDataURL(file);//把文件读取为url,该方法立即返回，没有返回值</span><br><span class="line">					reader.onload=function(event)&#123;</span><br><span class="line">						//console.log(this.result); //读取结果</span><br><span class="line">						var result = document.getElementById(&apos;result&apos;);</span><br><span class="line">						result.innerHTML=&apos;&lt;img src=&quot;&apos;+this.result+&apos;&quot; width=&quot;100%&quot; height=&quot;100%&quot; /&gt;&apos;;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&lt;/script&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		  &lt;h1&gt;图片预览&lt;/h1&gt;</span><br><span class="line">		  &lt;div id=&quot;result&quot;&gt; </span><br><span class="line">		  </span><br><span class="line">		  &lt;/div&gt;</span><br><span class="line">		  </span><br><span class="line">		  &lt;div&gt; 图像：&lt;input type=&quot;file&quot; id=&quot;file&quot; accept=&quot;image/gif,image/jpeg,image/png&quot;  /&gt; </span><br><span class="line">		   &lt;button type=&quot;button&quot; onclick=&quot;clickA()&quot;&gt;预览&lt;/button&gt; &lt;/div&gt;  </span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+        <h1 id="第二课"><a href="#第二课" class="headerlink" title="第二课"></a>第二课</h1><h1 id="filereader-html-上传图片文件"><a href="#filereader-html-上传图片文件" class="headerlink" title="filereader.html(上传图片文件)"></a>filereader.html(上传图片文件)</h1><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;事件处理&lt;/title&gt;</span><br><span class="line">		&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">			#result&#123;</span><br><span class="line">				width: 100px;</span><br><span class="line">				height: 120px;</span><br><span class="line">				margin-bottom: 10px;</span><br><span class="line">				border: 1px solid black;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/style&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">			function clickA()&#123;</span><br><span class="line">				//创建FileReader</span><br><span class="line">				var reader = new FileReader();</span><br><span class="line">				</span><br><span class="line">				var file = document.getElementById(&apos;file&apos;).files[0];</span><br><span class="line">				//console.log(file);</span><br><span class="line">				//判断文件类型</span><br><span class="line">				if(/image\/\w+/.test(file.type))&#123; //图片</span><br><span class="line">					reader.readAsDataURL(file);//把文件读取为url,该方法立即返回，没有返回值</span><br><span class="line">					reader.onload=function(event)&#123;</span><br><span class="line">						//console.log(this.result); //读取结果</span><br><span class="line">						var result = document.getElementById(&apos;result&apos;);</span><br><span class="line">						result.innerHTML=&apos;&lt;img src=&quot;&apos;+this.result+&apos;&quot; width=&quot;100%&quot; height=&quot;100%&quot; /&gt;&apos;;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&lt;/script&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		  &lt;h1&gt;图片预览&lt;/h1&gt;</span><br><span class="line">		  &lt;div id=&quot;result&quot;&gt; </span><br><span class="line">		  </span><br><span class="line">		  &lt;/div&gt;</span><br><span class="line">		  </span><br><span class="line">		  &lt;div&gt; 图像：&lt;input type=&quot;file&quot; id=&quot;file&quot; accept=&quot;image/gif,image/jpeg,image/png&quot;  /&gt; </span><br><span class="line">		   &lt;button type=&quot;button&quot; onclick=&quot;clickA()&quot;&gt;预览&lt;/button&gt; &lt;/div&gt;  </span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-4e7fb898fe6b00f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-69d09665d7143bac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="f2b.jpg"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-cf5bde5168883343.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="lc.jpg"><br><a id="more"></a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-69d09665d7143bac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="f2b.jpg"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-cf5bde5168883343.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="lc.jpg"></p>
 <h1 id="event-html-事件"><a href="#event-html-事件" class="headerlink" title="event.html(事件)"></a>event.html(事件)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;事件处理&lt;/title&gt;</span><br><span class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">			function clickA()&#123;</span><br><span class="line">				alert(&apos;你点击了我&apos;);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">		&lt;/script&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">	&lt;body&gt;	</span><br><span class="line">	  &lt;div align=&quot;center&quot;&gt;</span><br><span class="line">		  按钮1 &lt;button type=&quot;button&quot; onclick=&quot;clickA()&quot;&gt;按钮1&lt;/button&gt; &lt;br /&gt;</span><br><span class="line">		  按钮2 &lt;button type=&quot;button&quot; id=&quot;btn2&quot;&gt;按钮2&lt;/button&gt; &lt;br /&gt;</span><br><span class="line">		  按钮3 &lt;button type=&quot;button&quot; id=&quot;btn3&quot;&gt;按钮3&lt;/button&gt; &lt;br /&gt;</span><br><span class="line">		  按钮4 &lt;button type=&quot;button&quot; id=&quot;btn4&quot;&gt;按钮4&lt;/button&gt; &lt;br /&gt;</span><br><span class="line">	  &lt;/div&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">	</span><br><span class="line">	&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">		var btn2 = document.getElementById(&apos;btn2&apos;);</span><br><span class="line">		btn2.onclick=function(event)&#123;</span><br><span class="line">			var r = confirm(&apos;你确定吗？&apos;);</span><br><span class="line">			if(r == true)&#123;</span><br><span class="line">				alert(&apos;你很确定&apos;);</span><br><span class="line">			&#125;</span><br><span class="line">			else&#123;</span><br><span class="line">				alert(&apos;你不确定&apos;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		var btn3 = document.getElementById(&apos;btn3&apos;);</span><br><span class="line">		btn3.addEventListener(&apos;click&apos;, function(event)&#123;</span><br><span class="line">			//console.log(event);</span><br><span class="line">			var r = prompt(&apos;请输入你的姓名:&apos;, &apos;未名&apos;);</span><br><span class="line">			if(r != null)&#123;</span><br><span class="line">				alert(&apos;你的姓名是:&apos; + r);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		</span><br><span class="line">		var fn = function(event)&#123;</span><br><span class="line">			alert(&apos;事件处理&apos;);</span><br><span class="line">		&#125;;</span><br><span class="line">		var btn4 = document.getElementById(&apos;btn4&apos;);</span><br><span class="line">		//兼容性测试</span><br><span class="line">		if(window.addEventListener)&#123;</span><br><span class="line">			btn4.addEventListener(&apos;click&apos;, fn);</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			btn4.attachEvent(&apos;click&apos;, fn);</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 <h1 id="第三课"><a href="#第三课" class="headerlink" title="第三课"></a>第三课</h1><h1 id="拖放知识整理"><a href="#拖放知识整理" class="headerlink" title="拖放知识整理:"></a>拖放知识整理:</h1><p>HTML5 drag &amp; drop 拖拽与拖放简介</p>
 <p>HTML5提供专门的拖拽与拖放的API</p>
@@ -735,7 +758,7 @@ putImageData()    把图像数据（从指定的 ImageData 对象）放回画布
       
         <div class="post-tags">
           
-            <a href="/tags/web前端/" rel="tag"># web前端</a>
+            <a href="/tags/web前端/" rel="tag"><i class="fa fa-tag"></i> web前端</a>
           
         </div>
       
@@ -844,6 +867,15 @@ putImageData()    把图像数据（从指定的 ImageData 对象）放回画布
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
             
               
@@ -891,7 +923,7 @@ putImageData()    把图像数据（从指定的 ImageData 对象）放回画布
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
                   </li>
                 
               </ul>
@@ -1133,4 +1165,6 @@ putImageData()    把图像数据（从指定的 ImageData 对象）放回画布
   
 
 </body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
 </html>

@@ -308,6 +308,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web前端/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -336,9 +358,7 @@
 
       
         
-          <h1 id="第二课"><a href="#第二课" class="headerlink" title="第二课"></a>第二课</h1><h1 id="filereader-html-上传图片文件"><a href="#filereader-html-上传图片文件" class="headerlink" title="filereader.html(上传图片文件)"></a>filereader.html(上传图片文件)</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;事件处理&lt;/title&gt;</span><br><span class="line">		&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">			#result&#123;</span><br><span class="line">				width: 100px;</span><br><span class="line">				height: 120px;</span><br><span class="line">				margin-bottom: 10px;</span><br><span class="line">				border: 1px solid black;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&lt;/style&gt;</span><br><span class="line">		</span><br><span class="line">		&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">			function clickA()&#123;</span><br><span class="line">				//创建FileReader</span><br><span class="line">				var reader = new FileReader();</span><br><span class="line">				</span><br><span class="line">				var file = document.getElementById(&apos;file&apos;).files[0];</span><br><span class="line">				//console.log(file);</span><br><span class="line">				//判断文件类型</span><br><span class="line">				if(/image\/\w+/.test(file.type))&#123; //图片</span><br><span class="line">					reader.readAsDataURL(file);//把文件读取为url,该方法立即返回，没有返回值</span><br><span class="line">					reader.onload=function(event)&#123;</span><br><span class="line">						//console.log(this.result); //读取结果</span><br><span class="line">						var result = document.getElementById(&apos;result&apos;);</span><br><span class="line">						result.innerHTML=&apos;&lt;img src=&quot;&apos;+this.result+&apos;&quot; width=&quot;100%&quot; height=&quot;100%&quot; /&gt;&apos;;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&lt;/script&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		  &lt;h1&gt;图片预览&lt;/h1&gt;</span><br><span class="line">		  &lt;div id=&quot;result&quot;&gt; </span><br><span class="line">		  </span><br><span class="line">		  &lt;/div&gt;</span><br><span class="line">		  </span><br><span class="line">		  &lt;div&gt; 图像：&lt;input type=&quot;file&quot; id=&quot;file&quot; accept=&quot;image/gif,image/jpeg,image/png&quot;  /&gt; </span><br><span class="line">		   &lt;button type=&quot;button&quot; onclick=&quot;clickA()&quot;&gt;预览&lt;/button&gt; &lt;/div&gt;  </span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-4e7fb898fe6b00f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-69d09665d7143bac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="f2b.jpg"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-cf5bde5168883343.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="lc.jpg"><br>
+          <h1 id="第二课"><a href="#第二课" class="headerlink" title="第二课"></a>第二课</h1><h1 id="filereader-html-上传图片文件"><a href="#filereader-html-上传图片文件" class="headerlink" title="filereader.html(上传图片文件)"></a>filereader.html(上传图片文件)</h1>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/06/01/class0/#more" rel="contents">
@@ -639,8 +659,8 @@ Host:www.guet.edu.cn
         
           
             <hr>
-<p>title:  珍爱<br>tags: 闲人诗</p>
-<h2 id="grammar-cjkRuby-true"><a href="#grammar-cjkRuby-true" class="headerlink" title="grammar_cjkRuby: true"></a>grammar_cjkRuby: true</h2><pre><code>        珍爱
+<p>title: 珍爱<br>tags: 闲人诗</p>
+<h2 id="grammar-cjkRuby-true"><a href="#grammar-cjkRuby-true" class="headerlink" title="grammar_cjkRuby: true"></a>grammar_cjkRuby: true</h2><pre><code>   珍爱
 
 我生只醉一枝花，
 
@@ -768,9 +788,10 @@ Host:www.guet.edu.cn
       
         
           
-            <h3 id="蝶恋花·生日快乐"><a href="#蝶恋花·生日快乐" class="headerlink" title="蝶恋花·生日快乐"></a>蝶恋花·生日快乐</h3><p>又到同窗曾聚处。欢声笑语，飞进满天屋。校园依在人已非，雁声远向四方去。</p>
-<p>   喜得佳节汝生日。只愿春风，梦想吹成真。明日雪雨还几许？一颗婷心坚如石。</p>
+            <h3 id="蝶恋花·生日快乐"><a href="#蝶恋花·生日快乐" class="headerlink" title="蝶恋花·生日快乐"></a>蝶恋花·生日快乐</h3><pre><code>又到同窗曾聚处。欢声笑语，飞进满天屋。校园依在人已非，雁声远向四方去。
 
+喜得佳节汝生日。只愿春风，梦想吹成真。明日雪雨还几许？一颗婷心坚如石。
+</code></pre>
           
         
       
@@ -988,6 +1009,15 @@ Host:www.guet.edu.cn
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
             
               
@@ -1035,7 +1065,7 @@ Host:www.guet.edu.cn
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
                   </li>
                 
               </ul>
@@ -1257,4 +1287,6 @@ Host:www.guet.edu.cn
   
 
 </body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
 </html>
