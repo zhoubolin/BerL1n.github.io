@@ -1090,7 +1090,7 @@ pre .javascript .function {
   bottom: 30px;
 }
 .header {
-  background: url("../image/zhen.jpg");
+  background: transparent;
 }
 .header-inner {
   position: relative;
@@ -1884,7 +1884,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bd133e;
+  background: #ff632e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3213,4 +3213,7 @@ pre {
 }
 .site-meta {
   background: #fc6423;
+}
+body {
+  background: url("/images/zhen.jpg");
 }
