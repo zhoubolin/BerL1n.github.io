@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="web安全," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="#XSS攻击 ####XSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。 ##什么是XSS攻击？XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的">
+<meta name="keywords" content="web安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XSS">
+<meta property="og:url" content="http://yoursite.com/2018/06/24/XSS0/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:description" content="#XSS攻击 ####XSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。 ##什么是XSS攻击？XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-5abbd2cb612b8ac4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-2b8a08a5c09971d6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-9d3da14ff69a7b52?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-24T14:25:33.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XSS">
+<meta name="twitter:description" content="#XSS攻击 ####XSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。 ##什么是XSS攻击？XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-5abbd2cb612b8ac4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/06/24/XSS0/"/>
+
+
+
+
+
+
+  <title>XSS | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">珍珍</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/XSS0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">XSS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T22:22:34+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#XSS攻击</p>
+<p>####XSS攻击全称<a href="https://baike.baidu.com/item/%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">跨站脚本攻击</a>，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，XSS是一种在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。</p>
+<p>##什么是XSS攻击？<br>XSS是一种经常出现在web应用中的计算机安全漏洞，它允许恶意web用户将代码植入到提供给其它用户使用的页面中。比如这些代码包括HTML代码和客户端脚本。攻击者利用XSS漏洞旁路掉访问控制——例如<a href="https://baike.baidu.com/item/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5" target="_blank" rel="noopener">同源策略</a>(same origin policy)。这种类型的漏洞由于被黑客用来编写危害性更大的<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E9%92%93%E9%B1%BC" target="_blank" rel="noopener">网络钓鱼</a>(Phishing)攻击而变得广为人知。对于<a href="https://baike.baidu.com/item/%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">跨站脚本攻击</a>，黑客界共识是：跨站脚本攻击是新型的“<a href="https://baike.baidu.com/item/%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA%E6%94%BB%E5%87%BB" target="_blank" rel="noopener">缓冲区溢出攻击</a>“，而JavaScript是新型的“ShellCode”。<br>它与SQL注入攻击类似，SQL注入攻击中以SQL语句作为用户输入，从而达到查询/修改/删除数据的目的，而在xss攻击中，通过插入恶意脚本，实现对用户游览器的控制，获取用户的一些信息。</p>
+<p>##XSS的原理：</p>
+<p>  1.攻击者对含有漏洞的服务器发起XSS攻击（注入JS代码）。<br>    2.诱使受害者打开受到攻击的服务器URL。<br>   3.受害者在Web浏览器中打开URL，恶意脚本执行。</p>
+<p>##XSS攻击的危害包括：</p>
+<p>1、盗取各类用户帐号，如机器登录帐号、用户网银帐号、各类管理员帐号<br>2、控制企业数据，包括读取、篡改、添加、删除企业敏感数据的能力<br>3、盗窃企业重要的具有商业价值的资料<br>4、非法转账<br>5、强制发送电子邮件<br>6、网站挂马<br>7、控制受害者机器向其它网站发起攻击</p>
+<p>##XSS攻击分类<br>（1）反射型： 又称为非持久性跨站点脚本攻击，它是最常见的类型的XSS。漏洞产生的原因是攻击者注入的数据反映在响应中。一个典型的非持久性XSS包含一个带XSS攻击向量的链接(即每次攻击需要用户的点击)。详细说就是发出请求时，XSS代码出现在URL中，作为输入提交到服务器端，服务器端解析后响应，XSS随响应内容一起返回给浏览器，最后浏览器解析执行XSS代码，这个过程就像一次发射，所以叫反射型XSS。<br>简单例子</p>
+<p>正常发送消息：</p>
+<p><a href="http://www.test.com/message.php?send=Hello,World！" target="_blank" rel="noopener">http://www.test.com/message.php?send=Hello,World！</a></p>
+<p>接收者将会接收信息并显示Hello,Word</p>
+<p>非正常发送消息：</p>
+<p><a href="http://www.test.com/message.php?send=" target="_blank" rel="noopener">http://www.test.com/message.php?send=</a><script>alert(‘foolish!’)</script>！</p>
+<p>接收者接收消息显示的时候将会弹出警告窗口</p>
+<p>（2）存储型: 存储型XSS和反射型的XSS差别就在于，存储型的XSS提交的代码会存储在服务器端（数据库，内存，文件系统等），下次请求目标页面时不用再提交XSS代码。又称为持久型跨站点脚本，当一个页面被用户打开的时候执行。每当用户打开浏览器,脚本执行。持久的XSS相比非持久性XSS攻击危害性更大,因为每当用户打开页面，查看内容时脚本将自动执行。谷歌的orkut曾经就遭受到XSS。</p>
+<p>简单例子：</p>
+<p>从名字就可了解到存储型XSS攻击就是将攻击代码存入数据库中，然后客户端打开时就执行这些攻击代码。例如留言板</p>
+<p>留言板表单中的表单域：<input type="“text”" name="“content”" value="“这里是用户填写的数据”"></p>
+<p>正常操作：</p>
+<p>用户是提交相应留言信息；将数据存储到数据库；其他用户访问留言板，应用去数据并显示。</p>
+<p>非正常操作：</p>
+<p>攻击者在value填写<script>alert(‘foolish!’)</script>【或者html其他标签（破坏样式。。。）、一段攻击型代码】；</p>
+<p>将数据存储到数据库中；</p>
+<p>其他用户取出数据显示的时候，将会执行这些攻击性代码</p>
+<p>##DOMBasedXSS（基于dom的跨站点脚本攻击）<br>基于DOM的XSS有时也称为type0XSS。当用户能够通过交互修改浏览器页面中的DOM(DocumentObjectModel)并显示在浏览器上时，就有可能产生这种漏洞，从效果上来说它也是反射型XSS。</p>
+<p>　　通过修改页面的DOM节点形成的XSS，称之为DOMBasedXSS。</p>
+<p>　　前提是易受攻击的网站有一个HTML页面采用不安全的方式从document.location 或document.URL 或 document.referrer获取数据（或者任何其他攻击者可以修改的对象）。<br>例如：</p>
+<p><script><br>  var pos=document.URL.indexOf(“name=”)+5;<br> document.write(document.URL.substring(pos,document.URL.length));<br>  </script><br>name是截取URL中get过来的name参数<br>正常操作：</p>
+<p><a href="http://www.vulnerable.site/welcome.html?name=Joe" target="_blank" rel="noopener">http://www.vulnerable.site/welcome.html?name=Joe</a></p>
+<p>非正常操作：</p>
+<p><a href="http://www.vulnerable.site/welcome.html?name=" target="_blank" rel="noopener">http://www.vulnerable.site/welcome.html?name=</a><script>alert(document.cookie)</script></p>
+<p>######受害者的浏览器接收到这个链接，发送HTTP请求到<a href="http://www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。" target="_blank" rel="noopener">www.vulnerable.site并且接受到上面的HTML页。受害者的浏览器开始解析这个HTML为DOM，DOM包含一个对象叫document，document里面有个URL属性，这个属性里填充着当前页面的URL。当解析器到达javascript代码，它会执行它并且修改你的HTML页面。倘若代码中引用了document.URL，那么，这部分字符串将会在解析时嵌入到HTML中，然后立即解析，同时，javascript代码会找到(alert(…))并且在同一个页面执行它，这就产生了xss的条件。</a></p>
+<p>##XSS攻击实例</p>
+<p>####1.简单XSS攻击<br>留言类，简单注入javascript</p>
+<p>有个表单域：<input type="“text”" name="“content”" value="“这里是用户填写的数据”"></p>
+<p>1、假若用户填写数据为：<script>alert(‘foolish!’)</script>（或者<script type="text/javascript" src="./xss.js"></script>）</p>
+<p>2、提交后将会弹出一个foolish警告窗口，接着将数据存入数据库</p>
+<p>3、等到别的客户端请求这个留言的时候，将数据取出显示留言时将执行攻击代码，将会显示一个foolish警告窗口。</p>
+<p>【将数据改成html标签进行攻击，则会将原本的样式打乱。。。。。。。。】</p>
+<p>####2.盗取cookie</p>
+<p>#####什么是Cookie？<br>Cookie，有时也用其复数形式 <a href="https://baike.baidu.com/item/Cookies/187064" target="_blank" rel="noopener">Cookies</a>，指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。定义于 RFC2109 和 2965 中的都已废弃，最新取代的规范是 RFC6265 <sup>[1]</sup>  。（可以叫做浏览器缓存）</p>
+<p>这里，我们只是直观的感受一下Cookie。<br>在浏览器的地址栏输入：javascript:alert(document.cookie)，按下Enter键，即能看到当前Cookie值。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-5abbd2cb612b8ac4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>有人可能会疑惑：这么复杂的一段代码，攻击者难道真的能破解出明文，然后冒充我们的身份？</p>
+<p>事实上，攻击者并不需要知道这段代码的含义！</p>
+<p>攻击者只需要把这个Cookie信息提交给服务器并通过验证，那么攻击者就可以冒充受害者的身份登陆网站。</p>
+<p>这就是我们常说的Cookie欺骗/Cookie会话攻击。</p>
+<p>#####Cookie窃取攻击</p>
+<p>最基本的XSS跨站攻击方法就是窃取受害者Cookie信息。</p>
+<p>其基本原理如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-2b8a08a5c09971d6?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"></p>
+<ul>
+<li>当攻击者发现网站存在XSS漏洞时，攻击者会先向存在XSS漏洞的网页中注入恶意的脚本代码。</li>
+<li>当受害者访问到此含有恶意脚本代码的网页时，恶意脚本代码相应的执行。</li>
+<li>由于在受害者请求服务器的协议中含有Cookie信息，网站相应的得到用户Cookie信息。</li>
+<li>用户注入的恶意脚本代码是经过精心构造的，同时在远程服务器端或者攻击者使用的XSS平台上，有一个用户接受和记录Cookie信息的文本。</li>
+<li>攻击者访问此记录Cookie信息的文本，得到受害者的Cookie信息。</li>
+<li><p>攻击者利用受害者Cookie信息，通过桂林老兵、firecookie等工具，以受害者的身份信息访问网站。<br>Cookie窃取攻击的步骤：</p>
+<p>步骤一 判断网站是否存在反射型XSS/存储型XSS漏洞<br>步骤二 注入Cookie信息窃取的恶意代码</p>
+<pre><code>一般情况下，我们都是利用XSS平台的代码进行注入。这样，我们能够在XSS平台的对应项目中找到受害人Cookie。
+</code></pre><p>步骤三 冒充被害人身份登陆网站。</p>
+<pre><code>可以使用的工具有很多，例如桂林老兵，firefox浏览器插件firecookie等。
+</code></pre><p>##XSS的防御措施：<br>XSS漏洞的起因就是没有对用户提交的数据进行严格的过滤处理。因此在思考解决XSS漏洞的时候，我们应该重点把握如何才能更好的将用户提交的数据进行安全过滤。<br>#####什么是html实体？</p>
+</li>
+</ul>
+<p>　　在html中有些字符，像(&lt;)这类的，对HTML(标准通用标记语言下的一个应用)来说是有特殊意义的，所以这些字符是不允许在文本中使用的。要在HTML中显示(&lt;)这个字符，我们就必须使用实体字符。</p>
+<p>　　html实体的存在是导致XSS漏洞的主要原因之一。</p>
+<p>　　因此我们需要将这些实体全部转换为相应的实体编号。<br><strong>编码：</strong>对用户输入的数据进行HTML Entity编码<br><img src="http://upload-images.jianshu.io/upload_images/9113981-9d3da14ff69a7b52?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="这里写图片描述"><br>用户将数据提交上来的时候进行HTML编码，将相应的符号转换为实体名称再进行下一步的处理。<br>在PHP中已经存在这样子功能的函数，即是htmlentities($str)函数。<br>与之相反的就是html_entity_decode($str)函数，它将实体名称转换为相应的符号。<br><a href="https://www.cnblogs.com/phpstudy2015-6/p/6767032.html#_labelTop" target="_blank" rel="noopener"></a><br><strong>过滤：</strong>移除用户上传的DOM属性，如onerror等，移除用户上传的style节点，script节点，iframe节点等。<br>1、将重要的cookie标记为http only, 这样的话Javascript 中的document.cookie语句就不能获取到cookie了.</p>
+<p>2、表单数据规定值的类型，例如：年龄应为只能为int、name只能为字母数字组合。。。。</p>
+<p>4、对数据进行Html Encode 处理</p>
+<p>5、过滤或移除特殊的Html标签， 例如: <script>, <iframe> , &lt; for &lt;, &gt; for &gt;, &amp;quot for</p>
+<p>6、过滤JavaScript 事件的标签。例如 “onclick=”, “onfocus” 等等。</p>
+<p>【特别注意：】</p>
+<p>在有些应用中是允许html标签出现的，甚至是javascript代码出现。因此我们在过滤数据的时候需要仔细分析哪些数据是有特殊要求（例如输出需要html代码、javascript代码拼接、或者此表单直接允许使用等等），然后区别处理！<br><strong>校正：</strong>避免直接对HTML Entity编码，使用DOM Prase转换，校正不配对的DOM标签。</p>
+</script></p>
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web安全/" rel="tag"><i class="fa fa-tag"></i> web安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/24/XSS/" rel="next" title="XSS获取cookie并发送自己邮箱">
+                <i class="fa fa-chevron-left"></i> XSS获取cookie并发送自己邮箱
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/24/zhenzhen/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  <script type="text/javascript"
+  color="255,165,0" opacity='0.8' zIndex="-1" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
