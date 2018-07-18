@@ -118,7 +118,12 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-e8d6d38796db0c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c7c4b178cb077d6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-41911cea1368e4cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-18T04:19:20.331Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-14f40d3d350538cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-a681e92228e5cfbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-588e1e952c60cbf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-5c9daa6d8fcac0d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-3c3134f09012c639.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-18T06:07:39.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wpsec-write up">
 <meta name="twitter:description" content="1.sql注入1题目地址">
@@ -412,6 +417,12 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-e8d6d38796db0c01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <p>passwd=f0e83b36f00766c62829608a483f7065<br>下一步用password登录admin，但发现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if($username == &apos;admin&apos;)&#123;</span><br><span class="line">        die(&quot;you can&apos;t login this as admin!&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $sql = &quot;select * from `user` where username=&apos;&quot;.$conn-&gt;escape_string($username).&quot;&apos; and passwd=&apos;&quot;.$conn-&gt;escape_string($passwd).&quot;&apos;&quot;;</span><br></pre></td></tr></table></figure></p>
 <p>发现不能直接用admin登录<br>必须利用字符集特征绕过此判断<br>就是admin%c2 在php中就不为admin，但在mysql查询的就是为admin，所以可以绕过<br>原因就是Mysql字段的字符集和php mysqli客户端设置的字符集不相同。Mysql在转换字符集的时候，将不完整的字符给忽略了。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c7c4b178cb077d6d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>抓包<br>username=admin%c2&amp;passwd=f0e83b36f00766c62829608a483f7065<br><img src="https://upload-images.jianshu.io/upload_images/9113981-41911cea1368e4cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h3 id="2-来买彩票啊"><a href="#2-来买彩票啊" class="headerlink" title="2.来买彩票啊"></a>2.来买彩票啊</h3><p>这题注册后，会让你去买彩票，7个号，自带20元，每次用两元，一等奖500万，而flag卖999万元，很明显中两次一等奖就行了，但你会中吗？所以不能老老实实的买，开挂吧。</p>
+<p>先尝试买一次<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14f40d3d350538cf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>就中一个，靠运气是不可能了。。<br>开挂后会发现这题应该考的是数字之间的比较，只要最后结果返回正确，不就中奖了。。<br>因此这题考的应该是php弱类型之间的比较<br>了解：<br>php一个数字和一个字符串进行比较或者进行运算时，PHP会把字符串转换成数字再进行比较。PHP转换的规则的是：若字符串以数字开头，则取开头数字作为转换结果，若无则输出0。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">var_dump(&quot;admin&quot;==0);  //true</span><br><span class="line">var_dump(&quot;1admin&quot;==1); //true</span><br><span class="line">var_dump(&quot;admin1&quot;==1) //false</span><br><span class="line">var_dump(&quot;admin1&quot;==0) //true</span><br><span class="line">var_dump(&quot;0e123456&quot;==&quot;0e4456789&quot;); //true </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>例如：123abc转换后应该是123，而abc则为0，0==0这当然是成立的.具体可以参考官方手册：如果比较一个整数和字符串，则字符串会被转换为整数<br>这题虽然没用到，原理都是一样<br>使用php弱类型比较，例”1”,和 true,1,”1”都是相等的。相反0与false是相等的。<br>抓包修改号码为true,如果有1对应true,则返回结果为正确，中奖。<br>{“action”:”buy”,”numbers”:[true,true,true,true,true,true,true]}<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a681e92228e5cfbb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-588e1e952c60cbf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-5c9daa6d8fcac0d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>flag…..<br><img src="https://upload-images.jianshu.io/upload_images/9113981-3c3134f09012c639.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 
       
     </div>
@@ -659,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sql注入1"><span class="nav-number">1.</span> <span class="nav-text">1.sql注入1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sql注入1"><span class="nav-number">1.</span> <span class="nav-text">1.sql注入1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-来买彩票啊"><span class="nav-number">2.</span> <span class="nav-text">2.来买彩票啊</span></a></li></ol></div>
             
 
           </div>
