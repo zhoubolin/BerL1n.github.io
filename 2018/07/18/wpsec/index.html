@@ -123,7 +123,9 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-588e1e952c60cbf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-5c9daa6d8fcac0d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-3c3134f09012c639.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-18T06:07:39.178Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-ba79a9bc70f3996f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-a3acb549e8e8952b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-22T08:12:00.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wpsec-write up">
 <meta name="twitter:description" content="1.sql注入1题目地址">
@@ -423,6 +425,14 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-588e1e952c60cbf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-5c9daa6d8fcac0d9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <p>flag…..<br><img src="https://upload-images.jianshu.io/upload_images/9113981-3c3134f09012c639.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<h3 id="3-RSA"><a href="#3-RSA" class="headerlink" title="3.RSA"></a>3.RSA</h3><p>这题考的是rsa加密算法，不懂先去了解，看的头皮发麻<br>推荐：<a href="https://baijiahao.baidu.com/s?id=1565730621502294&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">RSA加密算法</a><br><img src="https://upload-images.jianshu.io/upload_images/9113981-ba79a9bc70f3996f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>可以看到给出了公钥和密文，想要破解密文需要知道密钥，根据RSA算法便可以知道，由公钥是可能获取到密钥的，前提是公钥中的920139713是不能太大，并可以因数分解成两个数。<br>首先要明白几个公式<br><strong>公钥(n,e)  ，  密钥(n,d) ，  e为随机选的和φ(n)的互质数 ，d为e对φ(n)的模反元素，m在这没有用仅是个参数</strong></p>
+<blockquote>
+<p>n=p<em>q<br>φ(n)=(p-1)</em>(q-1)<br>ed+φ(n)m=1（e,φ(n)已知后，便可以计算d,m的值，可看出模反元素是不唯一）</p>
+</blockquote>
+<p>很明显想知道密钥，先要知道d，想知道d就要知道φ(n)，也就是要知道p,q，就是n因数分解后的两个数<br>在本题中就是920139713分解后的，<br>首先分解模数n,这里我们可以采用在线分解模数的方法，推荐链接：<a href="http://www.factordb.com/index.php" target="_blank" rel="noopener">http://www.factordb.com/index.php</a><br>之后我们可以得到分解后的p与q的值为18443 和49891，即920139713=18443*49891<br>我们使用一个Python编写一个简易的脚本来求解d<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import gmpy2</span><br><span class="line">p =gmpy2.mpz(18443)</span><br><span class="line">q =gmpy2.mpz(49891)</span><br><span class="line">e =gmpy2.mpz(19)</span><br><span class="line">phi_n= (p - 1) * (q - 1)</span><br><span class="line">d = gmpy2.invert(e, phi_n)</span><br><span class="line">print(&quot;d is:&quot;)</span><br><span class="line">print (d)</span><br></pre></td></tr></table></figure></p>
+<p>得到d的值：d=96849619<br>d得出后，密钥也知道了(920139713,96849619)<br>将密文保存在txt中通过脚本跑出来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import gmpy2</span><br><span class="line">n = 920139713</span><br><span class="line">d = 96849619</span><br><span class="line">result = []</span><br><span class="line">with open(&quot;rsa.txt&quot;) as f:</span><br><span class="line">for i in f:</span><br><span class="line">        result.append(chr(pow(int(i),d,n)))</span><br><span class="line"></span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-a3acb549e8e8952b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>flag…</p>
 
       
     </div>
@@ -670,7 +680,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sql注入1"><span class="nav-number">1.</span> <span class="nav-text">1.sql注入1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-来买彩票啊"><span class="nav-number">2.</span> <span class="nav-text">2.来买彩票啊</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sql注入1"><span class="nav-number">1.</span> <span class="nav-text">1.sql注入1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-来买彩票啊"><span class="nav-number">2.</span> <span class="nav-text">2.来买彩票啊</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-RSA"><span class="nav-number">3.</span> <span class="nav-text">3.RSA</span></a></li></ol></div>
             
 
           </div>
