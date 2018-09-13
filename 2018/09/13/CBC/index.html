@@ -105,42 +105,23 @@
 
 
 
-<meta name="description" content="WEBezupload这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试">
+<meta name="description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。 CBC模式介绍加密过程Plaintext：明文数据，待加密的数据 IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。 Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。 C">
 <meta name="keywords" content="web安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安恒杯赛Write Up">
-<meta property="og:url" content="http://yoursite.com/2018/06/26/ctf/index.html">
+<meta property="og:title" content="CBC字节翻转攻击">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/CBC/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="WEBezupload这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试">
+<meta property="og:description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。 CBC模式介绍加密过程Plaintext：明文数据，待加密的数据 IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。 Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。 C">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-e89ee7ce094fe64e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c20813524d33f628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-afe4e526dadd8f57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-a58be91f2a8b9c38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-a05c47efec1f3a9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-d598f4595cddc904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-e508e8930a9f4528.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-84f689bd1b316aa2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-0b7d5627c277a7b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-04b305b79aaf1232.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-56b16fd2cc8ada44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-882de6e0542c791e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6e135683d32f071c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-7cfd35902d238e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-f1dee646ce7a1545.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-833ee5da9c4c0273.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2a11d58a7f7599c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-dc5486de22762de8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-38b55aca55c29077.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4901159609111661.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-11793ed7d77dd0c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6d5e60bac35a3065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-3242cf664fb66d7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-27T11:53:47.040Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c9d40e8c89a02187.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-18a24f98a9a18bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-ad96fd9833ce3e33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-09-13T12:40:19.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安恒杯赛Write Up">
-<meta name="twitter:description" content="WEBezupload这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-e89ee7ce094fe64e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="CBC字节翻转攻击">
+<meta name="twitter:description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。 CBC模式介绍加密过程Plaintext：明文数据，待加密的数据 IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。 Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。 C">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -170,14 +151,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/26/ctf/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/CBC/"/>
 
 
 
 
 
 
-  <title>安恒杯赛Write Up | 绝世狂龙</title>
+  <title>CBC字节翻转攻击 | 绝世狂龙</title>
   
 
 
@@ -334,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/26/ctf/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/CBC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="berlin">
@@ -351,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">安恒杯赛Write Up</h1>
+          <h1 class="post-title" itemprop="name headline">CBC字节翻转攻击</h1>
         
 
         <div class="post-meta">
@@ -363,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-26T22:44:14+08:00">
-                2018-06-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T20:38:36+08:00">
+                2018-09-13
               </time>
             
 
@@ -423,29 +404,44 @@
       
 
       
-        <h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="ezupload"><a href="#ezupload" class="headerlink" title="ezupload"></a>ezupload</h2><p>这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e89ee7ce094fe64e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a><br>很明显只能上传图片，那就按正常思路去搞了，<br>我刚开始将一句话木马php文件后缀改为图片，但是无法上传成功的。<br>所以猜测这道题是识别图片内容，而不仅仅是改后缀名，只有图片内容是图片才能上传成功。这里随便上传一张图片试试<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c20813524d33f628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这是上传成功的结果，这里我上传的是.jpg图片，成功后却是peg,又上传其他的也是peg。这里对路径很好奇，感觉路径中是一串加密字符串，搞了搞之后没发现什么，看来是多想了，，<br><img src="https://upload-images.jianshu.io/upload_images/9113981-afe4e526dadd8f57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>很好奇打开了路径内容发现都是别人上传的文件，过滤的方法也很多种，可以尝试尝试别人的。但这里我已经找到方法了，既然是识别图片内容，将图片后缀改为php也没关系，然后我们将一句话木马放进图片中，然后在过滤掉peg后缀，将后缀名改为.peg.php<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a58be91f2a8b9c38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-a05c47efec1f3a9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-d598f4595cddc904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>抓包可以看到已经上传了含有一句话木马的图片，而且后缀也是php<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e508e8930a9f4528.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>上传成功<br>打开菜刀<br><img src="https://upload-images.jianshu.io/upload_images/9113981-84f689bd1b316aa2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-0b7d5627c277a7b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>flag已经出来了。。</p>
-<h2 id="研究生的秘密"><a href="#研究生的秘密" class="headerlink" title="研究生的秘密"></a>研究生的秘密</h2><p>题目提示缺少参数，由此可以想到参数问题</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-04b305b79aaf1232.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>点击列表时毫无反应但是可以看到<strong><a href="http://101.71.29.5:10002/index.php?title=Mysql教程" target="_blank" rel="noopener">http://101.71.29.5:10002/index.php?title=Mysql教程</a></strong><br>于是便可以从参数title入手,当参数为正常的字母数字汉字时，都可以返回正确结果<br>若输入某个宽字节字符，例如%df<br><img src="https://upload-images.jianshu.io/upload_images/9113981-56b16fd2cc8ada44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>则会报错<br>非关系型数据库%df’报错<br>传入title[$ne]=1相当于传入了db.collections.findOne({“title”:{$ne:1}})<br>也就是返回参数不等于1的第一个文档<br>其实这里不给参数赋值也能返回flag，，<br><img src="https://upload-images.jianshu.io/upload_images/9113981-882de6e0542c791e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h3 id="MongoDB"><a href="#MongoDB" class="headerlink" title="MongoDB"></a>MongoDB</h3><p>mongoDB中findOne()的用法介绍</p>
-<p>定义：db.collection.findOne(query, projection)<br>返回一个文档满足指定的查询条件。如果多个文档满足查询,该方法返回第一个文档根据自然秩序反映了磁盘上文件的顺序。在限制集合,自然秩序是一样的插入顺序。如果没有文档满足查询,方法返回null。</p>
-<p>find【查询条件$ne】$ne表示不相等</p>
-<p><a href="http://www.ttlsa.com/mongodb" title="mongodb" target="_blank" rel="noopener">mongodb</a>条件操作符，”$lt”, “$lte”, “$gt”, “$gte”, “$ne”就是全部的比较操作符，对应于”&lt;”, “&lt;=”, “&gt;”, “&gt;=”,”!=”。</p>
-<h2 id="mynote"><a href="#mynote" class="headerlink" title="mynote"></a>mynote</h2><p>这题我不会，只能根据大佬的去复现<br>这题注册后发现没有什么用，就一个文件上传值得重视<br>上传图片后发现仍没什么用，找不到路径<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6e135683d32f071c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>点空报错后，爆出了路径，仍没什么用处<br>御剑扫描后台后发现</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-7cfd35902d238e3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>robots.txt文件<br><a href="http://101.71.29.5:10000/robots.txt" target="_blank" rel="noopener">http://101.71.29.5:10000/robots.txt</a></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-f1dee646ce7a1545.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>同时<br><a href="http://101.71.29.5:10000/upload/" target="_blank" rel="noopener">http://101.71.29.5:10000/upload/</a></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-833ee5da9c4c0273.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>到这里看到了FLAG，flag这么容易出来了吗？<br><img src="https://upload-images.jianshu.io/upload_images/9113981-2a11d58a7f7599c2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>提交后发现并不对，仔细看flag的意思<br>这是一个假flag，所以还要继续找<br>回头看看，<br><img src="https://upload-images.jianshu.io/upload_images/9113981-dc5486de22762de8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>上传的图片在picture中可以找到，还是从这点入手看看吧<br>，burp抓包<br><img src="https://upload-images.jianshu.io/upload_images/9113981-38b55aca55c29077.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>picture中应该是base64加密，解码后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">YToxOntpOjA7czoxNjoiMzYwd2FsbHBhcGVyLmpwZyI7fQ%3D%3D</span><br><span class="line">解码： a:1:&#123;i:0;s:16:&quot;360wallpaper.jpg&quot;;&#125;</span><br><span class="line">Ü</span><br></pre></td></tr></table></figure></p>
-<p>picture中存在反序列化漏洞<br>已知/flag.php，抓包把a:1:{i:0;s:16:”360wallpaper.jpg”;}改成a:1:{i:0;s:14:”../../flag.php”;}，然后base64编码就可以读出flag.php<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a:1:&#123;i:0;s:14:&quot;../../flag.php&quot;;&#125;</span><br><span class="line">base64编码：YToxOntpOjA7czoxNDoiLi4vLi4vZmxhZy5waHAiO30=</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-4901159609111661.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PD9waHAKCiRmbGFnID0gImZsYWd7TjRtZV9zUGFjNF9Jc19JbnQzcjNzdDFuZ30iOwplY2hvICJmbGFne1RoaXNfMVNfQV9GNGtlX2YxYUd9IjsK</span><br><span class="line">base64解码：</span><br><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$flag = &quot;flag&#123;N4me_sPac4_Is_Int3r3st1ng&#125;&quot;;</span><br><span class="line">echo &quot;flag&#123;This_1S_A_F4ke_f1aG&#125;&quot;;</span><br></pre></td></tr></table></figure></p>
-<p>flag{N4me_sPac4_Is_Int3r3st1ng}</p>
-<p>大佬的第二种解法<br>反序列化传入一个错的序列化字符串报出上传文件的路径，利用文件上传漏洞上传php文件获取webshell，同样获取flag<br>反序列化传入一个错的序列化字符串报出上传文件的路径<br>比如：a:1:{i:0;s:16:”360wallpaper.jpg”;}这是存在的序列化字符串，现在改为错的<br>a:1:{i:0;s:5:”1.jpg”;}，抓包base64编码执行后，不存在该1.jpg图片，所以会报错<br><img src="https://upload-images.jianshu.io/upload_images/9113981-11793ed7d77dd0c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-6d5e60bac35a3065.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><a href="http://101.71.29.5:10000//upload/3dc5ff6b339c9f94c718b97b661c3afe/" target="_blank" rel="noopener">http://101.71.29.5:10000//upload/3dc5ff6b339c9f94c718b97b661c3afe/</a><br>接下来上传一句话木马获取webshell<br>直接上传php文件不行，内容为图片就行，后缀名可以为php，因此需要上传一个包含php一句话木马的图片后缀名改为php就行了</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-3242cf664fb66d7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>然后获取webshell，flag就出来了</p>
+        <p>CBC翻转攻击方法在于：</p>
+<p>通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。</p>
+<h2 id="CBC模式介绍"><a href="#CBC模式介绍" class="headerlink" title="CBC模式介绍"></a>CBC模式介绍</h2><p><strong>加密过程</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>Plaintext：明文数据，待加密的数据</p>
+<p>IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。</p>
+<p>Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。</p>
+<p>Ciphertext：密文数据，加密后的数据。</p>
+<p>明文都是先与混淆数据（第一组是与IV，之后都是与前一组的密文）进行异或，再执行分组加密的。CBC工作于一个固定长度的比特组，将其称之为块</p>
+<p>步骤：</p>
+<ol>
+<li>首先将明文分组(常见的以16字节为一组)，位数不足的使用特殊字符填充。</li>
+<li>生成一个随机的初始化向量(IV)和一个密钥。</li>
+<li>将IV和第一组明文异或。</li>
+<li>用密钥对3中xor后产生的密文加密。</li>
+<li>用4中产生的密文对第二组明文进行xor操作。</li>
+<li>用密钥对5中产生的密文加密。</li>
+<li>重复4-7，到最后一组明文。</li>
+<li>将IV和加密后的密文拼接在一起，得到最终的密文。</li>
+</ol>
+<p>从第一块开始，首先与一个初始向量iv异或（iv只在第一处作用），然后把异或的结果配合key进行加密，得到第一块的密文，并且把加密的结果与下一块的明文进行异或，一直这样进行下去。因此这种模式最重要的特点就是：前一块的密文用来产生后一块的密文。<br>加密公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ciphertext-0 = Encrypt(Plaintext XOR IV)—只用于第一个组块</span><br><span class="line">Ciphertext-N = Encrypt(Plaintext XOR Ciphertext-N-1)—用于第二及剩下的组块</span><br></pre></td></tr></table></figure></p>
+<p><strong>解密过程</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c9d40e8c89a02187.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>解密的过程其实只要理解了加密，反过来看解密过程就也很简单了，同样的，前一块密文参与下一块密文的还原。<br>步骤：</p>
+<pre><code>1. 从密文中提取出IV，然后将密文分组。
+2. 使用密钥对第一组的密文解密，然后和IV进行xor得到明文。
+3. 使用密钥对第二组密文解密，然后和2中的密文xor得到明文。
+4. 重复2-3，直到最后一组密文。
+</code></pre><p>解密公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plaintext-0 = Decrypt(Ciphertext) XOR IV—只用于第一个组块</span><br><span class="line">Plaintext-N = Decrypt(Ciphertext) XOR Ciphertext-N-1—用于第二及剩下的组块</span><br></pre></td></tr></table></figure></p>
+<p>这里可以注意到Ciphertext-N-1用来产生下一块明文，如果我们改变Ciphertext-N-1中的一个字节，然后和下一块解密后的密文xor，就可以得到一个不同的明文，而这个明文是我们可以控制的。利用这一点，我们就欺骗服务端或者绕过过滤器。<br>下图展示了整个攻击过程：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-18a24f98a9a18bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>解析<br><img src="https://upload-images.jianshu.io/upload_images/9113981-ad96fd9833ce3e33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>根据解密流程，我们假设A为明文，B为前一组密文，C为密文经过AES解密后的字串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = Plaintext[0] = 11</span><br><span class="line">B = (Ciphertext-N-1)[0] = 13</span><br><span class="line">C = Decrypt(Ciphertext)[0] = 6</span><br></pre></td></tr></table></figure></p>
+<p>我们可以知道，解密过程中是C与B异或得到A，即A xor B = C。</p>
+<p>那么关键来了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C xor C = 0 (任何数与自己异或都为0)</span><br><span class="line">等价于</span><br><span class="line">A xor B xor C = 0</span><br></pre></td></tr></table></figure>
+<p>由于任何数与0异或都为自己本身，所以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A xor B xor C xor 3 = 3</span><br></pre></td></tr></table></figure></p>
+<p>那么此时我们其实可以这样来看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = A = 11</span><br><span class="line">B = B xor 3 = 13 xor 3 = 14</span><br><span class="line">C = C = 6</span><br></pre></td></tr></table></figure></p>
+<p>现在我们修改密文对应的位让B = 14，那么当密文解密后，会发现，明文A会变成3，通过这种方法我们可以控制任何一位明文。</p>
+<h3 id="php使用异或xor调换两个变量的值的原理"><a href="#php使用异或xor调换两个变量的值的原理" class="headerlink" title="php使用异或xor调换两个变量的值的原理"></a>php使用异或xor调换两个变量的值的原理</h3><p>1、首先，我们要知道什么是异或，异或，简单来说就是：相同的两个数，异或的结果是0；不同的两个数，异或的结果是1。<br>2、0和0，异或的结果是0。1和1，异或的结果是0。0和1，异或的结果是1。于是我们发现，在0和1的世界里：A和B异或，结果是C；B和C异或的结果一定是A；A和C异或的结果一定是B。<br>3、写成php:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = 0;</span><br><span class="line">$b = 1;</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
+<p>4、a和b是二进制的一位数，如此；是多位数，也是如此。<br>于是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = 3; //0011</span><br><span class="line">$b = 4; //0100</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
+<p>5、a和b如果是字母，也可以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = &apos;a&apos;; //ASCII是97，二进制是0110 0001</span><br><span class="line">$b = &apos;b&apos;; //ASCII是98，二进制是0110 0010</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
+<p>能够成功将两个字符串变量调换，原因就在于：两个变量进行异或时，会将字符串转换成二进制再进行异或，异或完，又从二进制转换成了字符串。</p>
+<p>本文参考：<a href="http://www.ifuryst.com/archives/CBC_bitflipping_attacks.html" target="_blank" rel="noopener">http://www.ifuryst.com/archives/CBC_bitflipping_attacks.html</a><br><a href="https://blog.csdn.net/csu_vc/article/details/79619309" target="_blank" rel="noopener">https://blog.csdn.net/csu_vc/article/details/79619309</a><br><a href="https://blog.csdn.net/jeffreynnn/article/details/77100389" target="_blank" rel="noopener">https://blog.csdn.net/jeffreynnn/article/details/77100389</a><br><a href="http://www.freebuf.com/articles/system/163756.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/system/163756.html</a></p>
 
       
     </div>
@@ -492,8 +488,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/24/cookie/" rel="next" title="COOKIE和SESSION的区别">
-                <i class="fa fa-chevron-left"></i> COOKIE和SESSION的区别
+              <a href="/2018/07/18/wpsec/" rel="next" title="wpsec-write up">
+                <i class="fa fa-chevron-left"></i> wpsec-write up
               </a>
             
           </div>
@@ -501,10 +497,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/Drupal/" rel="prev" title="Drupal远程命令执行漏洞复现">
-                Drupal远程命令执行漏洞复现 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -697,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB"><span class="nav-number">1.</span> <span class="nav-text">WEB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ezupload"><span class="nav-number">1.1.</span> <span class="nav-text">ezupload</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#研究生的秘密"><span class="nav-number">1.2.</span> <span class="nav-text">研究生的秘密</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MongoDB"><span class="nav-number">1.2.1.</span> <span class="nav-text">MongoDB</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mynote"><span class="nav-number">1.3.</span> <span class="nav-text">mynote</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CBC模式介绍"><span class="nav-number">1.</span> <span class="nav-text">CBC模式介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#php使用异或xor调换两个变量的值的原理"><span class="nav-number">1.1.</span> <span class="nav-text">php使用异或xor调换两个变量的值的原理</span></a></li></ol></li></ol></div>
             
 
           </div>
