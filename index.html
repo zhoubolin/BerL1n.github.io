@@ -401,47 +401,15 @@
 
       
         
-          
-            <p>CBC翻转攻击方法在于：</p>
-<p>通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。</p>
-<h2 id="CBC模式介绍"><a href="#CBC模式介绍" class="headerlink" title="CBC模式介绍"></a>CBC模式介绍</h2><p><strong>加密过程</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>Plaintext：明文数据，待加密的数据</p>
-<p>IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。</p>
-<p>Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。</p>
-<p>Ciphertext：密文数据，加密后的数据。</p>
-<p>明文都是先与混淆数据（第一组是与IV，之后都是与前一组的密文）进行异或，再执行分组加密的。CBC工作于一个固定长度的比特组，将其称之为块</p>
-<p>步骤：</p>
-<ol>
-<li>首先将明文分组(常见的以16字节为一组)，位数不足的使用特殊字符填充。</li>
-<li>生成一个随机的初始化向量(IV)和一个密钥。</li>
-<li>将IV和第一组明文异或。</li>
-<li>用密钥对3中xor后产生的密文加密。</li>
-<li>用4中产生的密文对第二组明文进行xor操作。</li>
-<li>用密钥对5中产生的密文加密。</li>
-<li>重复4-7，到最后一组明文。</li>
-<li>将IV和加密后的密文拼接在一起，得到最终的密文。</li>
-</ol>
-<p>从第一块开始，首先与一个初始向量iv异或（iv只在第一处作用），然后把异或的结果配合key进行加密，得到第一块的密文，并且把加密的结果与下一块的明文进行异或，一直这样进行下去。因此这种模式最重要的特点就是：前一块的密文用来产生后一块的密文。<br>加密公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ciphertext-0 = Encrypt(Plaintext XOR IV)—只用于第一个组块</span><br><span class="line">Ciphertext-N = Encrypt(Plaintext XOR Ciphertext-N-1)—用于第二及剩下的组块</span><br></pre></td></tr></table></figure></p>
-<p><strong>解密过程</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c9d40e8c89a02187.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>解密的过程其实只要理解了加密，反过来看解密过程就也很简单了，同样的，前一块密文参与下一块密文的还原。<br>步骤：</p>
-<pre><code>1. 从密文中提取出IV，然后将密文分组。
-2. 使用密钥对第一组的密文解密，然后和IV进行xor得到明文。
-3. 使用密钥对第二组密文解密，然后和2中的密文xor得到明文。
-4. 重复2-3，直到最后一组密文。
-</code></pre><p>解密公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plaintext-0 = Decrypt(Ciphertext) XOR IV—只用于第一个组块</span><br><span class="line">Plaintext-N = Decrypt(Ciphertext) XOR Ciphertext-N-1—用于第二及剩下的组块</span><br></pre></td></tr></table></figure></p>
-<p>这里可以注意到Ciphertext-N-1用来产生下一块明文，如果我们改变Ciphertext-N-1中的一个字节，然后和下一块解密后的密文xor，就可以得到一个不同的明文，而这个明文是我们可以控制的。利用这一点，我们就欺骗服务端或者绕过过滤器。<br>下图展示了整个攻击过程：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-18a24f98a9a18bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>解析<br><img src="https://upload-images.jianshu.io/upload_images/9113981-ad96fd9833ce3e33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>根据解密流程，我们假设A为明文，B为前一组密文，C为密文经过AES解密后的字串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = Plaintext[0] = 11</span><br><span class="line">B = (Ciphertext-N-1)[0] = 13</span><br><span class="line">C = Decrypt(Ciphertext)[0] = 6</span><br></pre></td></tr></table></figure></p>
-<p>我们可以知道，解密过程中是C与B异或得到A，即A xor B = C。</p>
-<p>那么关键来了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C xor C = 0 (任何数与自己异或都为0)</span><br><span class="line">等价于</span><br><span class="line">A xor B xor C = 0</span><br></pre></td></tr></table></figure>
-<p>由于任何数与0异或都为自己本身，所以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A xor B xor C xor 3 = 3</span><br></pre></td></tr></table></figure></p>
-<p>那么此时我们其实可以这样来看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = A = 11</span><br><span class="line">B = B xor 3 = 13 xor 3 = 14</span><br><span class="line">C = C = 6</span><br></pre></td></tr></table></figure></p>
-<p>现在我们修改密文对应的位让B = 14，那么当密文解密后，会发现，明文A会变成3，通过这种方法我们可以控制任何一位明文。</p>
-<h3 id="php使用异或xor调换两个变量的值的原理"><a href="#php使用异或xor调换两个变量的值的原理" class="headerlink" title="php使用异或xor调换两个变量的值的原理"></a>php使用异或xor调换两个变量的值的原理</h3><p>1、首先，我们要知道什么是异或，异或，简单来说就是：相同的两个数，异或的结果是0；不同的两个数，异或的结果是1。<br>2、0和0，异或的结果是0。1和1，异或的结果是0。0和1，异或的结果是1。于是我们发现，在0和1的世界里：A和B异或，结果是C；B和C异或的结果一定是A；A和C异或的结果一定是B。<br>3、写成php:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = 0;</span><br><span class="line">$b = 1;</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
-<p>4、a和b是二进制的一位数，如此；是多位数，也是如此。<br>于是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = 3; //0011</span><br><span class="line">$b = 4; //0100</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
-<p>5、a和b如果是字母，也可以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = &apos;a&apos;; //ASCII是97，二进制是0110 0001</span><br><span class="line">$b = &apos;b&apos;; //ASCII是98，二进制是0110 0010</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
-<p>能够成功将两个字符串变量调换，原因就在于：两个变量进行异或时，会将字符串转换成二进制再进行异或，异或完，又从二进制转换成了字符串。</p>
-<p>本文参考：<a href="http://www.ifuryst.com/archives/CBC_bitflipping_attacks.html" target="_blank" rel="noopener">http://www.ifuryst.com/archives/CBC_bitflipping_attacks.html</a><br><a href="https://blog.csdn.net/csu_vc/article/details/79619309" target="_blank" rel="noopener">https://blog.csdn.net/csu_vc/article/details/79619309</a><br><a href="https://blog.csdn.net/jeffreynnn/article/details/77100389" target="_blank" rel="noopener">https://blog.csdn.net/jeffreynnn/article/details/77100389</a><br><a href="http://www.freebuf.com/articles/system/163756.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/system/163756.html</a></p>
-
-          
+          <p>CBC翻转攻击方法在于：</p>
+<p>通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/13/CBC/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -105,22 +105,22 @@
 
 
 
-<meta name="description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。 CBC模式介绍加密过程Plaintext：明文数据，待加密的数据 IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。 Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。 C">
+<meta name="description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。">
 <meta name="keywords" content="web安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CBC字节翻转攻击">
 <meta property="og:url" content="http://yoursite.com/2018/09/13/CBC/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。 CBC模式介绍加密过程Plaintext：明文数据，待加密的数据 IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。 Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。 C">
+<meta property="og:description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c9d40e8c89a02187.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-18a24f98a9a18bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-ad96fd9833ce3e33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-13T12:40:19.672Z">
+<meta property="og:updated_time" content="2018-09-13T13:05:55.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CBC字节翻转攻击">
-<meta name="twitter:description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。 CBC模式介绍加密过程Plaintext：明文数据，待加密的数据 IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。 Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。 C">
+<meta name="twitter:description" content="CBC翻转攻击方法在于： 通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -405,7 +405,7 @@
 
       
         <p>CBC翻转攻击方法在于：</p>
-<p>通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。</p>
+<p>通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。<br><a id="more"></a></p>
 <h2 id="CBC模式介绍"><a href="#CBC模式介绍" class="headerlink" title="CBC模式介绍"></a>CBC模式介绍</h2><p><strong>加密过程</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>Plaintext：明文数据，待加密的数据</p>
 <p>IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。</p>
 <p>Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。</p>
