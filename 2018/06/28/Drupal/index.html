@@ -105,15 +105,13 @@
 
 
 
-<meta name="description" content="漏洞描述">
 <meta name="keywords" content="web安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Drupal远程命令执行漏洞复现">
 <meta property="og:url" content="http://yoursite.com/2018/06/28/Drupal/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="漏洞描述">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/06/28/Drupal/Drupal_files/1.jpg">
+<meta property="og:image" content="http://pic2016.ytqmx.com:82/2017/0118/31/10.jpg!960.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-57ed96e40aa67303.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-0c15d8d47eaa5574.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-ae00ffb4f49d47e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -122,11 +120,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-adfd4e33fda265ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-9590a52d672f35b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-70aec34d1d987ede.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-05T09:34:32.185Z">
+<meta property="og:updated_time" content="2018-10-05T09:50:03.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Drupal远程命令执行漏洞复现">
-<meta name="twitter:description" content="漏洞描述">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/28/Drupal/Drupal_files/1.jpg">
+<meta name="twitter:image" content="http://pic2016.ytqmx.com:82/2017/0118/31/10.jpg!960.jpg">
 
 
 
@@ -409,9 +406,8 @@
       
 
       
-        <p><img src="Drupal_files/1.jpg" alt="Drupal"></p>
-<h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h3><a id="more"></a>
-<p><strong>Drupal官方发布了一个编号为CVE-2017- 6920 的漏洞，影响为Critical。这是Drupal Core的YAML解析器处理不当所导致的一个远程代码执行漏洞，影响8.x的Drupal Core。</strong></p>
+        <p><img src="http://pic2016.ytqmx.com:82/2017/0118/31/10.jpg!960.jpg" alt="drupal"><br><a id="more"></a></p>
+<h3 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h3><p><strong>Drupal官方发布了一个编号为CVE-2017- 6920 的漏洞，影响为Critical。这是Drupal Core的YAML解析器处理不当所导致的一个远程代码执行漏洞，影响8.x的Drupal Core。</strong></p>
 <h3 id="漏洞检测"><a href="#漏洞检测" class="headerlink" title="漏洞检测"></a>漏洞检测</h3><p><strong>针对该漏洞，可采用两种方法进行检测：</strong></p>
 <p><strong>方法一：登陆Drupal管理后台，查看内核版本是8.x，且版本号低于8.3.4，则存在该漏洞；否则，不存在该漏洞；</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-57ed96e40aa67303.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><strong>方法二：在Drupal根目录下找到文件/core/lib/Drupal/Component/Serialization/ YamlPecl.php，定位到函数public static function decode($raw)，如果该函数代码不包含” ini_set(‘yaml.decode_php’, 0);”调用，则存在该漏洞；否则，不存在该漏洞。</strong></p>
