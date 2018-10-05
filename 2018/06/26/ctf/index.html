@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="web安全," />
+  <meta name="keywords" content="ctf," />
 
 
 
@@ -105,14 +105,13 @@
 
 
 
-<meta name="description" content="WEBezupload这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试">
-<meta name="keywords" content="web安全">
+<meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安恒杯赛Write Up">
 <meta property="og:url" content="http://yoursite.com/2018/06/26/ctf/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="WEBezupload这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/06/26/ctf/ctf_files/1.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-e89ee7ce094fe64e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c20813524d33f628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-afe4e526dadd8f57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -145,11 +144,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-5f165590f29b66fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4941ef90ce8d3f38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-276bf764c6f6f4fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-03T09:08:23.112Z">
+<meta property="og:updated_time" content="2018-10-05T09:33:44.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安恒杯赛Write Up">
-<meta name="twitter:description" content="WEBezupload这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-e89ee7ce094fe64e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/26/ctf/ctf_files/1.jpg">
 
 
 
@@ -432,7 +430,9 @@
       
 
       
-        <h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="ezupload"><a href="#ezupload" class="headerlink" title="ezupload"></a>ezupload</h2><p>这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e89ee7ce094fe64e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a><br>很明显只能上传图片，那就按正常思路去搞了，<br>我刚开始将一句话木马php文件后缀改为图片，但是无法上传成功的。<br>所以猜测这道题是识别图片内容，而不仅仅是改后缀名，只有图片内容是图片才能上传成功。这里随便上传一张图片试试<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c20813524d33f628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这是上传成功的结果，这里我上传的是.jpg图片，成功后却是peg,又上传其他的也是peg。这里对路径很好奇，感觉路径中是一串加密字符串，搞了搞之后没发现什么，看来是多想了，，<br><img src="https://upload-images.jianshu.io/upload_images/9113981-afe4e526dadd8f57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>很好奇打开了路径内容发现都是别人上传的文件，过滤的方法也很多种，可以尝试尝试别人的。但这里我已经找到方法了，既然是识别图片内容，将图片后缀改为php也没关系，然后我们将一句话木马放进图片中，然后在过滤掉peg后缀，将后缀名改为.peg.php<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a58be91f2a8b9c38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+        <p><img src="ctf_files/1.jpg" alt="ctf"><br><a id="more"></a></p>
+<h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="ezupload"><a href="#ezupload" class="headerlink" title="ezupload"></a>ezupload</h2><p>这道题可以看出是一道文件上传，有意识的就可以联想到通常做的文件上传题目是不能上传PHP文件的，这道试试<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e89ee7ce094fe64e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>很明显只能上传图片，那就按正常思路去搞了，<br>我刚开始将一句话木马php文件后缀改为图片，但是无法上传成功的。<br>所以猜测这道题是识别图片内容，而不仅仅是改后缀名，只有图片内容是图片才能上传成功。这里随便上传一张图片试试<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c20813524d33f628.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这是上传成功的结果，这里我上传的是.jpg图片，成功后却是peg,又上传其他的也是peg。这里对路径很好奇，感觉路径中是一串加密字符串，搞了搞之后没发现什么，看来是多想了，，<br><img src="https://upload-images.jianshu.io/upload_images/9113981-afe4e526dadd8f57.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>很好奇打开了路径内容发现都是别人上传的文件，过滤的方法也很多种，可以尝试尝试别人的。但这里我已经找到方法了，既然是识别图片内容，将图片后缀改为php也没关系，然后我们将一句话木马放进图片中，然后在过滤掉peg后缀，将后缀名改为.peg.php<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a58be91f2a8b9c38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-a05c47efec1f3a9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-d598f4595cddc904.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>抓包可以看到已经上传了含有一句话木马的图片，而且后缀也是php<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e508e8930a9f4528.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>上传成功<br>打开菜刀<br><img src="https://upload-images.jianshu.io/upload_images/9113981-84f689bd1b316aa2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-0b7d5627c277a7b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>flag已经出来了。。</p>
 <h2 id="研究生的秘密"><a href="#研究生的秘密" class="headerlink" title="研究生的秘密"></a>研究生的秘密</h2><p>题目提示缺少参数，由此可以想到参数问题</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-04b305b79aaf1232.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -498,7 +498,7 @@
   <p><span>本文标题:</span><a href="/2018/06/26/ctf/">安恒杯赛Write Up</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
   <p><span>发布时间:</span>2018年06月26日 - 22:06</p>
-  <p><span>最后更新:</span>2018年10月03日 - 17:10</p>
+  <p><span>最后更新:</span>2018年10月05日 - 17:10</p>
   <p><span>原始链接:</span><a href="/2018/06/26/ctf/" title="安恒杯赛Write Up">http://yoursite.com/2018/06/26/ctf/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/06/26/ctf/"  aria-label="复制成功！"></i></span>
   </p>
@@ -541,7 +541,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web安全/" rel="tag"><i class="fa fa-tag"></i> web安全</a>
+            <a href="/tags/ctf/" rel="tag"><i class="fa fa-tag"></i> ctf</a>
           
         </div>
       
@@ -658,7 +658,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -669,7 +669,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -680,7 +680,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

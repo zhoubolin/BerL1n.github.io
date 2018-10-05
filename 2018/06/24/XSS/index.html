@@ -105,14 +105,13 @@
 
 
 
-<meta name="description" content="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。">
 <meta name="keywords" content="web安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XSS获取cookie并发送自己邮箱">
 <meta property="og:url" content="http://yoursite.com/2018/06/24/XSS/index.html">
 <meta property="og:site_name" content="绝世狂龙">
-<meta property="og:description" content="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/06/24/XSS/XSS_files/1.jpg">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6c1b9164cc3a5ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-aff2b20eaa82e378.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -127,11 +126,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-295de31871759ab4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2ffd35f9a0d3f380.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6e5cd6f39e79655e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-09-24T09:13:33.279Z">
+<meta property="og:updated_time" content="2018-10-05T09:36:52.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XSS获取cookie并发送自己邮箱">
-<meta name="twitter:description" content="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/24/XSS/XSS_files/1.jpg">
 
 
 
@@ -414,7 +412,9 @@
       
 
       
-        <h5 id="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"><a href="#关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。" class="headerlink" title="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"></a>关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。</h5><p><img src="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><a id="more"></a><br>这是登录界面，输入用户名进去后<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6c1b9164cc3a5ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+        <p><img src="XSS_files/1.jpg" alt="xss"><br><a id="more"></a></p>
+<h5 id="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"><a href="#关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。" class="headerlink" title="关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。"></a>关于XSS获取cookie的，这里我用自己做的简单留言板做个示范。</h5><p><img src="https://upload-images.jianshu.io/upload_images/9113981-272d2128dd4388af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>这是登录界面，输入用户名进去后<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6c1b9164cc3a5ec7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>可以对留言内容进行XSS尝试，因为未作任何过滤，所以存在XSS的，这里不详细演示了，只看怎么获取cookie吧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;alert(document.cookie)&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-aff2b20eaa82e378.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-1ea640b695bf4436.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br> 可以看到cookie已经出来了，这里好像我的留言板做的太简单了，账号密码都出来了，，，不过这不是重点，但这里的cookie只是自己的，这时别人登录也会弹出cookie但只能本人看到，因此我们要想办法获取别人的<br>然后我自己写了个小脚本，用来获取别人的cookie，同样的方法插入xss代码，如果别人登录将会把别人的cookie发送到我邮箱里。<br>因为是用php和js写的，所以我这里将php发送qq邮箱的方法说一下，毕竟这是困我好久的难题。<br>其实方法也不难，不过遇到各种各样的麻烦<br>关于配置sendmail,这是windows下的配置，ubuntu下没成功，有高手可以指点下。</p>
 <blockquote>
@@ -455,7 +455,7 @@
   <p><span>本文标题:</span><a href="/2018/06/24/XSS/">XSS获取cookie并发送自己邮箱</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
   <p><span>发布时间:</span>2018年06月24日 - 22:06</p>
-  <p><span>最后更新:</span>2018年09月24日 - 17:09</p>
+  <p><span>最后更新:</span>2018年10月05日 - 17:10</p>
   <p><span>原始链接:</span><a href="/2018/06/24/XSS/" title="XSS获取cookie并发送自己邮箱">http://yoursite.com/2018/06/24/XSS/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/06/24/XSS/"  aria-label="复制成功！"></i></span>
   </p>
@@ -615,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -626,7 +626,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -637,7 +637,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

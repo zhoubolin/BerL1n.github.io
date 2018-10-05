@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识python网络编程">
+<meta property="og:url" content="http://yoursite.com/2018/10/05/pyweb/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/pyweb/pyweb_files/1.jpg">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-e693870503f56173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-bfff48b9d2544fb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-7a9a9d5976623828.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-5b4323bfc757514a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-6392962c20e332e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-ce900eabcbb4fa8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-b585fb31aacafb96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-4d880e09c1317e56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-93a13a3eb78805bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-f30e7dd984637d27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-0b955975364d5f45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-d816c979a65f35ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-05T09:28:59.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="初识python网络编程">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/05/pyweb/pyweb_files/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/05/pyweb/"/>
+
+
+
+
+
+
+  <title>初识python网络编程 | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">今天很残酷，明天更残酷，但后天会很美好！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/05/pyweb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">初识python网络编程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-05T17:11:44+08:00">
+                2018-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="pyweb_files/1.jpg" alt="python"><br><a id="more"></a></p>
+<h1 id="1-了解TCP-IP协议"><a href="#1-了解TCP-IP协议" class="headerlink" title="1.了解TCP/IP协议"></a>1.了解TCP/IP协议</h1><p>Transmission Control Protocol/Internet Protocol的简写，中译名为传输控制协议/<a href="https://baike.baidu.com/item/%E5%9B%A0%E7%89%B9%E7%BD%91" target="_blank" rel="noopener">因特网</a>互联协议，又名网络<a href="https://baike.baidu.com/item/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE" target="_blank" rel="noopener">通讯协议</a>，是Internet最基本的协议、Internet国际<a href="https://baike.baidu.com/item/%E4%BA%92%E8%81%94%E7%BD%91" target="_blank" rel="noopener">互联网</a>络的基础，由<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%B1%82/4329439" target="_blank" rel="noopener">网络层</a>的IP协议和<a href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93%E5%B1%82/4329536" target="_blank" rel="noopener">传输层</a>的TCP协议组成。TCP/IP 定义了电子设备如何连入<a href="https://baike.baidu.com/item/%E5%9B%A0%E7%89%B9%E7%BD%91/114119" target="_blank" rel="noopener">因特网</a>，以及数据如何在它们之间传输的标准。协议采用了4层的层级结构，每一层都呼叫它的下一层所提供的协议来完成自己的需求。<a href="https://baike.baidu.com/item/%E9%80%9A%E4%BF%97/10621346" target="_blank" rel="noopener">通俗</a>而言：TCP负责发现<a href="https://baike.baidu.com/item/%E4%BC%A0%E8%BE%93/7078195" target="_blank" rel="noopener">传输</a>的问题，一有问题就发出信号，要求重新传输，直到所有<a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/3204964" target="_blank" rel="noopener">数据安全</a>正确地传输到目的地。而IP是给<a href="https://baike.baidu.com/item/%E5%9B%A0%E7%89%B9%E7%BD%91/114119" target="_blank" rel="noopener">因特网</a>的每一台联网设备规定一个地址。</p>
+<p>TCP/IP协议是主机接入互网以及接入互联网的两台机器通信的标准，是一個通信合同，比如有两台机器，A 主机 和 B 主机，它们两者之间只是根据合同上的标准来工作就可以啦。TCP/IP 有4层架构：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-e693870503f56173.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><h3 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h3><h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><h3 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h3><h1 id="2-OSI七层架构"><a href="#2-OSI七层架构" class="headerlink" title="2.OSI七层架构"></a>2.OSI七层架构</h1><p>七层模型，亦称OSI（Open System Interconnection）参考模型，是参考模型是国际标准化组织（ISO）制定的一个用于计算机或通信系统间互联的标准体系。它是一个七层的、抽象的模型体，不仅包括一系列抽象的术语或概念，也包括具体的协议。</p>
+<p><strong>分层：</strong></p>
+<p><strong>应用层 (Application)：</strong><br>网络服务与最终用户的一个接口。</p>
+<p>协议有：HTTP FTP TFTP SMTP SNMP DNS TELNET HTTPS POP3 DHCP</p>
+<p><strong>表示层（Presentation Layer）：</strong><br>数据的表示、安全、压缩。（在五层模型里面已经合并到了应用层）</p>
+<p>格式有，JPEG、ASCll、DECOIC、加密格式等</p>
+<p><strong>会话层（Session Layer）：</strong><br>建立、管理、终止会话。（在五层模型里面已经合并到了应用层）</p>
+<p>对应主机进程，指本地主机与远程主机正在进行的会话</p>
+<p><strong>传输层 (Transport)：</strong><br>定义传输数据的协议端口号，以及流控和差错校验。</p>
+<p>协议有：TCP UDP，数据包一旦离开网卡即进入网络传输层</p>
+<p><strong>网络层 (Network)：</strong><br>进行逻辑地址寻址，实现不同网络之间的路径选择。</p>
+<p>协议有：ICMP IGMP IP（IPV4 IPV6） ARP RARP</p>
+<p><strong>数据链路层 (Link)：</strong><br>建立逻辑连接、进行硬件地址寻址、差错校验等功能。（由底层网络定义协议）</p>
+<p>将比特组合成字节进而组合成帧，用MAC地址访问介质，错误发现但不能纠正。</p>
+<p><strong>物理层（Physical Layer）：</strong><br>建立、维护、断开物理连接。（由底层网络定义协议）</p>
+<h1 id="3-TCP的三段握手和四次断开"><a href="#3-TCP的三段握手和四次断开" class="headerlink" title="3.TCP的三段握手和四次断开"></a>3.TCP的三段握手和四次断开</h1><p>相对于SOCKET开发者,TCP创建过程和链接折除过程是由TCP/IP协议栈自动创建的.因此开发者并不需要控制这个过程.但是对于理解TCP底层运作机制,相当有帮助.</p>
+<h4 id="TCP三次握手"><a href="#TCP三次握手" class="headerlink" title="TCP三次握手"></a>TCP三次握手</h4><p>所谓三次握手(Three-way Handshake)，是指建立一个TCP连接时，需要客户端和服务器总共发送3个包。</p>
+<p>三次握手的目的是连接服务器指定端口，建立TCP连接,并同步连接双方的序列号和确认号并交换 TCP 窗口大小信息.在socket编程中，客户端执行connect()时。将触发三次握手。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-bfff48b9d2544fb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>第一次握手:<br>客户端发送一个TCP的SYN标志位置1的包指明客户打算连接的服务器的端口，以及初始序号X,保存在包头的序列号(Sequence Number)字段里。</p>
+<p>第二次握手:<br>服务器发回确认包(ACK)应答。即SYN标志位和ACK标志位均为1同时，将确认序号(Acknowledgement Number)设置为客户的I S N加1以.即X+1。</p>
+<p>第三次握手.<br>客户端再次发送确认包(ACK) SYN标志位为0,ACK标志位为1.并且把服务器发来ACK的序号字段+1,放在确定字段中发送给对方.并且在数据段放写ISN的+1</p>
+<h4 id="TCP四次断开"><a href="#TCP四次断开" class="headerlink" title="TCP四次断开"></a>TCP四次断开</h4><p>TCP的连接的拆除需要发送四个包，因此称为四次挥手(four-way handshake)。客户端或服务器均可主动发起挥手动作，在socket编程中，任何一方执行close()操作即可产生挥手操作。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-7a9a9d5976623828.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<blockquote>
+<p>（1）第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。<br>（2）第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。<br>（3）第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。<br>（4）第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。</p>
+</blockquote>
+<h1 id="4-socket"><a href="#4-socket" class="headerlink" title="4.socket"></a>4.socket</h1><p>socket起源于Unix，而Unix/<a href="http://lib.csdn.net/base/linux" title="Linux知识库" target="_blank" rel="noopener">Linux</a>基本哲学之一就是“一切皆文件”，都可以用“打开open –&gt; 读写write/read –&gt; 关闭close”模式来操作。Socket就是该模式的一个实现，socket即是一种特殊的文件，一些socket函数就是对其进行的操作（读/写IO、打开、关闭）.<br>说白了Socket是应用层与TCP/IP协议族通信的中间软件抽象层，<strong>它是一组接口</strong>。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。</p>
+<p><strong>注意：</strong>其实socket也没有层的概念，它只是一个facade设计模式的应用，让编程变的更简单。是一个软件抽象层。在网络编程中，我们大量用的都是通过socket实现的。</p>
+<p>Socket是网络编程的一个抽象概念。通常我们用一个Socket表示“打开了一个网络链接”，而打开一个Socket需要知道目标计算机的IP地址和端口号，再指定协议类型即可。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-5b4323bfc757514a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="TCP编程"><a href="#TCP编程" class="headerlink" title="TCP编程"></a>TCP编程</h4><p>Socket是网络编程的一个抽象概念。通常我们用一个Socket表示“打开了一个网络链接”，而打开一个Socket需要知道目标计算机的IP地址和端口号，再指定协议类型即可。</p>
+<p>TCP连接简图： 三次握手，数据传输，四次挥手</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-6392962c20e332e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h2 id="socket中TCP的三次握手建立连接详解"><a href="#socket中TCP的三次握手建立连接详解" class="headerlink" title="socket中TCP的三次握手建立连接详解"></a>socket中TCP的三次握手建立连接详解</h2><p>我们知道tcp建立连接要进行“三次握手”，即交换三个分组。大致流程如下：</p>
+<ul>
+<li>客户端向服务器发送一个SYN J</li>
+<li>服务器向客户端响应一个SYN K，并对SYN J进行确认ACK J+1</li>
+<li>客户端再向服务器发一个确认ACK K+1</li>
+</ul>
+<p>只有就完了三次握手，但是这个三次握手发生在socket的那几个函数中呢？请看下图：</p>
+<p><a href="http://images.cnblogs.com/cnblogs_com/skynet/201012/201012122157467258.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-ce900eabcbb4fa8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图1、socket中发送的TCP三次握手
+" title="image"></a> </p>
+<p>从图中可以看出，当客户端调用connect时，触发了连接请求，向服务器发送了SYN J包，这时connect进入阻塞状态；服务器监听到连接请求，即收到SYN J包，调用accept函数接收请求向客户端发送SYN K ，ACK J+1，这时accept进入阻塞状态；客户端收到服务器的SYN K ，ACK J+1之后，这时connect返回，并对SYN K进行确认；服务器收到ACK K+1时，accept返回，至此三次握手完毕，连接建立。</p>
+<blockquote>
+<p>总结：客户端的connect在三次握手的第二次返回，而服务器端的accept在三次握手的第三次返回。</p>
+</blockquote>
+<h2 id="socket中TCP的四次握手释放（断开）连接详解"><a href="#socket中TCP的四次握手释放（断开）连接详解" class="headerlink" title="socket中TCP的四次握手释放（断开）连接详解"></a>socket中TCP的四次握手释放（断开）连接详解</h2><p>上面介绍了socket中TCP的三次握手建立过程，及其涉及的socket函数。现在我们介绍socket中的四次握手释放连接的过程，请看下图：</p>
+<p><a href="http://images.cnblogs.com/cnblogs_com/skynet/201012/201012122157487616.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-b585fb31aacafb96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图2、socket中发送的TCP四次握手断开" title="image"></a> </p>
+<p>图示过程如下：</p>
+<ul>
+<li><p>某个应用进程首先调用close主动关闭连接，这时TCP发送一个FIN M；</p>
+</li>
+<li><p>另一端接收到FIN M之后，执行被动关闭，对这个FIN进行确认。它的接收也作为文件结束符传递给应用进程，因为FIN的接收意味着应用进程在相应的连接上再也接收不到额外数据；</p>
+</li>
+<li><p>一段时间之后，接收到文件结束符的应用进程调用close关闭它的socket。这导致它的TCP也发送一个FIN N；</p>
+</li>
+<li><p>接收到这个FIN的源发送端TCP对它进行确认。</p>
+</li>
+</ul>
+<p>这样每个方向上都有一个FIN和ACK。</p>
+<h1 id="5-Python3-网络编程"><a href="#5-Python3-网络编程" class="headerlink" title="5. Python3 网络编程"></a>5. Python3 网络编程</h1><p>Python 提供了两个级别访问的网络服务。：</p>
+<ul>
+<li>低级别的网络服务支持基本的 Socket，它提供了标准的 BSD Sockets API，可以访问底层操作系统Socket接口的全部方法。</li>
+<li>高级别的网络服务模块 SocketServer， 它提供了服务器中心类，可以简化网络服务器的开发。</li>
+</ul>
+<hr>
+<h2 id="什么是-Socket"><a href="#什么是-Socket" class="headerlink" title="什么是 Socket?"></a>什么是 Socket?</h2><p>Socket又称”套接字”，应用程序通常通过”套接字”向网络发出请求或者应答网络请求，使主机间或者一台计算机上的进程间可以通讯。</p>
+<p>socket和file的区别：</p>
+<ul>
+<li>file模块是针对某个指定文件进行【打开】【读写】【关闭】</li>
+<li><p>socket模块是针对 服务器端 和 客户端Socket 进行【打开】【读写】【关闭】</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-4d880e09c1317e56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了。客户端发送数据请求，服务器端接收请求并处理请求，然后把回应数据发送给客户端，客户端读取数据，最后关闭连接，一次交互结束。<br>##socket()函数<br>Python 中，我们用 socket（）函数来创建套接字，语法格式如下：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socket.socket([family[, type[, proto]]])</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参数<br>family: 套接字家族可以使AF_UNIX或者AF_INET<br>type: 套接字类型可以根据是面向连接的还是非连接分为SOCK_STREAM或SOCK_DGRAM<br>protocol: 一般不填默认为0.</p>
+</blockquote>
+<h2 id="Socket-对象-内建-方法"><a href="#Socket-对象-内建-方法" class="headerlink" title="Socket 对象(内建)方法"></a>Socket 对象(内建)方法</h2><table>
+<thead>
+<tr>
+<th>函数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td style="text-align:center">服务端套接字</td>
+<td></td>
+</tr>
+<tr>
+<td>s.bind()</td>
+<td style="text-align:center">绑定地址（host,port）到套接字， 在AF_INET下,以元组（host,port）的形式表示地址。</td>
+</tr>
+<tr>
+<td>s.listen()</td>
+<td style="text-align:center">开始TCP监听。backlog指定在拒绝连接之前，操作系统可以挂起的最大连接数量。该值至少为1，大部分应用程序设为5就可以了。</td>
+</tr>
+<tr>
+<td>s.accept()</td>
+<td style="text-align:center">被动接受TCP客户端连接,(阻塞式)等待连接的到来</td>
+</tr>
+<tr>
+<td>-</td>
+<td style="text-align:center">客户端套接字</td>
+</tr>
+<tr>
+<td>s.connect()</td>
+<td style="text-align:center">主动初始化TCP服务器连接，。一般address的格式为元组（hostname,port），如果连接出错，返回socket.error错误。</td>
+</tr>
+<tr>
+<td>s.connect_ex()</td>
+<td style="text-align:center">connect()函数的扩展版本,出错时返回出错码,而不是抛出异常</td>
+</tr>
+<tr>
+<td>-</td>
+<td style="text-align:center">公共用途的套接字函数</td>
+</tr>
+<tr>
+<td>s.recv()</td>
+<td style="text-align:center">接收TCP数据，数据以字符串形式返回，bufsize指定要接收的最大数据量。flag提供有关消息的其他信息，通常可以忽略。</td>
+</tr>
+<tr>
+<td>s.send()</td>
+<td style="text-align:center">发送TCP数据，将string中的数据发送到连接的套接字。返回值是要发送的字节数量，该数量可能小于string的字节大小。</td>
+</tr>
+<tr>
+<td>s.sendall()</td>
+<td style="text-align:center">完整发送TCP数据，完整发送TCP数据。将string中的数据发送到连接的套接字，但在返回之前会尝试发送所有数据。成功返回None，失败则抛出异常。</td>
+</tr>
+<tr>
+<td>s.recvform()</td>
+<td style="text-align:center">接收UDP数据，与recv()类似，但返回值是（data,address）。其中data是包含接收数据的字符串，address是发送数据的套接字地址。</td>
+</tr>
+<tr>
+<td>s.sendto()</td>
+<td style="text-align:center">发送UDP数据，将数据发送到套接字，address是形式为（ipaddr，port）的元组，指定远程地址。返回值是发送的字节数。</td>
+</tr>
+<tr>
+<td>s.close()</td>
+<td style="text-align:center">关闭套接字</td>
+</tr>
+<tr>
+<td>s.getpeername()</td>
+<td style="text-align:center">返回连接套接字的远程地址。返回值通常是元组（ipaddr,port）。</td>
+</tr>
+<tr>
+<td>s.getsockname()</td>
+<td style="text-align:center">返回套接字自己的地址。通常是一个元组(ipaddr,port)</td>
+</tr>
+<tr>
+<td>s.setsockopt(level,optname,value)</td>
+<td style="text-align:center">设置给定套接字选项的值。</td>
+</tr>
+<tr>
+<td>s.getsockopt(level,optname[.buflen])</td>
+<td style="text-align:center">返回套接字选项的值。</td>
+</tr>
+<tr>
+<td>s.settimeout(timeout)</td>
+<td style="text-align:center">设置套接字操作的超时期，timeout是一个浮点数，单位是秒。值为None表示没有超时期。一般，超时期应该在刚创建套接字时设置，因为它们可能用于连接的操作（如connect()）</td>
+</tr>
+<tr>
+<td>s.gettimeout()</td>
+<td style="text-align:center">返回当前超时期的值，单位是秒，如果没有设置超时期，则返回None。</td>
+</tr>
+<tr>
+<td>s.fileno()</td>
+<td style="text-align:center">返回套接字的文件描述符。</td>
+</tr>
+<tr>
+<td>s.setblocking(flag)</td>
+<td style="text-align:center">如果flag为0，则将套接字设为非阻塞模式，否则将套接字设为阻塞模式（默认值）。非阻塞模式下，如果调用recv()没有发现任何数据，或send()调用无法立即发送数据，那么将引起socket.error异常。</td>
+</tr>
+<tr>
+<td>s.makefile()</td>
+<td style="text-align:center">创建一个与该套接字相关连的文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="简单实例"><a href="#简单实例" class="headerlink" title="简单实例"></a>简单实例</h3><h4 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h4><p>我们使用 socket 模块的 socket 函数来创建一个 socket 对象。socket 对象可以通过调用其他函数来设置一个 socket 服务。</p>
+<p>现在我们可以通过调用 bind(hostname, port) 函数来指定服务的 port(端口)。</p>
+<p>接着，我们调用 socket 对象的 accept 方法。该方法等待客户端的连接，并返回 connection 对象，表示已连接到客户端。</p>
+<p>完整代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 文件名：server.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket               <span class="comment"># 导入 socket 模块</span></span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)         <span class="comment"># 创建 socket 对象</span></span><br><span class="line">host = socket.gethostname() <span class="comment"># 获取本地主机名</span></span><br><span class="line">port = <span class="number">12345</span>               <span class="comment"># 设置端口</span></span><br><span class="line">s.bind((host, port))        <span class="comment"># 绑定端口</span></span><br><span class="line"></span><br><span class="line">s.listen(<span class="number">5</span>)                 <span class="comment"># 设置最大连接数，超过后排队，等待客户端连接</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    c, addr = s.accept()     <span class="comment"># 建立客户端连接。</span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"连接地址: %s"</span> % str(addr))</span><br><span class="line"></span><br><span class="line">    msg = <span class="string">'欢迎访问python教程！'</span> + <span class="string">"\r\n"</span></span><br><span class="line"></span><br><span class="line">    c.send(msg.encode(<span class="string">'utf-8'</span>))</span><br><span class="line">    c.close()                <span class="comment"># 关闭连接</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>接下来我们写一个简单的客户端实例连接到以上创建的服务。端口号为 12345。</p>
+<p>socket.connect(hosname, port ) 方法打开一个 TCP 连接到主机为 hostname 端口为 port 的服务商。连接后我们就可以从服务端后期数据，记住，操作完成后需要关闭连接。</p>
+<p>完整代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 文件名：client.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket               <span class="comment"># 导入 socket 模块</span></span><br><span class="line"></span><br><span class="line">s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)         <span class="comment"># 创建 socket 对象</span></span><br><span class="line">host = socket.gethostname() <span class="comment"># 获取本地主机名</span></span><br><span class="line">port = <span class="number">12345</span>                <span class="comment"># 设置端口号</span></span><br><span class="line"></span><br><span class="line">s.connect((host, port))  <span class="comment"># 连接服务，指定主机和端口</span></span><br><span class="line"></span><br><span class="line">msg = s.recv(<span class="number">1024</span>)   <span class="comment"># 接收小于 1024 字节的数据</span></span><br><span class="line">s.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> (msg.decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>先执行server端，然后打开client端就能看到结果,再看server端就会显示ip地址</p>
+</blockquote>
+<p><strong>client端：</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-93a13a3eb78805bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><strong>server端：</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-f30e7dd984637d27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="实例二："><a href="#实例二：" class="headerlink" title="实例二："></a>实例二：</h3><h4 id="服务端-1"><a href="#服务端-1" class="headerlink" title="服务端"></a>服务端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 文件名：server.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket               <span class="comment"># 导入 socket 模块</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">phone=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">phone.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,<span class="number">1</span>)</span><br><span class="line">phone.bind((<span class="string">'127.0.0.1'</span>,<span class="number">8000</span>)) <span class="comment">#绑定手机卡</span></span><br><span class="line">phone.listen(<span class="number">5</span>)</span><br><span class="line">print(<span class="string">'---------'</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    conn,addr=phone.accept()  <span class="comment">#等电话</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"电话线路是"</span>,conn)</span><br><span class="line">    print(<span class="string">"客户端的手机号是"</span>,addr)</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:  <span class="comment">#通讯循环</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            msg=conn.recv(<span class="number">1024</span>)  <span class="comment">#收消息</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> msg:<span class="keyword">break</span></span><br><span class="line">            print(<span class="string">'客户端发来的消息是：'</span>,msg.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">            conn.send(msg.upper())<span class="comment">#发消息</span></span><br><span class="line">        <span class="keyword">except</span> Exception:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    conn.close()</span><br><span class="line">phone.close()</span><br></pre></td></tr></table></figure>
+<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment"># 文件名：client.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket               <span class="comment"># 导入 socket 模块</span></span><br><span class="line"></span><br><span class="line">phone=socket.socket(socket.AF_INET,socket.SOCK_STREAM)</span><br><span class="line">phone.connect((<span class="string">'127.0.0.1'</span>,<span class="number">8000</span>))</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    msg=input(<span class="string">"&gt;&gt;&gt;:"</span>).strip()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> msg: <span class="keyword">continue</span></span><br><span class="line">    phone.send(msg.encode(<span class="string">'utf-8'</span>))  <span class="comment">#发送给服务端的消息</span></span><br><span class="line">    data=phone.recv(<span class="number">1024</span>)</span><br><span class="line">    print(<span class="string">'收到服务端发来的消息'</span>,data.decode(<span class="string">'utf-8'</span>))</span><br><span class="line">phone.close()</span><br></pre></td></tr></table></figure>
+<p>先开启服务端，再开启客户端，发送信息</p>
+<p>客户端信息：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-0b955975364d5f45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>服务端信息：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-d816c979a65f35ed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>参考文档：<br><a href="https://www.cnblogs.com/jcchoiling/p/5929640.html" target="_blank" rel="noopener">https://www.cnblogs.com/jcchoiling/p/5929640.html</a><br><a href="https://www.cnblogs.com/baomanji/p/6802731.html" target="_blank" rel="noopener">https://www.cnblogs.com/baomanji/p/6802731.html</a><br><a href="https://www.cnblogs.com/zhangyux/p/6109284.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhangyux/p/6109284.html</a><br><a href="https://www.imooc.com/article/17052" target="_blank" rel="noopener">https://www.imooc.com/article/17052</a></p>
+
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/05/pyweb/">初识python网络编程</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
+  <p><span>发布时间:</span>2018年10月05日 - 17:10</p>
+  <p><span>最后更新:</span>2018年10月05日 - 17:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/05/pyweb/" title="初识python网络编程">http://yoursite.com/2018/10/05/pyweb/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/05/pyweb/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/03/phpshell/" rel="next" title="php编写不使用字母下划线的shell">
+                <i class="fa fa-chevron-left"></i> php编写不使用字母下划线的shell
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/05/ichunqiu/" rel="prev" title="i春秋writeup">
+                i春秋writeup <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=RA-5ba8b3dc680529ed" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuxianglai.top/" title="Smiles" target="_blank">Smiles</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zbojia.com/" title="R1ka" target="_blank">R1ka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sunraycanter.top/" title="UnKnown" target="_blank">UnKnown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shaobaobaoer.cn/" title="shaobaobao" target="_blank">shaobaobao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuraraneko.github.io/" title="n3k0" target="_blank">n3k0</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.virtua1.cn/" title="virtua1" target="_blank">virtua1</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-了解TCP-IP协议"><span class="nav-number">1.</span> <span class="nav-text">1.了解TCP/IP协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用层"><span class="nav-number">1.0.1.</span> <span class="nav-text">应用层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运输层"><span class="nav-number">1.0.2.</span> <span class="nav-text">运输层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络层"><span class="nav-number">1.0.3.</span> <span class="nav-text">网络层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络接口层"><span class="nav-number">1.0.4.</span> <span class="nav-text">网络接口层</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-OSI七层架构"><span class="nav-number">2.</span> <span class="nav-text">2.OSI七层架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-TCP的三段握手和四次断开"><span class="nav-number">3.</span> <span class="nav-text">3.TCP的三段握手和四次断开</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP三次握手"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">TCP三次握手</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP四次断开"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">TCP四次断开</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-socket"><span class="nav-number">4.</span> <span class="nav-text">4.socket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TCP编程"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">TCP编程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socket中TCP的三次握手建立连接详解"><span class="nav-number">4.1.</span> <span class="nav-text">socket中TCP的三次握手建立连接详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socket中TCP的四次握手释放（断开）连接详解"><span class="nav-number">4.2.</span> <span class="nav-text">socket中TCP的四次握手释放（断开）连接详解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Python3-网络编程"><span class="nav-number">5.</span> <span class="nav-text">5. Python3 网络编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是-Socket"><span class="nav-number">5.1.</span> <span class="nav-text">什么是 Socket?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket-对象-内建-方法"><span class="nav-number">5.2.</span> <span class="nav-text">Socket 对象(内建)方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单实例"><span class="nav-number">5.2.1.</span> <span class="nav-text">简单实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端"><span class="nav-number">5.2.1.1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端"><span class="nav-number">5.2.1.2.</span> <span class="nav-text">客户端</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例二："><span class="nav-number">5.2.2.</span> <span class="nav-text">实例二：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务端-1"><span class="nav-number">5.2.2.1.</span> <span class="nav-text">服务端</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#客户端-1"><span class="nav-number">5.2.2.2.</span> <span class="nav-text">客户端</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
