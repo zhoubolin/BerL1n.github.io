@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="phpmysql宽字节注入">
+<meta property="og:url" content="http://yoursite.com/2018/10/17/sizeof/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-13dcb30a52cc1799.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-56fe904b3450cef4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-cc5ee455778f5075.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-f59156b3b123c9d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-17T13:45:49.467Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="phpmysql宽字节注入">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-13dcb30a52cc1799.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/17/sizeof/"/>
+
+
+
+
+
+
+  <title>phpmysql宽字节注入 | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">今天很残酷，明天更残酷，但后天会很美好！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/sizeof/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">phpmysql宽字节注入</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T21:41:46+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-13dcb30a52cc1799.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg"><br><a id="more"></a><br>在PHPMySql语句中存在着宽字节注入漏洞，MySQL宽字节注入漏洞是SQL注入漏洞攻防技术相互促进的一个典型例子。<br>了解宽字节注入之前先了解一下PHP中经典SQL注入漏洞</p>
+<h3 id="1-经典SQL注入漏洞"><a href="#1-经典SQL注入漏洞" class="headerlink" title="1.经典SQL注入漏洞"></a>1.经典SQL注入漏洞</h3><p>例子1是没有任何SQL注入防护措施的PHP程序，它存在SQL注入漏洞。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  $name=$_GET[<span class="string">'name'</span>];</span><br><span class="line">  $conn=mysql_connect(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">'root'</span>);</span><br><span class="line">  <span class="keyword">if</span>($conn==<span class="keyword">null</span>)&#123;<span class="keyword">exit</span>(<span class="string">"connect error !&lt;br&gt;"</span>);&#125;</span><br><span class="line">  mysql_select_db(<span class="string">"aaa"</span>,$conn);</span><br><span class="line">  $sql=<span class="string">"select * from a1 where name='"</span>.$name.<span class="string">"'"</span>;</span><br><span class="line">  $result=mysql_query($sql,$conn);</span><br><span class="line">  <span class="keyword">while</span>($val=mysql_fetch_row($result))&#123;</span><br><span class="line">      print_r($val);</span><br><span class="line">      <span class="keyword">print</span>(<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>对该PHP程序的SQL注入POC包括：<br>（1）          <a href="http://127.0.0.1/test/t1.php?name=a&#39;or" target="_blank" rel="noopener">http://127.0.0.1/test/t1.php?name=a&#39;or</a> ‘a’=’a<br>（2）          <a href="http://127.0.0.1/test/t1.php?name=a&#39;or" target="_blank" rel="noopener">http://127.0.0.1/test/t1.php?name=a&#39;or</a> 1=1 – %20<br>（3）          <a href="http://127.0.0.1/test/t1.php?name=a&#39;or" target="_blank" rel="noopener">http://127.0.0.1/test/t1.php?name=a&#39;or</a> 1=1 – %23</p>
+</blockquote>
+<p>其中，%20对应空格，%23对应#的URL编码，该POC在PHP5.4.45+Apache测试成功。</p>
+<h3 id="2-安全过滤"><a href="#2-安全过滤" class="headerlink" title="2 安全过滤"></a>2 安全过滤</h3><p>首先，宽字节注入与HTML页面编码是无关的，笔者曾经看到<br><code>&lt;meta charset=utf8&gt;</code><br>就放弃了尝试，这是一个误区，SQL注入不是XSS。虽然他们中编码的成因相似，不过发生的地点不同。</p>
+<h4 id="字符、字符集与字符序"><a href="#字符、字符集与字符序" class="headerlink" title="字符、字符集与字符序"></a>字符、字符集与字符序</h4><p>字符(character)是组成字符集(character set)的基本单位。对字符赋予一个数值(encoding)来确定这个字符在该字符集中的位置。</p>
+<p>字符序(collation)指同一字符集内字符间的比较规则。</p>
+<h4 id="UTF8"><a href="#UTF8" class="headerlink" title="UTF8"></a>UTF8</h4><p>由于ASCII表示的字符只有128个，因此网络世界的规范是使用UNICODE编码，但是用ASCII表示的字符使用UNICODE并不高效。因此出现了中间格式字符集，被称为通用转换格式，及UTF(Universal Transformation Format)。</p>
+<h4 id="宽字节"><a href="#宽字节" class="headerlink" title="宽字节"></a>宽字节</h4><p>GB2312、GBK、GB18030、BIG5、Shift_JIS等这些都是常说的宽字节，实际上只有两字节。宽字节带来的安全问题主要是吃ASCII字符(一字节)的现象。</p>
+<p>如果对例子1中的PHP程序中的$name变量进行安全过滤，如使用转义函数<code>addslashes</code>，<code>mysql_real_escape_string</code>，<code>mysql_escape_string</code>，则对应的POC全部失效了。</p>
+<p>还有一种情况是magic_quote_gpc，php中的magic_quotes_gpc是配置在php.ini中的，他的作用类似addslashes()，就是对输入的字符创中的字符进行转义处理。他可以对<code>_POST</code>、<code>$__GET</code>以及进行数据库操作的sql进行转义处理，防止sql注入。不过高版本的PHP将去除这个特性。</p>
+<p><strong>转义函数影响的字符包括：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">（1）          ASCII（NULL）字符\x00，</span><br><span class="line"></span><br><span class="line">（2）          换行字符\n，addslashes不转义</span><br><span class="line"></span><br><span class="line">（3）          回车字符\r，addslashes不转义</span><br><span class="line"></span><br><span class="line">（4）          反斜杠字符\，</span><br><span class="line"></span><br><span class="line">（5）          单引号字符‘，</span><br><span class="line"></span><br><span class="line">（6）          双引号字符“，</span><br><span class="line"></span><br><span class="line">（7）          \x1a，addslashes不转义</span><br></pre></td></tr></table></figure></p>
+<p>对于例子1进行安全增强后，得到例子2，如下所示。</p>
+<p>注意：三个转义函数的功能稍有区别，同时，转义只对字符型SQL注入防范有效，对于数值型SQL注入无效。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$name=$_GET[<span class="string">'name'</span>];</span><br><span class="line"><span class="comment">//$name=addslashes($name);</span></span><br><span class="line"><span class="comment">//$name=mysql_escape_string($name);</span></span><br><span class="line">$conn=mysql_connect(<span class="string">'localhost'</span>,<span class="string">'root'</span>,<span class="string">'root'</span>);</span><br><span class="line">$name=mysql_real_escape_string($name);</span><br><span class="line"><span class="keyword">if</span>($conn==<span class="keyword">null</span>)&#123;<span class="keyword">exit</span>(<span class="string">"connect error !&lt;br&gt;"</span>);&#125;</span><br><span class="line">mysql_select_db(<span class="string">"aaa"</span>,$conn);</span><br><span class="line">$sql=<span class="string">"select * from a1 where name='"</span>.$name.<span class="string">"'"</span>;</span><br><span class="line">$result=mysql_query($sql,$conn);</span><br><span class="line"><span class="keyword">while</span>($val=mysql_fetch_row($result))&#123;</span><br><span class="line">    print_r($val);</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-宽字节注入漏洞原理"><a href="#3-宽字节注入漏洞原理" class="headerlink" title="3 宽字节注入漏洞原理"></a>3 宽字节注入漏洞原理</h3><h4 id="前要-字符编码问题"><a href="#前要-字符编码问题" class="headerlink" title="前要  字符编码问题"></a>前要  字符编码问题</h4><p>通常来说，一个gbk编码汉字，占用2个字节。一个utf-8编码的汉字，占用3个字节。在php中，我们可以通过输出</p>
+<blockquote>
+<p>echo strlen(“和”);</p>
+</blockquote>
+<p>来测试。当将页面编码保存为gbk时输出2，utf-8时输出3。 除了gbk以外，所有ANSI编码都是2个字节。ansi只是一个标准，在不同的电脑上它代表的编码可能不相同，比如简体中文系统中ANSI就代表是GBK。</p>
+<h4 id="3-1概述"><a href="#3-1概述" class="headerlink" title="3.1概述"></a>3.1概述</h4><p>首先我们了解下宽字节注入，宽字节注入主要是源于程序员设置数据库编码与PHP编码设置为不同的两个编码那么就有可能产生宽字节注入</p>
+<p>宽字符是指两个字节宽度的编码技术，如UNICODE、GBK、BIG5等。当MYSQL数据库数据在处理和存储过程中，涉及到的字符集相关信息包括：</p>
+<blockquote>
+<ul>
+<li>（1）          character_set_client:客户端发送过来的SQL语句编码，也就是PHP发送的SQL查询语句编码字符集。</li>
+<li>（2）          character_set_connection:MySQL服务器接收客户端SQL查询语句后，在实施真正查询之前SQL查询语句编码字符集。</li>
+<li>（3）          character_set_database:数据库缺省编码字符集。</li>
+<li>（4）          character_set_filesystem:文件系统编码字符集。</li>
+<li>（5）          character_set_results:SQL语句执行结果编码字符集。</li>
+<li>（6）          character_set_server:服务器缺省编码字符集。</li>
+<li>（7）          character_set_system:系统缺省编码字符集。</li>
+<li>（8）       character_sets_dir:字符集存放目录，一般不要修改。</li>
+</ul>
+</blockquote>
+<p>宽字节对转义字符的影响发生在character_set_client=gbk的情况，也就是说，如果客户端发送的数据字符集是gbk，则可能会吃掉转义字符\，从而导致转义消毒失败。</p>
+<p>例如说PHP的编码为 UTF-8 而 MySql的编码设置为了<br>SET NAMES ‘gbk’ 或是 SET character_set_client =gbk，这样配置会引发编码转换从而导致的注入漏洞。<br>这里要说明一小点的是：<br>SET NAMES ‘x’语句与这三个语句等价：<br>mysql&gt;SET character_set_client =x;<br>mysql&gt;SET character_set_results =x;<br>mysql&gt;SET character_set_connection =x;<br>也就是说你设置了 SET NAMES ‘x’ 时就等于同时执行了上面的3条语句</p>
+<p>而我认为的宽字节注入就是PHP发送请求到MySql时使用了语句<br>SET NAMES ‘gbk’ 或是 SET character_set_client =gbk 进行了一次编码，但是又由于一些不经意的字符集转换导致了宽字节注入</p>
+<p><strong>3.11</strong><br>在我们正常情况下使用 addslashes函数或是开启PHP的GPC（注：在php5.4已上已给删除，并且需要说明特别说明一点，GPC无法过滤$_SERVER提交的参数）时过滤 GET、POST、COOKIE、REQUSET 提交的参数时，黑客们使用的预定义字符会给转义成添加反斜杠的字符串如下面的例子<br>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">单引号（&apos;） = （\ &apos;）</span><br><span class="line">双引号（&quot;） = （\ &quot;）</span><br><span class="line">反斜杠（\） = （\ \）</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.12</strong><br>假如这个网站有宽字节注入那么我们提交：<a href="https://link.jianshu.com?t=http://127.0.0.1/unicodeSqlTest?id=%df%27" target="_blank" rel="noopener">http://127.0.0.1/unicodeSqlTest?id=%df%27</a><br>这时,假如我们现在使用的是addslashes来过滤,那么就会发生如下的转换过程<br>例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%df%<span class="number">27</span>===(addslashes)===&gt;%df%<span class="number">5</span>c%<span class="number">27</span>===(数据库GBK)===&gt;運<span class="string">'</span></span><br></pre></td></tr></table></figure></p>
+<p>这里可能有一些人没看懂，我可以粗略的解释一下。</p>
+<p>前端输入<strong><code>%df%27</code></strong>时首先经过上面<strong><code>addslashes</code></strong>函数转义变成了<strong><code>%df%5c%27</code></strong>（%5c是反斜杠\），之后在数据库查询前因为设置了GBK编码，即是在汉字编码范围内两个字节都会给重新编码为一个汉字。然后MySQL服务器就会对查询语句进行GBK编码即是<strong><code>%df%5c</code></strong>转换成了汉字”運”，而单引号就逃逸了出来，从而造成了注入漏洞。</p>
+<p>例如：</p>
+<blockquote>
+<p><a href="http://www.xxx.com/login.php?user=%df’" target="_blank" rel="noopener">http://www.xxx.com/login.php?user=%df’</a> or 1=1 limit 1,1%23&amp;pass=</p>
+</blockquote>
+<p>其对应的sql就是：</p>
+<blockquote>
+<p>select * fromcms_user where username = ‘運’ or 1=1 limit 1,1#’ and password=”</p>
+</blockquote>
+<p><strong>注明：</strong></p>
+<p>GBK编码，它的编码范围是<code>0×8140~0xFEFE</code>(不包括xx7F)，在遇到<code>%df</code>(ascii(223)) &gt;ascii(128)时自动拼接<code>%5c</code>，因此吃掉‘\’，而%27、%20小于ascii(128)的字符就保留了。</p>
+<p>补充：<br>GB2312是被GBK兼容的，它的高位范围是<code>0xA1~0xF7</code>，低位范围是<code>0xA1~0xFE</code>(<code>0x5C</code>不在该范围内)，因此不能使用编码吃掉<code>%5c</code>。<br>其它的宽字符集也是一样的分析过程，要吃掉<code>%5c</code>，只需要低位中包含正常的<code>0x5c</code>就行了。</p>
+<p><strong>3.13</strong>例子<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">"Content-Type:text/html;charset=gbk"</span>); <span class="comment">//为了显示，将页面默认为gbk</span></span><br><span class="line">$name=$_GET[<span class="string">'name'</span>];</span><br><span class="line">$name=addslashes($name);</span><br><span class="line">$conn = mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>);  </span><br><span class="line">mysqli_select_db($conn,<span class="string">'mysql'</span>);</span><br><span class="line">mysqli_query($conn,<span class="string">"SET NAMES 'gbk'"</span>);</span><br><span class="line"><span class="keyword">if</span>($conn==<span class="keyword">null</span>)&#123;<span class="keyword">exit</span>(<span class="string">"connect error !&lt;br&gt;"</span>);&#125;</span><br><span class="line">$sql=<span class="string">"select * from user where user='"</span>.$name.<span class="string">"'"</span>;</span><br><span class="line">$result=mysqli_query($conn,$sql);</span><br><span class="line"><span class="keyword">echo</span> $sql;</span><br><span class="line"><span class="keyword">while</span>($val=mysqli_fetch_row($result))&#123;</span><br><span class="line">    var_dump($val);</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这是一个带有宽字节注入的漏洞<br>这个PHP程序的SQL注入POC为：</p>
+<p><code>http://127.0.0.1/test/t3.php?name=%df&#39; or 1=1 %20%23</code><br>对应的sql<br><code>select * from a1 where name=&#39;運&#39; or 1=1 #</code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-56fe904b3450cef4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>其原理是<code>mysql_query(&quot;SETNAMES &#39;gbk&#39;&quot;,$conn)</code>语句将编码字符集修改为gbk，此时，<code>%df\&#39;</code>对应的编码就是<code>%df%5c’</code>，即汉字“運’”，这样单引号之前的转义符号“\”就被吃调了，从而转义消毒失败。<br>像编码对应汉字的也有其他可以构造的，比如<br><code>0xD50×5C</code> 对应了汉字“诚”，URL编码用百分号加字符的16进制编码表示字符，于是 <code>%d5%5c</code> 经URL解码后为“诚”。<br><strong>举一个注入详细的过程：</strong><br>例如：访问 <code>http://www.2cto.com /test.php?username=test%d5′%20or%201=1%23&amp;pwd=test</code></p>
+<p><strong>经过<a href="https://www.2cto.com/os/liulanqi/" target="_blank" rel="noopener">浏览器</a>编码</strong>，username参数值为(单引号的编码0×27)<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=test%d5%<span class="number">27</span>%<span class="number">20</span><span class="keyword">or</span>%<span class="number">201</span>=<span class="number">1</span>%<span class="number">23</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>经过php的url解码</strong></p>
+<p><code>username=test 0xd5 0×27 0×20 or 0×20 1=1 0×23</code> (为了便于<a href="http://book.2cto.com/" target="_blank" rel="noopener">阅读</a>，在字符串与16进制编码之间加了空格)</p>
+<p><strong>经过<a href="https://www.2cto.com/kf/web/php/" target="_blank" rel="noopener">PHP</a>的GPC自动转义变成(单引号0×27被转义成\’对应的编码0×5c0×27)：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=test 0xd5 0×5c 0×27 0×20 or 0×20 1=1 0×23</span><br></pre></td></tr></table></figure></p>
+<p>因为在<a href="https://www.2cto.com/database/" target="_blank" rel="noopener">数据库</a>初始化连接的时候SET NAMES ‘gbk’，<code>0xd50×5c</code>解码后为诚，<code>0×27</code>解码为’，<code>0×20</code>为空格，<code>0×23</code>为<a href="https://www.2cto.com/database/MySQL/" target="_blank" rel="noopener">mysql</a>的注释符#</p>
+<p><strong>上面的SQL语句最终为：</strong> </p>
+<p><code>SELECT * FROM user WHERE username=’test诚’ or 1=1#’ and password=’test’;</code></p>
+<p>注释符#后面的字符串已经无效，等价于<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM user WHERE username=’test诚’ <span class="keyword">or</span> <span class="number">1</span>=<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
+<p>条件变成永真，成功注入。<br><strong>补充：</strong><br>0xD50×5C不是唯一可以绕过单引号转义的字符，0×81-0xFE开头+0×5C的字符应该都可以；<br>根据utf8的编码范围，无此问题；<br><strong>3.14</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line">header(<span class="string">"Content-Type:text/html;charset=gbk"</span>); <span class="comment">//为了显示，将页面默认为gbk</span></span><br><span class="line">error_reporting(<span class="number">0</span>);  </span><br><span class="line">$conn = mysql_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>);  </span><br><span class="line">mysql_select_db(<span class="string">'mysql'</span>,$conn);  </span><br><span class="line">mysql_query(<span class="string">"set names gbk"</span>);  <span class="comment">//不安全的编码设置方式  </span></span><br><span class="line">$res = mysql_query(<span class="string">"show variables like 'character%';"</span>); <span class="comment">//显示当前数据库设置的各项字符集  </span></span><br><span class="line"><span class="keyword">while</span>($row = mysql_fetch_array($res))&#123;  </span><br><span class="line">var_dump($row);  </span><br><span class="line">&#125;  </span><br><span class="line">$user = addslashes($_GET[<span class="string">'sql'</span>]); <span class="comment">//mysql_real_escape_string() magic_quote_gpc=On addslashes() mysql_escape_string()功能类似  </span></span><br><span class="line">$sql = <span class="string">"SELECT host,user FROM user WHERE user='&#123;$user&#125;'"</span>;  </span><br><span class="line"><span class="keyword">echo</span> $sql.<span class="string">'&lt;/br&gt;'</span>;  </span><br><span class="line"><span class="keyword">if</span>($res = mysql_query($sql))&#123;  </span><br><span class="line"><span class="keyword">while</span>($row = mysql_fetch_array($res))&#123;  </span><br><span class="line">var_dump($row);  </span><br><span class="line">&#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">else</span>&#123;  </span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Error"</span>.mysql_error().<span class="string">"&lt;br/&gt;"</span>;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-cc5ee455778f5075.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><strong>解析：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$_GET[‘sql’] 经过 addslashes编码之后带入了‘\’</span><br><span class="line"><span class="number">1</span>、%df%<span class="number">5</span>C%<span class="number">27</span> <span class="keyword">or</span> <span class="number">1</span>=<span class="number">1</span>%<span class="number">23</span></span><br><span class="line"><span class="number">2</span>、带入mysql处理时使用了gbk字符集</span><br><span class="line">%df%<span class="number">5</span>c -&gt; 運 成功的吃掉了%<span class="number">5</span>c</span><br><span class="line">%<span class="number">27</span> -&gt; ‘ 单引号成功闭合</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-宽字节注入漏洞深入补充"><a href="#4-宽字节注入漏洞深入补充" class="headerlink" title="4. 宽字节注入漏洞深入补充"></a>4. 宽字节注入漏洞深入补充</h3><p>从宽字节注入漏洞原理可以看出，宽字节注入的关键点有两个：</p>
+<p>（1）          设置宽字节字符集；</p>
+<p>（2）          设置的宽字符集可能吃掉转义符号“\”（对应的编码为0x5c，即低位中包含正常的0x5c就行了）。</p>
+<p>理论上，符合第二条的字符集都可能导致宽字节注入漏洞，这里以gbk字符集为典型，介绍宽字符注入漏洞典型案例。</p>
+<p>宽字节注入漏洞的另一个关键是设置了character_set_client为宽字节字符集，这里有很多中设置的方式，主要包括隐式设置和显式设置。</p>
+<p>隐含方式设置是指上面讲过的charcter_set_client缺省字符集就是宽字节字符集。</p>
+<p>显式设置是指在PHP程序中调用相应的设置函数来实现字符集的设置或直接对字符串进行编码转换，设置的函数包括：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>) mysql_query，如mysql_query(<span class="string">"SET NAMES 'gbk'"</span>, $conn)、mysql_query(<span class="string">"setcharacter_set_client = gbk"</span>, $conn)。</span><br><span class="line"></span><br><span class="line">(<span class="number">2</span>) mysql_set_charset，如mysql_set_charset(<span class="string">"gbk"</span>,$conn)。</span><br><span class="line"></span><br><span class="line">(<span class="number">3</span>) mb_convert_encoding，如mb_convert_encoding($sql,<span class="string">"utf8"</span>,<span class="string">"gbk"</span>)，将SQL语句从gbk格式转换为utf8格式时，<span class="number">0x5c</span>被吃掉了。</span><br><span class="line"></span><br><span class="line">(<span class="number">4</span>) iconv，如iconv(<span class="string">'GBK'</span>, <span class="string">'UTF-8'</span>,$sql)，原理同上。</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.1</strong><br>由上文可得宽字节注入是由于转编码而形成的，那具有转编码功能的函数也成了漏洞的成因。</p>
+<p><strong>转码函数</strong></p>
+<blockquote>
+<p>mb_convert_encoding()<br>iconv()</p>
+</blockquote>
+<p>以下用iconv()来演示，修改上面的代码：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line">header(<span class="string">"Content-Type:text/html;charset=gbk"</span>); <span class="comment">//为了显示，将页面默认为gbk </span></span><br><span class="line">error_reporting(<span class="number">0</span>);  </span><br><span class="line">$conn = mysql_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>);  </span><br><span class="line">mysql_select_db(<span class="string">'mysql'</span>,$conn);  </span><br><span class="line">mysql_set_charset(<span class="string">"utf8"</span>); <span class="comment">//推荐的安全编码  </span></span><br><span class="line">$user = mysql_real_escape_string(($_GET[<span class="string">'sql'</span>])); <span class="comment">//推荐的过滤函数  </span></span><br><span class="line">$user = iconv(<span class="string">'GBK'</span>, <span class="string">'UTF-8'</span>,$user);  </span><br><span class="line">$sql = <span class="string">"SELECT host,userFROM user WHERE user='&#123;$user&#125;'"</span>;  </span><br><span class="line"><span class="keyword">echo</span> $sql.<span class="string">'&lt;/br&gt;'</span>;  </span><br><span class="line">$res = mysql_query($sql);  </span><br><span class="line"><span class="keyword">while</span>($row = mysql_fetch_array($res))&#123;  </span><br><span class="line">var_dump($row);  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-f59156b3b123c9d2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>同样可以执行成功，编码解析的过程依然如上。</p>
+<h2 id="总结一下漏洞成因："><a href="#总结一下漏洞成因：" class="headerlink" title="总结一下漏洞成因："></a>总结一下漏洞成因：</h2><p><strong>代码3.14</strong></p>
+<p>1、使用了不安全的字符集设置函数与过滤函数。</p>
+<p>2、漏洞发生在PHP请求mysql时使用character_set_client值进行一次转码。</p>
+<p><strong>代码4.1</strong><br>1、使用了推荐的设置函数与过滤函数。</p>
+<p>2、解析错误发生在iconv()函数转码时，GBK转向UTF8吃掉了“\”</p>
+<p>3、PHP请求mysql时转码安全。</p>
+<p>另外：</p>
+<p>当改变编码方向时<code>$user = iconv(‘UTF-8′, ’gbk’,$user);</code></p>
+<p>通过访问<code>http://localhost/xl.php?sql=root%e9%8c%a6</code>可以带入一个\，进而注释掉单引号。</p>
+<p>这种情况下需要两个参数来配合注入。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost/xl.php?sql=root%e9%8c%a6¶=%20or%201=1%23</span><br></pre></td></tr></table></figure></p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p><strong>1.</strong>宽字节注入跟HTML页面编码无关。</p>
+<p><strong>2</strong> Mysql编码与过滤函数推荐使用<code>mysql_real_escape_string()</code>，<code>mysql_set_charset()</code>。</p>
+<p>上文中代码使用了<code>mysql_query(“set names gbk”)</code>来设置编码，其实在mysql中是推荐<code>mysql_set_charset(“gbk”);</code>函数来进行编码设置的，这两个函数大致的功能相似，唯一不同之处是后者会修改mysql对象中的mysql-&gt;charset属性为设置的字符集。<br>同时配套的过滤函数为<code>mysql_real_escape_string()</code>。上面代码中列出了几个过滤的函数，他们之间的区别就是<code>mysql_real_escape_string()</code>会根据mysql对象中的mysql-&gt;charset属性来对待传入的字符串，因此可以根据当前字符集来进行过滤。</p>
+<p><strong>3.</strong>转编码函数同样会引起宽字节注入，即使使用了安全的设置函数。</p>
+<p>参考：<br><a href="http://netsecurity.51cto.com/art/201404/435074.htm" target="_blank" rel="noopener">http://netsecurity.51cto.com/art/201404/435074.htm</a><br><a href="https://blog.csdn.net/helloweb2014/article/details/60757497" target="_blank" rel="noopener">https://blog.csdn.net/helloweb2014/article/details/60757497</a><br><a href="https://www.2cto.com/article/201209/153283.html" target="_blank" rel="noopener">https://www.2cto.com/article/201209/153283.html</a></p>
+
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/17/sizeof/">phpmysql宽字节注入</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
+  <p><span>发布时间:</span>2018年10月17日 - 21:10</p>
+  <p><span>最后更新:</span>2018年10月17日 - 21:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/17/sizeof/" title="phpmysql宽字节注入">http://yoursite.com/2018/10/17/sizeof/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/17/sizeof/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/05/ichunqiu/" rel="next" title="i春秋writeup">
+                <i class="fa fa-chevron-left"></i> i春秋writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=RA-5ba8b3dc680529ed" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuxianglai.top/" title="Smiles" target="_blank">Smiles</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zbojia.com/" title="R1ka" target="_blank">R1ka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sunraycanter.top/" title="UnKnown" target="_blank">UnKnown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shaobaobaoer.cn/" title="shaobaobao" target="_blank">shaobaobao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuraraneko.github.io/" title="n3k0" target="_blank">n3k0</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.virtua1.cn/" title="virtua1" target="_blank">virtua1</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-经典SQL注入漏洞"><span class="nav-number">1.</span> <span class="nav-text">1.经典SQL注入漏洞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安全过滤"><span class="nav-number">2.</span> <span class="nav-text">2 安全过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符、字符集与字符序"><span class="nav-number">2.1.</span> <span class="nav-text">字符、字符集与字符序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#UTF8"><span class="nav-number">2.2.</span> <span class="nav-text">UTF8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#宽字节"><span class="nav-number">2.3.</span> <span class="nav-text">宽字节</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-宽字节注入漏洞原理"><span class="nav-number">3.</span> <span class="nav-text">3 宽字节注入漏洞原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#前要-字符编码问题"><span class="nav-number">3.1.</span> <span class="nav-text">前要  字符编码问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1概述"><span class="nav-number">3.2.</span> <span class="nav-text">3.1概述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-宽字节注入漏洞深入补充"><span class="nav-number">4.</span> <span class="nav-text">4. 宽字节注入漏洞深入补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结一下漏洞成因："><span class="nav-number"></span> <span class="nav-text">总结一下漏洞成因：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#总结："><span class="nav-number">0.1.</span> <span class="nav-text">总结：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
