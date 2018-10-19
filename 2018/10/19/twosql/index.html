@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql二次注入">
+<meta property="og:url" content="http://yoursite.com/2018/10/19/twosql/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-130b657b9909b54d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-147b858b69888d1e.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-60272721a06bd4de?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-2ffcda92e5e5ba11?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-6f3d2effb9d400d0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-771c8b2f5995443f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-03793602d2ae2773.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-7fb47d94ad2e0c2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-54186678b60a798c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-19T13:15:57.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sql二次注入">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-130b657b9909b54d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/19/twosql/"/>
+
+
+
+
+
+
+  <title>sql二次注入 | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">今天很残酷，明天更残酷，但后天会很美好！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/twosql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sql二次注入</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T21:14:03+08:00">
+                2018-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-130b657b9909b54d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
+<p><strong>二次注入漏洞是一种在Web应用程序中广泛存在的安全漏洞形式。相对于一次注入漏洞而言，二次注入漏洞更难以被发现，但是它却具有与一次注入攻击漏洞相同的攻击威力。</strong></p>
+<h2 id="什么是二次注入？"><a href="#什么是二次注入？" class="headerlink" title="什么是二次注入？"></a>什么是二次注入？</h2><p>简单的说，二次注入是指已存储（数据库、文件）的用户输入被读取后再次进入到 SQL 查询语句中导致的注入。<br>网站对我们输入的一些重要的关键字进行了转义，但是这些我们构造的语句已经写进了数据库，可以在没有被转义的地方使用<br>可能每一次注入都不构成漏洞，但是如果一起用就可能造成注入。</p>
+<p><strong>普通注入与二次注入：</strong></p>
+<pre><code>普通注入  （1）在http后面构造语句，是立即直接生效的
+
+                （2）一次注入很容易被扫描工具扫描到
+
+
+
+二次注入   （1） 先构造语句（有被转义字符的语句）
+
+                （2）我们构造的恶意语句存入数据库
+
+                （3）第二次构造语句（结合前面已经存入数据库的语句，成功。因为系统没有对已经存入数据库的数据做检查）
+
+                （4）二次注入更加难以被发现
+</code></pre><h2 id="二次注入的原理："><a href="#二次注入的原理：" class="headerlink" title="二次注入的原理："></a>二次注入的原理：</h2><p>二次注入的原理，在第一次进行数据库插入数据的时候，仅仅只是使用了 addslashes 或者是借助 get_magic_quotes_gpc 对其中的特殊字符进行了转义，在写入数据库的时候还是保留了原来的数据，但是数据本身还是脏数据。</p>
+<p>在将数据存入到了数据库中之后，开发者就认为数据是可信的。在下一次进行需要进行查询的时候，直接从数据库中取出了脏数据，没有进行进一步的检验和处理，这样就会造成SQL的二次注入。比如在第一次插入数据的时候，数据中带有单引号，直接插入到了数据库中；然后在下一次使用中在拼凑的过程中，就形成了二次注入。</p>
+<p><a href="http://image.3001.net/images/20180331/15224810526050.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-147b858b69888d1e.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="由“强网杯”的three hit聊聊二次注入"></a></p>
+<p><strong>二次注入原理案列详解：</strong></p>
+<p> 假如有一个网站管理员的用户名为：root    密码为：123456789 ，攻击者注册了一个账号 ： root’–    密码为：123因为账号当中有特殊字符，网站对于特殊字符进行了转义，一次注入在这就行不通了。虽然账号被转义了，但是他在数据库当中任然是以  root’–   的方式被储存的。现在攻击者开始实施正真的攻击了，他开始对账号修改密码。普通网站修改密码的过程为：先判断用户是否存在——》确认用户以前的密码是否正确——–》获取要修改的密码———》修改密码成功。 在数据库中 – 表示注释的意思，后面的语句不会执行，而root后面的那个单引号又与前面的 ‘  闭合，而原本后面的那个单引号因为是在 –  之后，所以就被注释掉了，所以他修改的其实是   root  的密码。<br>下面就是一个例子<br><strong>实例：</strong><br><strong>sqli-labs24</strong><br>本关为二次排序注入的示范例。二次排序注入也成为存储型的注入，就是将可能导致sql注入的字符先存入到数据库中，当再次调用这个恶意构造的字符时，就可以出发sql注入。二次排序注入思路：</p>
+<ol>
+<li><p>黑客通过构造数据的形式，在浏览器或者其他软件中提交HTTP数据报文请求到服务端进行处理，提交的数据报文请求中可能包含了黑客构造的SQL语句或者命令。</p>
+</li>
+<li><p>服务端应用程序会将黑客提交的数据信息进行存储，通常是保存在数据库中，保存的数据信息的主要作用是为应用程序执行其他功能提供原始输入数据并对客户端请求做出响应。</p>
+</li>
+<li><p>黑客向服务端发送第二个与第一次不相同的请求数据信息。</p>
+</li>
+<li><p>服务端接收到黑客提交的第二个请求信息后，为了处理该请求，服务端会查询数据库中已经存储的数据信息并处理，从而导致黑客在第一次请求中构造的SQL语句或者命令在服务端环境中执行。</p>
+</li>
+<li><p>服务端返回执行的处理结果数据信息，黑客可以通过返回的结果数据信息判断二次注入漏洞利用是否成功。</p>
+</li>
+</ol>
+<p>此例子中我们的步骤是注册一个admin’#的账号，接下来登录该帐号后进行修改密码。此时修改的就是admin的密码。</p>
+<p>Sql语句变为UPDATE users SET passwd=”New_Pass” WHERE username =’ admin’ # ‘ AND password=’ ，也就是执行了UPDATE users SET passwd=”New_Pass” WHERE username =’ admin’<br>1.注册admin’#账号</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-60272721a06bd4de?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>2.注意此时的数据库中出现了admin’#的用户，同时admin的密码为admin</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-2ffcda92e5e5ba11?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>3.登录admin’#，并修改密码</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-6f3d2effb9d400d0?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>4.这时并没有修改admin’#的密码，而是修改了admin的密码。原理上面已经提过</p>
+<h2 id="简单的二次注入案例"><a href="#简单的二次注入案例" class="headerlink" title="简单的二次注入案例"></a>简单的二次注入案例</h2><p>测试代码1：<br>sql2.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="comment">//include('con_nect.php'); //引入数据库配置文件</span></span><br><span class="line">    $conn = mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>);  </span><br><span class="line">    mysqli_select_db($conn,<span class="string">'berlin'</span>); </span><br><span class="line">    <span class="keyword">if</span> (mysqli_connect_errno($conn)) </span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"连接 MySQL 失败: "</span> . mysqli_connect_error(); </span><br><span class="line">&#125; </span><br><span class="line">    $id=$_GET[<span class="string">'id'</span>]; </span><br><span class="line">    $select_sql=<span class="string">"SELECT * FROM article WHERE title='$id'"</span>;</span><br><span class="line">    <span class="keyword">echo</span> $select_sql;</span><br><span class="line">    mysqli_query($conn,<span class="string">'set names utf8'</span>);</span><br><span class="line">    $select_sqli_result=mysqli_query($conn,$select_sql);</span><br><span class="line">   <span class="comment">//  $date=mysqli_fetch_assoc($select_sqli_result);</span></span><br><span class="line">    $date=mysqli_fetch_array($select_sqli_result);</span><br><span class="line"></span><br><span class="line"> <span class="meta">?&gt;</span></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line"> &lt;html&gt;</span><br><span class="line">   &lt;head&gt;</span><br><span class="line">     &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">     &lt;title&gt;<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $date[<span class="string">'title'</span>].<span class="string">"啦啦啦啦啦啦"</span><span class="meta">?&gt;</span>&lt;/title&gt;</span><br><span class="line">   &lt;/head&gt;</span><br><span class="line">   &lt;body&gt;</span><br><span class="line">      &lt;h1&gt;<span class="meta">&lt;?php</span> <span class="keyword">echo</span> $date[<span class="string">'title'</span>] ;<span class="meta">?&gt;</span>&lt;/h1&gt;&lt;br /&gt;</span><br><span class="line">      作者： <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $date[<span class="string">'author'</span>]; <span class="meta">?&gt;</span>&lt;br/&gt;</span><br><span class="line">      时间: <span class="meta">&lt;?php</span> <span class="keyword">echo</span> date(<span class="string">"Y-m-d H:i:s"</span>,$date[<span class="string">'dateline'</span>]);<span class="meta">?&gt;</span> &lt;br /&gt;</span><br><span class="line">      概述: <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $date[<span class="string">'description'</span>];<span class="meta">?&gt;</span>&lt;br /&gt;   </span><br><span class="line">      正文: <span class="meta">&lt;?php</span> <span class="keyword">echo</span> $date[<span class="string">'content'</span>]; <span class="meta">?&gt;</span></span><br><span class="line">   &lt;/body&gt;</span><br><span class="line"> &lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>测试代码2<br>sql22.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">  &lt;!DOCTYPE html&gt;</span><br><span class="line"> &lt;html&gt;</span><br><span class="line">   &lt;head&gt;</span><br><span class="line">     &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">     &lt;title&gt;sql22&lt;/title&gt;</span><br><span class="line">   &lt;/head&gt;</span><br><span class="line">   &lt;body&gt;</span><br><span class="line">      &lt;form action=<span class="string">"sql22.php"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">      主题title: &lt;input type=<span class="string">"text"</span> name=<span class="string">"title"</span>&gt;</span><br><span class="line">      &lt;br/&gt;</span><br><span class="line">     作者author: &lt;input type=<span class="string">"text"</span> name=<span class="string">"author"</span>&gt;</span><br><span class="line">     &lt;br/&gt;</span><br><span class="line">    概述description: &lt;input type=<span class="string">"text"</span> name=<span class="string">"description"</span>&gt;</span><br><span class="line">    &lt;br/&gt;</span><br><span class="line">    正文content: &lt;input type=<span class="string">"text"</span> name=<span class="string">"content"</span>&gt;</span><br><span class="line">     &lt;br/&gt;</span><br><span class="line">      &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">   &lt;/body&gt;</span><br><span class="line"> &lt;/html&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="comment">//include('con_nect.php');</span></span><br><span class="line">   $conn = mysqli_connect(<span class="string">'127.0.0.1'</span>,<span class="string">'root'</span>,<span class="string">''</span>);  </span><br><span class="line">   mysqli_select_db($conn,<span class="string">'berlin'</span>);</span><br><span class="line">   mysqli_query($conn,<span class="string">"set names utf8"</span>); </span><br><span class="line">   $title=addslashes($_POST[<span class="string">'title'</span>]);  <span class="comment">//addslashes 将预定义字符串转义</span></span><br><span class="line">   $author=addslashes($_POST[<span class="string">'author'</span>]);</span><br><span class="line">   $description=addslashes($_POST[<span class="string">'description'</span>]);</span><br><span class="line">   $content=addslashes($_POST[<span class="string">'content'</span>]);</span><br><span class="line">   $dataline=time();</span><br><span class="line">   <span class="keyword">if</span>($title!=<span class="string">''</span>&amp;&amp; $author!=<span class="string">''</span>)</span><br><span class="line">   &#123;$insert=<span class="string">"INSERT INTO article(title,author,description,content,dateline) VALUES('$title','$author','$description','$content','$dataline')"</span>;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (mysqli_query($conn, $insert))</span><br><span class="line">   &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"新记录插入成功"</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"Error: "</span> . $insert . <span class="string">"&lt;br&gt;"</span> . mysqli_error($conn);</span><br><span class="line">         &#125;</span><br><span class="line">       </span><br><span class="line">   <span class="keyword">echo</span> $insert;</span><br><span class="line">   mysqli_query($conn,<span class="string">"set names utf8"</span>); <span class="comment">//设置编码</span></span><br><span class="line">   <span class="keyword">if</span>($result=mysqli_query($conn,$insert))&#123;</span><br><span class="line">     $num=mysqli_affected_rows($conn);</span><br><span class="line">     <span class="keyword">echo</span> $num;&#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">else</span> &#123;<span class="keyword">echo</span> <span class="string">'插入失败'</span>;&#125;</span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>代码1是显示页面，显示各个数据，代码2是添加页面，进行数据添加。<br>首先我们简单分析分析一下这两段代码。<br>测试代码1是一个内容显示页面，通过传入的id在数据库进行查询，然后在页面调用输出，我们可以看到传递的参数id并没有经过过滤，可以成为一个典型的字符串GET注入，但是我们今天要讨论的是二次注入，暂时不考虑这个注入。<br>测试代码2是一个添加页面，通过表单POST的数据执行INSERT语句插入数据，成功后返回数据库影响行数，而且这里的每一个参数都用addslashes函数进行了转义。<br>两段代码结合，我们可以发现一个典型的二次注入点，虽然文章添加页面中过滤的非常严格，但是addslashes有一个特点就是虽然参数在过滤后会添加 “\” 进行转义，但是“\”并不会插入到数据库中，再配合内容显示页面中的查询是通过id查询的，所以我们就可以利用这个构造一个二次注入。<br>在之前先看一下正常显示页面<br><img src="https://upload-images.jianshu.io/upload_images/9113981-771c8b2f5995443f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>然后我们插入一条注入语句</p>
+<p>添加post数据<br>id=0’ union select 1,version(),database(),user(),4’<br>&amp;author=111<br>&amp;content=xxx</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-03793602d2ae2773.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>可看到添加的id为sql注入语句，结果显示添加成功，可以看到图片中的结果是已经被转义，也意味着此语句没有任何作用，但已经被添加到数据库中，且储存在数据库中的值是不含转义字符的也就是原来post提交的数据<br>我们去数据库看一下<br><img src="https://upload-images.jianshu.io/upload_images/9113981-7fb47d94ad2e0c2e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>确实数据库里的并没有转义，说明第一次构造成功了。<br>这时我们再回到显示页面查参数id，因为我们将注入语句通过id参数插入到数据库tilte列中。<br>查询 id=0’ union select 1,version(),database(),user(),4’</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-54186678b60a798c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>数据库用户，名字，版本都出来了</p>
+<p>例子很简单，也很垃圾，意思大概就是这个意思。<br><strong>二次注入防范方法：</strong><br>解决SQL注入最推荐的方法还是预处理+数据绑定。<br>另一个防御的点就是 对输入一视同仁，无论输入来自用户还是存储，在进入到 SQL 查询前都对其进行过滤、转义。<br>对于二次注入这种小众的漏洞，一般没有专门针对的方案，只能从流程上进行优化，例如做代码审查的时候禁止开发用拼接的方式执行sql。<br>总结一下二次注入的精髓就是，第一次构造的语句只是为了第二次构造做的铺垫，第二次才是正真的攻击。</p>
+
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/10/19/twosql/">sql二次注入</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
+  <p><span>发布时间:</span>2018年10月19日 - 21:10</p>
+  <p><span>最后更新:</span>2018年10月19日 - 21:10</p>
+  <p><span>原始链接:</span><a href="/2018/10/19/twosql/" title="sql二次注入">http://yoursite.com/2018/10/19/twosql/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/10/19/twosql/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/18/kuanzijie/" rel="next" title="phpmysql宽字节注入">
+                <i class="fa fa-chevron-left"></i> phpmysql宽字节注入
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=RA-5ba8b3dc680529ed" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuxianglai.top/" title="Smiles" target="_blank">Smiles</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zbojia.com/" title="R1ka" target="_blank">R1ka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sunraycanter.top/" title="UnKnown" target="_blank">UnKnown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shaobaobaoer.cn/" title="shaobaobao" target="_blank">shaobaobao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuraraneko.github.io/" title="n3k0" target="_blank">n3k0</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.virtua1.cn/" title="virtua1" target="_blank">virtua1</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是二次注入？"><span class="nav-number">1.</span> <span class="nav-text">什么是二次注入？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二次注入的原理："><span class="nav-number">2.</span> <span class="nav-text">二次注入的原理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的二次注入案例"><span class="nav-number">3.</span> <span class="nav-text">简单的二次注入案例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
