@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Redis," />
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis基础学习">
+<meta property="og:url" content="http://yoursite.com/2018/11/22/Redis/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-9d413c03f687ba29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-8c08f5af9e4edad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-cd690bd00da4c78a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-d64383e36127bd44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-a16e9748d6f4eab7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-77385cfa0f502caa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-df36260f2908a285.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2aed6efa8f83dee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-684a035b64bf7888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-13f3762db8451c50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-9b5785669d803746.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-60bb1a7e569595e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-e699f95a52937193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-b45f6ebc5b2bb132.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-3f55c45f3a636177.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c644028f61fcf4c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-11-22T12:14:22.879Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis基础学习">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-9d413c03f687ba29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/22/Redis/"/>
+
+
+
+
+
+
+  <title>Redis基础学习 | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">今天很残酷，明天更残酷，但后天会很美好！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Redis基础学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T20:12:21+08:00">
+                2018-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-9d413c03f687ba29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
+<h2 id="redis是什么"><a href="#redis是什么" class="headerlink" title="redis是什么"></a>redis是什么</h2><p><a href="https://www.huaweicloud.com/product/dcs.html" target="_blank" rel="noopener">redis</a>是一种支持Key-Value等多种数据结构的存储系统。可用于缓存、事件发布或订阅、高速队列等场景。该数据库使用ANSI C语言编写，支持网络，提供字符串、哈希、列表、队列、集合结构直接存取，基于内存，可持久化。</p>
+<h2 id="Redis-安装"><a href="#Redis-安装" class="headerlink" title="Redis 安装"></a>Redis 安装</h2><p>Ubuntu 下安装<br>在 Ubuntu 系统安装 Redis 可以使用以下命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$sudo apt-get update</span><br><span class="line">$sudo apt-get install redis-server</span><br></pre></td></tr></table></figure></p>
+<p>启动 Redis<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ redis-server</span><br></pre></td></tr></table></figure></p>
+<p>查看 redis 是否启动？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ redis-cli</span><br></pre></td></tr></table></figure></p>
+<p>以上命令将打开以下终端：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure></p>
+<p>127.0.0.1 是本机 IP ，6379 是 redis 服务端口。现在我们输入 PING 命令。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br></pre></td></tr></table></figure></p>
+<p>以上说明我们已经成功安装了redis。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-8c08f5af9e4edad3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="支持的语言"><a href="#支持的语言" class="headerlink" title="支持的语言"></a>支持的语言</h2><p><img src="https://upload-images.jianshu.io/upload_images/9113981-cd690bd00da4c78a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="redis数据类型"><a href="#redis数据类型" class="headerlink" title="redis数据类型"></a>redis数据类型</h2><p>Redis一共支持五种数据类：string(字符串)、hash(哈希)、list(列表)、set(集合)和zset（sorted set 有序集合）。</p>
+<p><strong>（1）string(字符串)</strong><br>它是redis最基本的数据类型，一个key对应一个value，需要注意是一个键值最大存储512MB。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-d64383e36127bd44.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td>SET key value  设置指定 key 的值</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td>GET key  获取指定 key 的值</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td>GETRANGE keystartend  返回 key 中字符串值的子字符</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td><a href="http://www.runoob.com/redis/strings-getset.html" target="_blank" rel="noopener">GETSET key value</a> 将给定 key 的值设为 value ，并返回 key 的旧值(old value)</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td><a href="http://www.runoob.com/redis/strings-getbit.html" target="_blank" rel="noopener">GETBIT key offset</a> 对 key 所储存的字符串值，获取指定偏移量上的位(bit)</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">6</td>
+<td><a href="http://www.runoob.com/redis/strings-mget.html" target="_blank" rel="noopener">MGET key1 [key2..]</a> 获取所有(一个或多个)给定 key 的值</td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">7</td>
+<td><a href="http://www.runoob.com/redis/strings-mset.html" target="_blank" rel="noopener">MSET key value [key value …]</a>同时设置一个或多个 key-value 对。 </td>
+</tr>
+</tbody>
+</table>
+<p><strong>（2）hash(哈希)</strong><br>redis hash是一个键值对的集合， 是一个string类型的field和value的映射表，适合用于存储对象<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a16e9748d6f4eab7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/hashes-hdel.html" target="_blank" rel="noopener">HDEL key field1 [field2]</a> 删除一个或多个哈希表字段</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td><a href="http://www.runoob.com/redis/hashes-hexists.html" target="_blank" rel="noopener">HEXISTS key field</a> 查看哈希表 key 中，指定的字段是否存在。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/hashes-hget.html" target="_blank" rel="noopener">HGET key field</a> 获取存储在哈希表中指定字段的值。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td><a href="http://www.runoob.com/redis/hashes-hgetall.html" target="_blank" rel="noopener">HGETALL key</a> 获取在哈希表中指定 key 的所有字段和值</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td><a href="http://www.runoob.com/redis/hashes-hincrby.html" target="_blank" rel="noopener">HINCRBY key field increment</a> 为哈希表 key 中的指定字段的整数值加上增量 increment 。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">6</td>
+<td><a href="http://www.runoob.com/redis/hashes-hincrbyfloat.html" target="_blank" rel="noopener">HINCRBYFLOAT key field increment</a> 为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">7</td>
+<td><a href="http://www.runoob.com/redis/hashes-hkeys.html" target="_blank" rel="noopener">HKEYS key</a> 获取所有哈希表中的字段</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">8</td>
+<td><a href="http://www.runoob.com/redis/hashes-hlen.html" target="_blank" rel="noopener">HLEN key</a> 获取哈希表中字段的数量</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">9</td>
+<td><a href="http://www.runoob.com/redis/hashes-hmget.html" target="_blank" rel="noopener">HMGET key field1 [field2]</a> 获取所有给定字段的值</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">10</td>
+<td><a href="http://www.runoob.com/redis/hashes-hmset.html" target="_blank" rel="noopener">HMSET key field1 value1 [field2 value2 ]</a> 同时将多个 field-value (域-值)对设置到哈希表 key 中。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">11</td>
+<td><a href="http://www.runoob.com/redis/hashes-hset.html" target="_blank" rel="noopener">HSET key field value</a> 将哈希表 key 中的字段 field 的值设为 value 。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">12</td>
+<td><a href="http://www.runoob.com/redis/hashes-hsetnx.html" target="_blank" rel="noopener">HSETNX key field value</a> 只有在字段 field 不存在时，设置哈希表字段的值。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">13</td>
+<td><a href="http://www.runoob.com/redis/hashes-hvals.html" target="_blank" rel="noopener">HVALS key</a> 获取哈希表中所有值</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">14</td>
+<td>HSCAN key cursor [MATCH pattern] [COUNT count] 迭代哈希表中的键值对</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>（3）list(列表)</strong><br>是redis简单的字符串列表，它按插入顺序排序<br><img src="https://upload-images.jianshu.io/upload_images/9113981-77385cfa0f502caa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th style="text-align:center">命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/lists-blpop.html" target="_blank" rel="noopener">BLPOP key1 [key2 ] timeout</a> 移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td><a href="http://www.runoob.com/redis/lists-brpop.html" target="_blank" rel="noopener">BRPOP key1 [key2 ] timeout</a> 移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/lists-brpoplpush.html" target="_blank" rel="noopener">BRPOPLPUSH source destination timeout</a> 从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td><a href="http://www.runoob.com/redis/lists-lindex.html" target="_blank" rel="noopener">LINDEX key index</a> 通过索引获取列表中的元素</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td>LINSERT key BEFOREAFTER pivot value 在列表的元素前或者后插入元素</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">6</td>
+<td><a href="http://www.runoob.com/redis/lists-llen.html" target="_blank" rel="noopener">LLEN key</a> 获取列表长度</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">7</td>
+<td><a href="http://www.runoob.com/redis/lists-lpop.html" target="_blank" rel="noopener">LPOP key</a> 移出并获取列表的第一个元素</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">8</td>
+<td><a href="http://www.runoob.com/redis/lists-lpush.html" target="_blank" rel="noopener">LPUSH key value1 [value2]</a> 将一个或多个值插入到列表头部</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">9</td>
+<td><a href="http://www.runoob.com/redis/lists-lpushx.html" target="_blank" rel="noopener">LPUSHX key value</a> 将一个值插入到已存在的列表头部</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">10</td>
+<td><a href="http://www.runoob.com/redis/lists-lrange.html" target="_blank" rel="noopener">LRANGE key start stop</a> 获取列表指定范围内的元素</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">11</td>
+<td><a href="http://www.runoob.com/redis/lists-lrem.html" target="_blank" rel="noopener">LREM key count value</a> 移除列表元素</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">12</td>
+<td><a href="http://www.runoob.com/redis/lists-lset.html" target="_blank" rel="noopener">LSET key index value</a> 通过索引设置列表元素的值</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">13</td>
+<td><a href="http://www.runoob.com/redis/lists-ltrim.html" target="_blank" rel="noopener">LTRIM key start stop</a> 对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">14</td>
+<td><a href="http://www.runoob.com/redis/lists-rpop.html" target="_blank" rel="noopener">RPOP key</a> 移除列表的最后一个元素，返回值为移除的元素。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">15</td>
+<td><a href="http://www.runoob.com/redis/lists-rpoplpush.html" target="_blank" rel="noopener">RPOPLPUSH source destination</a> 移除列表的最后一个元素，并将该元素添加到另一个列表并返回</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">16</td>
+<td><a href="http://www.runoob.com/redis/lists-rpush.html" target="_blank" rel="noopener">RPUSH key value1 [value2]</a> 在列表中添加一个或多个值</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">17</td>
+<td><a href="http://www.runoob.com/redis/lists-rpushx.html" target="_blank" rel="noopener">RPUSHX key value</a> 为已存在的列表添加值</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>（4）set(集合)</strong><br>是string类型的无序集合，也不可重复</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-df36260f2908a285.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/sets-sadd.html" target="_blank" rel="noopener">SADD key member1 [member2]</a> 向集合添加一个或多个成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td><a href="http://www.runoob.com/redis/sets-scard.html" target="_blank" rel="noopener">SCARD key</a> 获取集合的成员数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/sets-sdiff.html" target="_blank" rel="noopener">SDIFF key1 [key2]</a> 返回给定所有集合的差集</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td><a href="http://www.runoob.com/redis/sets-sdiffstore.html" target="_blank" rel="noopener">SDIFFSTORE destination key1 [key2]</a> 返回给定所有集合的差集并存储在 destination 中</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td><a href="http://www.runoob.com/redis/sets-sinter.html" target="_blank" rel="noopener">SINTER key1 [key2]</a> 返回给定所有集合的交集</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">6</td>
+<td><a href="http://www.runoob.com/redis/sets-sinterstore.html" target="_blank" rel="noopener">SINTERSTORE destination key1 [key2]</a> 返回给定所有集合的交集并存储在 destination 中</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">7</td>
+<td><a href="http://www.runoob.com/redis/sets-sismember.html" target="_blank" rel="noopener">SISMEMBER key member</a> 判断 member 元素是否是集合 key 的成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">8</td>
+<td><a href="http://www.runoob.com/redis/sets-smembers.html" target="_blank" rel="noopener">SMEMBERS key</a> 返回集合中的所有成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">9</td>
+<td><a href="http://www.runoob.com/redis/sets-smove.html" target="_blank" rel="noopener">SMOVE source destination member</a> 将 member 元素从 source 集合移动到 destination 集合</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">10</td>
+<td><a href="http://www.runoob.com/redis/sets-spop.html" target="_blank" rel="noopener">SPOP key</a> 移除并返回集合中的一个随机元素</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">11</td>
+<td><a href="http://www.runoob.com/redis/sets-srandmember.html" target="_blank" rel="noopener">SRANDMEMBER key [count]</a> 返回集合中一个或多个随机数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">12</td>
+<td><a href="http://www.runoob.com/redis/sets-srem.html" target="_blank" rel="noopener">SREM key member1 [member2]</a> 移除集合中一个或多个成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">13</td>
+<td><a href="http://www.runoob.com/redis/sets-sunion.html" target="_blank" rel="noopener">SUNION key1 [key2]</a> 返回所有给定集合的并集</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">14</td>
+<td><a href="http://www.runoob.com/redis/sets-sunionstore.html" target="_blank" rel="noopener">SUNIONSTORE destination key1 [key2]</a> 所有给定集合的并集存储在 destination 集合中</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">15</td>
+<td><a href="http://www.runoob.com/redis/sets-sscan.html" target="_blank" rel="noopener">SSCAN key cursor [MATCH pattern] [COUNT count]</a> 迭代集合中的元素</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>（5）zset（sorted set 有序集合）</strong><br>Redis 有序集合和集合一样也是string类型元素的集合,且不允许重复的成员。<br>不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。<br>有序集合的成员是唯一的,但分数(score)却可以重复。<br>集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O(1)。 集合中最大的成员数为 232 - 1 (4294967295, 每个集合可存储40多亿个成员)。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-2aed6efa8f83dee0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zadd.html" target="_blank" rel="noopener">ZADD key score1 member1 [score2 member2]</a> 向有序集合添加一个或多个成员，或者更新已存在成员的分数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zcard.html" target="_blank" rel="noopener">ZCARD key</a> 获取有序集合的成员数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zcount.html" target="_blank" rel="noopener">ZCOUNT key min max</a> 计算在有序集合中指定区间分数的成员数</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zincrby.html" target="_blank" rel="noopener">ZINCRBY key increment member</a> 有序集合中对指定成员的分数加上增量 increment</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zinterstore.html" target="_blank" rel="noopener">ZINTERSTORE destination numkeys key [key …]</a> 计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 key 中</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">6</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zlexcount.html" target="_blank" rel="noopener">ZLEXCOUNT key min max</a> 在有序集合中计算指定字典区间内成员数量</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">7</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrange.html" target="_blank" rel="noopener">ZRANGE key start stop [WITHSCORES]</a> 通过索引区间返回有序集合成指定区间内的成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">8</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrangebylex.html" target="_blank" rel="noopener">ZRANGEBYLEX key min max [LIMIT offset count]</a> 通过字典区间返回有序集合的成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">9</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrangebyscore.html" target="_blank" rel="noopener">ZRANGEBYSCORE key min max [WITHSCORES] [LIMIT]</a> 通过分数返回有序集合指定区间内的成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">10</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrank.html" target="_blank" rel="noopener">ZRANK key member</a> 返回有序集合中指定成员的索引</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">11</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrem.html" target="_blank" rel="noopener">ZREM key member [member …]</a> 移除有序集合中的一个或多个成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">12</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zremrangebylex.html" target="_blank" rel="noopener">ZREMRANGEBYLEX key min max</a> 移除有序集合中给定的字典区间的所有成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">13</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zremrangebyrank.html" target="_blank" rel="noopener">ZREMRANGEBYRANK key start stop</a> 移除有序集合中给定的排名区间的所有成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">14</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zremrangebyscore.html" target="_blank" rel="noopener">ZREMRANGEBYSCORE key min max</a> 移除有序集合中给定的分数区间的所有成员</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">15</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrevrange.html" target="_blank" rel="noopener">ZREVRANGE key start stop [WITHSCORES]</a> 返回有序集中指定区间内的成员，通过索引，分数从高到底</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">16</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrevrangebyscore.html" target="_blank" rel="noopener">ZREVRANGEBYSCORE key max min [WITHSCORES]</a> 返回有序集中指定分数区间内的成员，分数从高到低排序</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">17</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zrevrank.html" target="_blank" rel="noopener">ZREVRANK key member</a> 返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">18</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zscore.html" target="_blank" rel="noopener">ZSCORE key member</a> 返回有序集中，成员的分数值</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">19</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zunionstore.html" target="_blank" rel="noopener">ZUNIONSTORE destination numkeys key [key …]</a> 计算给定的一个或多个有序集的并集，并存储在新的 key 中</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">20</td>
+<td><a href="http://www.runoob.com/redis/sorted-sets-zscan.html" target="_blank" rel="noopener">ZSCAN key cursor [MATCH pattern] [COUNT count]</a> 迭代有序集合中的元素（包括元素成员和元素分值）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Redis-HyperLogLog"><a href="#Redis-HyperLogLog" class="headerlink" title="Redis HyperLogLog"></a>Redis HyperLogLog</h2><p>Redis 在 2.8.9 版本添加了 HyperLogLog 结构。<br>Redis HyperLogLog 是用来做基数统计的算法，HyperLogLog 的优点是，在输入元素的数量或者体积非常非常大时，计算基数所需的空间总是固定 的、并且是很小的。<br>在 Redis 里面，每个 HyperLogLog 键只需要花费 12 KB 内存，就可以计算接近 2^64 个不同元素的基 数。这和计算基数时，元素越多耗费内存就越多的集合形成鲜明对比。<br>但是，因为 HyperLogLog 只会根据输入元素来计算基数，而不会储存输入元素本身，所以 HyperLogLog 不能像集合那样，返回输入的各个元素。<br><strong>什么是基数?</strong><br>比如数据集 {1, 3, 5, 7, 5, 7, 8}， 那么这个数据集的基数集为 {1, 3, 5 ,7, 8}, 基数(不重复元素)为5。 基数估计就是在误差可接受的范围内，快速计算基数。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-684a035b64bf7888.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/hyperloglog-pfadd.html" target="_blank" rel="noopener">PFADD key element [element …]</a> 添加指定元素到 HyperLogLog 中。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td><a href="http://www.runoob.com/redis/hyperloglog-pfcount.html" target="_blank" rel="noopener">PFCOUNT key [key …]</a> 返回给定 HyperLogLog 的基数估算值。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/hyperloglog-pfmerge.html" target="_blank" rel="noopener">PFMERGE destkey sourcekey [sourcekey …]</a> 将多个 HyperLogLog 合并为一个 HyperLogLog</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Redis-发布订阅"><a href="#Redis-发布订阅" class="headerlink" title="Redis 发布订阅"></a>Redis 发布订阅</h2><p>Redis 发布订阅(pub/sub)是一种消息通信模式：发送者(pub)发送消息，订阅者(sub)接收消息。</p>
+<p>Redis 客户端可以订阅任意数量的频道。</p>
+<p>下图展示了频道 channel1 ， 以及订阅这个频道的三个客户端 —— client2 、 client5 和 client1 之间的关系：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-13f3762db8451c50.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pubsub1"></p>
+<p>当有新消息通过 PUBLISH 命令发送给频道 channel1 时， 这个消息就会被发送给订阅它的三个客户端：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/9113981-9b5785669d803746.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pubsub2"></p>
+<p>以下实例演示了发布订阅是如何工作的。在我们实例中我们创建了订阅频道名为 redisChat:<br><img src="https://upload-images.jianshu.io/upload_images/9113981-60bb1a7e569595e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>现在，我们先重新开启个 redis 客户端，然后在同一个频道 redisChat 发布两次消息，订阅者就能接收到消息<br><img src="https://upload-images.jianshu.io/upload_images/9113981-e699f95a52937193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>订阅者的客户端会显示如下消息<br><img src="https://upload-images.jianshu.io/upload_images/9113981-b45f6ebc5b2bb132.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/pub-sub-psubscribe.html" target="_blank" rel="noopener">PSUBSCRIBE pattern [pattern …]</a> 订阅一个或多个符合给定模式的频道。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td>[PUBSUB subcommand <a href="http://www.runoob.com/redis/pub-sub-pubsub.html" target="_blank" rel="noopener">argument [argument …]]</a> 查看订阅与发布系统状态。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/pub-sub-publish.html" target="_blank" rel="noopener">PUBLISH channel message</a> 将信息发送到指定的频道。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td>[PUNSUBSCRIBE <a href="http://www.runoob.com/redis/pub-sub-punsubscribe.html" target="_blank" rel="noopener">pattern [pattern …]]</a> 退订所有给定模式的频道。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td><a href="http://www.runoob.com/redis/pub-sub-subscribe.html" target="_blank" rel="noopener">SUBSCRIBE channel [channel …]</a> 订阅给定的一个或多个频道的信息。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">6</td>
+<td>[UNSUBSCRIBE <a href="http://www.runoob.com/redis/pub-sub-unsubscribe.html" target="_blank" rel="noopener">channel [channel …]]</a> 指退订给定的频道。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h2><p>Redis 事务可以一次执行多个命令， 并且带有以下两个重要的保证：<br>批量操作在发送 EXEC 命令前被放入队列缓存。<br>收到 EXEC 命令后进入事务执行，事务中任意命令执行失败，其余的命令依然被执行。<br>在事务执行过程，其他客户端提交的命令请求不会插入到事务执行命令序列中。<br>一个事务从开始到执行会经历以下三个阶段：<br>开始事务。<br>命令入队。<br>执行事务。</p>
+<p>以下是一个事务的例子， 它先以 MULTI 开始一个事务， 然后将多个命令入队到事务中， 最后由 EXEC 命令触发事务， 一并执行事务中的所有命令：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-3f55c45f3a636177.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/transactions-discard.html" target="_blank" rel="noopener">DISCARD</a> 取消事务，放弃执行事务块内的所有命令。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td><a href="http://www.runoob.com/redis/transactions-exec.html" target="_blank" rel="noopener">EXEC</a> 执行所有事务块内的命令。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/transactions-multi.html" target="_blank" rel="noopener">MULTI</a> 标记一个事务块的开始。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td><a href="http://www.runoob.com/redis/transactions-unwatch.html" target="_blank" rel="noopener">UNWATCH</a> 取消 WATCH 命令对所有 key 的监视。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td><a href="http://www.runoob.com/redis/transactions-watch.html" target="_blank" rel="noopener">WATCH key [key …]</a> 监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="Redis-脚本"><a href="#Redis-脚本" class="headerlink" title="Redis 脚本"></a>Redis 脚本</h2><p>Redis 脚本使用 Lua 解释器来执行脚本。 Redis 2.6 版本通过内嵌支持 Lua 环境。执行脚本的常用命令为 EVAL。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c644028f61fcf4c9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td style="text-align:center">1</td>
+<td><a href="http://www.runoob.com/redis/scripting-eval.html" target="_blank" rel="noopener">EVAL script numkeys key [key …] arg [arg …]</a> 执行 Lua 脚本。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">2</td>
+<td><a href="http://www.runoob.com/redis/scripting-evalsha.html" target="_blank" rel="noopener">EVALSHA sha1 numkeys key [key …] arg [arg …]</a> 执行 Lua 脚本。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">3</td>
+<td><a href="http://www.runoob.com/redis/scripting-script-exists.html" target="_blank" rel="noopener">SCRIPT EXISTS script [script …]</a> 查看指定的脚本是否已经被保存在缓存当中。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">4</td>
+<td><a href="http://www.runoob.com/redis/scripting-script-flush.html" target="_blank" rel="noopener">SCRIPT FLUSH</a> 从脚本缓存中移除所有脚本。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">5</td>
+<td><a href="http://www.runoob.com/redis/scripting-script-kill.html" target="_blank" rel="noopener">SCRIPT KILL</a> 杀死当前正在运行的 Lua 脚本。</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td style="text-align:center">6</td>
+<td><a href="http://www.runoob.com/redis/scripting-script-load.html" target="_blank" rel="noopener">SCRIPT LOAD script</a> 将脚本 script 添加到脚本缓存中，但并不立即执行这个脚本。</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/11/22/Redis/">Redis基础学习</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
+  <p><span>发布时间:</span>2018年11月22日 - 20:11</p>
+  <p><span>最后更新:</span>2018年11月22日 - 20:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/22/Redis/" title="Redis基础学习">http://yoursite.com/2018/11/22/Redis/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/11/22/Redis/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Redis/" rel="tag"><i class="fa fa-tag"></i> Redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/08/shanghaictf/" rel="next" title="第四届上海市大学生网安大赛CTF-writeup">
+                <i class="fa fa-chevron-left"></i> 第四届上海市大学生网安大赛CTF-writeup
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/22/RedisBug/" rel="prev" title="Redis未授权访问漏洞">
+                Redis未授权访问漏洞 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=RA-5ba8b3dc680529ed" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuxianglai.top/" title="Smiles" target="_blank">Smiles</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zbojia.com/" title="R1ka" target="_blank">R1ka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sunraycanter.top/" title="UnKnown" target="_blank">UnKnown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shaobaobaoer.cn/" title="shaobaobao" target="_blank">shaobaobao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuraraneko.github.io/" title="n3k0" target="_blank">n3k0</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.virtua1.cn/" title="virtua1" target="_blank">virtua1</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#redis是什么"><span class="nav-number">1.</span> <span class="nav-text">redis是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-安装"><span class="nav-number">2.</span> <span class="nav-text">Redis 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#支持的语言"><span class="nav-number">3.</span> <span class="nav-text">支持的语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis数据类型"><span class="nav-number">4.</span> <span class="nav-text">redis数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-HyperLogLog"><span class="nav-number">5.</span> <span class="nav-text">Redis HyperLogLog</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-发布订阅"><span class="nav-number">6.</span> <span class="nav-text">Redis 发布订阅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-事务"><span class="nav-number">7.</span> <span class="nav-text">Redis 事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-脚本"><span class="nav-number">8.</span> <span class="nav-text">Redis 脚本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>

