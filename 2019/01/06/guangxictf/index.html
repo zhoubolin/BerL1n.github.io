@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="web安全," />
+  <meta name="keywords" content="ctf," />
 
 
 
@@ -105,20 +105,23 @@
 
 
 
-<meta name="keywords" content="web安全">
+<meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CBC字节翻转攻击">
-<meta property="og:url" content="http://yoursite.com/2018/09/13/CBC/index.html">
+<meta property="og:title" content="广西南宁第三届web-wp">
+<meta property="og:url" content="http://yoursite.com/2019/01/06/guangxictf/index.html">
 <meta property="og:site_name" content="绝世狂龙">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-f20feb4114a9017c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c9d40e8c89a02187.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-18a24f98a9a18bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-ad96fd9833ce3e33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-08T09:45:22.991Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2bc00bdd79392b75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-1b3e740626ce381b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-3ca62ad6b29a9fa8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2b7ec371f7676c91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-acc4eaa9792486a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c6b5a2dc68586929.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-31aee225cbd68341.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-06T12:14:19.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CBC字节翻转攻击">
+<meta name="twitter:title" content="广西南宁第三届web-wp">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-f20feb4114a9017c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -149,14 +152,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/13/CBC/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/06/guangxictf/"/>
 
 
 
 
 
 
-  <title>CBC字节翻转攻击 | 绝世狂龙</title>
+  <title>广西南宁第三届web-wp | 绝世狂龙</title>
   
 
 
@@ -313,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/CBC/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/06/guangxictf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="berlin">
@@ -330,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CBC字节翻转攻击</h1>
+          <h1 class="post-title" itemprop="name headline">广西南宁第三届web-wp</h1>
         
 
         <div class="post-meta">
@@ -342,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T20:38:36+08:00">
-                2018-09-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T20:08:53+08:00">
+                2019-01-06
               </time>
             
 
@@ -402,44 +405,23 @@
       
 
       
-        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-f20feb4114a9017c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a><br>CBC翻转攻击方法在于：</p>
-<p>通过损坏密文字节来改变明文字节。(注：借助CBC内部的模式)借由此可以绕过过滤器，或者改变用户权限提升至管理员，又或者改变应用程序预期明文以达目的。</p>
-<h2 id="CBC模式介绍"><a href="#CBC模式介绍" class="headerlink" title="CBC模式介绍"></a>CBC模式介绍</h2><p><strong>加密过程</strong><br><img src="https://upload-images.jianshu.io/upload_images/9113981-61ea50cc52ba661c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>Plaintext：明文数据，待加密的数据</p>
-<p>IV：初始向量，用于随机化加密的比特块，保证即使对相同明文多次加密，也可以得到不同的密文。</p>
-<p>Key：分组加密使用的密钥，被一些如AES的对称加密算法使用。</p>
-<p>Ciphertext：密文数据，加密后的数据。</p>
-<p>明文都是先与混淆数据（第一组是与IV，之后都是与前一组的密文）进行异或，再执行分组加密的。CBC工作于一个固定长度的比特组，将其称之为块</p>
-<p>步骤：</p>
-<ol>
-<li>首先将明文分组(常见的以16字节为一组)，位数不足的使用特殊字符填充。</li>
-<li>生成一个随机的初始化向量(IV)和一个密钥。</li>
-<li>将IV和第一组明文异或。</li>
-<li>用密钥对3中xor后产生的密文加密。</li>
-<li>用4中产生的密文对第二组明文进行xor操作。</li>
-<li>用密钥对5中产生的密文加密。</li>
-<li>重复4-7，到最后一组明文。</li>
-<li>将IV和加密后的密文拼接在一起，得到最终的密文。</li>
-</ol>
-<p>从第一块开始，首先与一个初始向量iv异或（iv只在第一处作用），然后把异或的结果配合key进行加密，得到第一块的密文，并且把加密的结果与下一块的明文进行异或，一直这样进行下去。因此这种模式最重要的特点就是：前一块的密文用来产生后一块的密文。<br>加密公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ciphertext-0 = Encrypt(Plaintext XOR IV)—只用于第一个组块</span><br><span class="line">Ciphertext-N = Encrypt(Plaintext XOR Ciphertext-N-1)—用于第二及剩下的组块</span><br></pre></td></tr></table></figure></p>
-<p><strong>解密过程</strong></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c9d40e8c89a02187.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>解密的过程其实只要理解了加密，反过来看解密过程就也很简单了，同样的，前一块密文参与下一块密文的还原。<br>步骤：</p>
-<pre><code>1. 从密文中提取出IV，然后将密文分组。
-2. 使用密钥对第一组的密文解密，然后和IV进行xor得到明文。
-3. 使用密钥对第二组密文解密，然后和2中的密文xor得到明文。
-4. 重复2-3，直到最后一组密文。
-</code></pre><p>解密公式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plaintext-0 = Decrypt(Ciphertext) XOR IV—只用于第一个组块</span><br><span class="line">Plaintext-N = Decrypt(Ciphertext) XOR Ciphertext-N-1—用于第二及剩下的组块</span><br></pre></td></tr></table></figure></p>
-<p>这里可以注意到Ciphertext-N-1用来产生下一块明文，如果我们改变Ciphertext-N-1中的一个字节，然后和下一块解密后的密文xor，就可以得到一个不同的明文，而这个明文是我们可以控制的。利用这一点，我们就欺骗服务端或者绕过过滤器。<br>下图展示了整个攻击过程：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-18a24f98a9a18bd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>解析<br><img src="https://upload-images.jianshu.io/upload_images/9113981-ad96fd9833ce3e33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="图片.png"><br>根据解密流程，我们假设A为明文，B为前一组密文，C为密文经过AES解密后的字串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = Plaintext[0] = 11</span><br><span class="line">B = (Ciphertext-N-1)[0] = 13</span><br><span class="line">C = Decrypt(Ciphertext)[0] = 6</span><br></pre></td></tr></table></figure></p>
-<p>我们可以知道，解密过程中是C与B异或得到A，即A xor B = C。</p>
-<p>那么关键来了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C xor C = 0 (任何数与自己异或都为0)</span><br><span class="line">等价于</span><br><span class="line">A xor B xor C = 0</span><br></pre></td></tr></table></figure>
-<p>由于任何数与0异或都为自己本身，所以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A xor B xor C xor 3 = 3</span><br></pre></td></tr></table></figure></p>
-<p>那么此时我们其实可以这样来看：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A = A = 11</span><br><span class="line">B = B xor 3 = 13 xor 3 = 14</span><br><span class="line">C = C = 6</span><br></pre></td></tr></table></figure></p>
-<p>现在我们修改密文对应的位让B = 14，那么当密文解密后，会发现，明文A会变成3，通过这种方法我们可以控制任何一位明文。</p>
-<h3 id="php使用异或xor调换两个变量的值的原理"><a href="#php使用异或xor调换两个变量的值的原理" class="headerlink" title="php使用异或xor调换两个变量的值的原理"></a>php使用异或xor调换两个变量的值的原理</h3><p>1、首先，我们要知道什么是异或，异或，简单来说就是：相同的两个数，异或的结果是0；不同的两个数，异或的结果是1。<br>2、0和0，异或的结果是0。1和1，异或的结果是0。0和1，异或的结果是1。于是我们发现，在0和1的世界里：A和B异或，结果是C；B和C异或的结果一定是A；A和C异或的结果一定是B。<br>3、写成php:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = 0;</span><br><span class="line">$b = 1;</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
-<p>4、a和b是二进制的一位数，如此；是多位数，也是如此。<br>于是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = 3; //0011</span><br><span class="line">$b = 4; //0100</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
-<p>5、a和b如果是字母，也可以：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$a = &apos;a&apos;; //ASCII是97，二进制是0110 0001</span><br><span class="line">$b = &apos;b&apos;; //ASCII是98，二进制是0110 0010</span><br><span class="line">$c = $a ^ $b; //A和B异或，结果是C</span><br><span class="line">$b = $b ^ $c; //B和C异或的结果一定是A，将A赋值给B</span><br><span class="line">$a = $b ^ $c; //A（原A，现B）和C异或的结果一定是B，将B赋值给A</span><br><span class="line">echo $a,$b; //已经实现$a和$b的值对调</span><br></pre></td></tr></table></figure></p>
-<p>能够成功将两个字符串变量调换，原因就在于：两个变量进行异或时，会将字符串转换成二进制再进行异或，异或完，又从二进制转换成了字符串。</p>
-<p>本文参考：<a href="http://www.ifuryst.com/archives/CBC_bitflipping_attacks.html" target="_blank" rel="noopener">http://www.ifuryst.com/archives/CBC_bitflipping_attacks.html</a><br><a href="https://blog.csdn.net/csu_vc/article/details/79619309" target="_blank" rel="noopener">https://blog.csdn.net/csu_vc/article/details/79619309</a><br><a href="https://blog.csdn.net/jeffreynnn/article/details/77100389" target="_blank" rel="noopener">https://blog.csdn.net/jeffreynnn/article/details/77100389</a><br><a href="http://www.freebuf.com/articles/system/163756.html" target="_blank" rel="noopener">http://www.freebuf.com/articles/system/163756.html</a></p>
+        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-f20feb4114a9017c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a></p>
+<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><p>源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$white_list = range(<span class="number">0</span>,<span class="number">9</span>);</span><br><span class="line"><span class="keyword">require_once</span>(<span class="string">'flag.php'</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_REQUEST[<span class="string">'no'</span>]))&#123;</span><br><span class="line">    $a=$_REQUEST[<span class="string">'no'</span>];</span><br><span class="line">    <span class="keyword">if</span>(@ereg(<span class="string">"^[0-9]+$"</span>, $a) === <span class="keyword">FALSE</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'no must be number'</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(in_array($a,$white_list))&#123;</span><br><span class="line">            <span class="keyword">if</span>(strlen($a)&gt;<span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">'you are a great dark phper&lt;br&gt;'</span>;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"&lt;img src='dark.gif'&gt;&lt;br&gt;"</span>;</span><br><span class="line">                <span class="keyword">echo</span> $flag;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">'you no dark'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'you are so dark'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;<span class="keyword">else</span></span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br></pre></td></tr></table></figure></p>
+<p>通过题目可以看出是ereg截断题<br>利用%00截断，简单的绕过就可以了<br>这题要满足参数no要为数字，而且必须是0-9之间的数字，长度还要大于1，构造<br><code>http://gxnnctf.gxsosec.cn:12311/?no=1%002</code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-2bc00bdd79392b75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h1><p><img src="https://upload-images.jianshu.io/upload_images/9113981-1b3e740626ce381b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>看似应该是sql注入题<br>输（id=1,为admin；id=2，为guest）<br><img src="https://upload-images.jianshu.io/upload_images/9113981-3ca62ad6b29a9fa8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>附源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$flag = <span class="string">'gxnnctf&#123;***************************&#125;'</span>;</span><br><span class="line"><span class="keyword">require_once</span>(<span class="string">'config.php'</span>);</span><br><span class="line">$conn = <span class="keyword">new</span> mysqli($db_servername,$db_username,$db_password,$db_name);</span><br><span class="line"><span class="keyword">if</span>($conn-&gt;connect_error)&#123; <span class="comment">// 链接错误</span></span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"Connect failed:"</span>.$conn-&gt;connect_error);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'id'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">    $id = $_GET[<span class="string">'id'</span>];</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">'#sleep|benchmark|floor|rand|count|select|from|\(|\)|time|date|sec|day#is'</span>,$id))</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'Don\'t hurt me :-('</span>);</span><br><span class="line">    $sql = <span class="string">"select username from user where id = "</span>.$id;</span><br><span class="line">    $result = $conn-&gt;query($sql);</span><br><span class="line">    <span class="keyword">if</span>($result)</span><br><span class="line">    &#123;</span><br><span class="line">        $row = $result-&gt;fetch_array();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> mysqli_error($conn);</span><br><span class="line">        <span class="keyword">die</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span>(<span class="string">'hello '</span>.$row[<span class="string">'username'</span>].<span class="string">'&lt;br&gt;'</span>);</span><br><span class="line"></span><br><span class="line">    $username = $row[<span class="string">'username'</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//查询得到用户名。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>($username === <span class="string">'guest'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        $ip = @$_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>]!=<span class="string">""</span> ? $_SERVER[<span class="string">'HTTP_X_FORWARDED_FOR'</span>]:$_SERVER[<span class="string">'REMOTE_ADDR'</span>];</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">'#sleep|benchmark|floor|rand|count|select|from|\(|\)|time|date|sec|day#is'</span>,$ip))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">'Don\' hack me'</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">empty</span>($ip))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">'you from '</span>.$ip.<span class="string">' , I remembered it.&lt;br&gt;'</span>;</span><br><span class="line">            $conn-&gt;query(<span class="string">"insert into logs(ip) values('$ip')"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        $result = $conn-&gt;query(<span class="string">"select username from user where id ="</span>.$id);</span><br><span class="line">        $row = $result-&gt;fetch_array();</span><br><span class="line">        $username = $row[<span class="string">'username'</span>];</span><br><span class="line">        <span class="keyword">if</span>($username === <span class="string">'admin'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            var_dump($_GET[<span class="string">'backdoor'</span>]);</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'backdoor'</span>])&amp;&amp;$_GET[<span class="string">'backdoor'</span>]===<span class="string">'Melonrind'</span>)&#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">'you find the backdoor!!!&lt;br&gt;'</span>;</span><br><span class="line">                <span class="keyword">die</span>($flag);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"you are so great,but you don\'t have backdoor,so continue to challenge :("</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"but i don\'t waiting for you "</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'emmmmm'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'welcome to gxnnctf2018!&lt;br&gt;'</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'i filtered everything,so have a good time :)'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>过滤了很多关键字，而且也过滤了圆括号，这意味着大多数函数都不能使用，注入应该不行<br>，看源码，它要先满足id=2,在满足id=1，然后传参才能得到flag，但id不能同时传2个<br>这有篇大佬的可以参考<a href="http://heartsky.info/2017/07/16/%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84-SQL-%E6%B3%A8%E5%85%A5%E5%B0%8F%E7%B3%BB%E5%88%97/" target="_blank" rel="noopener">一个有趣的 SQL 注入小系列</a></p>
+<p>可以利用sql的case when then else end语句<br>在第一条语句中定义了一个自定义变量，根据它是否为 NULL 作为判断条件。<br><strong>payload:</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//gxnnctf.gxsosec.cn:12312/?id=case%20when%20@hs%20is%20null%20then%20@hs:=2%20else%201%20end%23&amp;backdoor=Melonrind</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-2b7ec371f7676c91.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="3-帽子商城"><a href="#3-帽子商城" class="headerlink" title="3.帽子商城"></a>3.帽子商城</h1><h3 id="1、-先注册一个账号然后登录"><a href="#1、-先注册一个账号然后登录" class="headerlink" title="1、 先注册一个账号然后登录"></a>1、 先注册一个账号然后登录</h3><h3 id="2、-green-level-1："><a href="#2、-green-level-1：" class="headerlink" title="2、 green level 1："></a>2、 green level 1：</h3><p>buy抓包，order的值改为{“good”:1,”price”:0}的base64编码值</p>
+<h3 id="3、-剩下条件竞争："><a href="#3、-剩下条件竞争：" class="headerlink" title="3、 剩下条件竞争："></a>3、 剩下条件竞争：</h3><p>再buy抓包，得到当前账号第一个PHPSESSID的值，再获取一个当前账号的PHPSESSID的值（开多一个浏览器登录刚刚那个账号），然后发送刚刚捉到的包到intruder模块，PHPSESSID为变量</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-acc4eaa9792486a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>把得到的两个PHPSESSID的值丢进payload</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c6b5a2dc68586929.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>之后intruder-&gt;start attack,之后访问就得到flag</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-31aee225cbd68341.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
       
     </div>
@@ -456,12 +438,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2018/09/13/CBC/">CBC字节翻转攻击</a></p>
+  <p><span>本文标题:</span><a href="/2019/01/06/guangxictf/">广西南宁第三届web-wp</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
-  <p><span>发布时间:</span>2018年09月13日 - 20:09</p>
-  <p><span>最后更新:</span>2018年11月08日 - 17:11</p>
-  <p><span>原始链接:</span><a href="/2018/09/13/CBC/" title="CBC字节翻转攻击">http://yoursite.com/2018/09/13/CBC/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/09/13/CBC/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年01月06日 - 20:01</p>
+  <p><span>最后更新:</span>2019年01月06日 - 20:01</p>
+  <p><span>原始链接:</span><a href="/2019/01/06/guangxictf/" title="广西南宁第三届web-wp">http://yoursite.com/2019/01/06/guangxictf/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/01/06/guangxictf/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -502,7 +484,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web安全/" rel="tag"><i class="fa fa-tag"></i> web安全</a>
+            <a href="/tags/ctf/" rel="tag"><i class="fa fa-tag"></i> ctf</a>
           
         </div>
       
@@ -515,8 +497,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/18/wpsec/" rel="next" title="wpsec-write up">
-                <i class="fa fa-chevron-left"></i> wpsec-write up
+              <a href="/2018/11/26/planeshell/" rel="next" title="Linux定时计划反弹shell">
+                <i class="fa fa-chevron-left"></i> Linux定时计划反弹shell
               </a>
             
           </div>
@@ -525,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/15/unserialize/" rel="prev" title="php反序列化漏洞">
-                php反序列化漏洞 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/01/06/phpcmsbug/" rel="prev" title="phpcms2008远程代码执行漏洞">
+                phpcms2008远程代码执行漏洞 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -742,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CBC模式介绍"><span class="nav-number">1.</span> <span class="nav-text">CBC模式介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#php使用异或xor调换两个变量的值的原理"><span class="nav-number">1.1.</span> <span class="nav-text">php使用异或xor调换两个变量的值的原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1"><span class="nav-number">1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2"><span class="nav-number">2.</span> <span class="nav-text">2.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-帽子商城"><span class="nav-number">3.</span> <span class="nav-text">3.帽子商城</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、-先注册一个账号然后登录"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、 先注册一个账号然后登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、-green-level-1："><span class="nav-number">3.0.2.</span> <span class="nav-text">2、 green level 1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、-剩下条件竞争："><span class="nav-number">3.0.3.</span> <span class="nav-text">3、 剩下条件竞争：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

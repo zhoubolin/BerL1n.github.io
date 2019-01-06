@@ -120,7 +120,9 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-afd86ef7d648d334.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2a30a03d71043630.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-999905fffb6fb051.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-11-22T12:17:22.272Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-efc61a485e2553a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-66af6cfdf69b240a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-06T12:08:30.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis未授权访问漏洞">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-12b153d45dbf084c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -443,6 +445,15 @@
 <p>在攻击机上，使用下列命令ssh连接到目标机器上：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># command: private key username@server IP</span></span><br><span class="line"></span><br><span class="line">ssh -i id_rsa username@IP</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-2a30a03d71043630.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/9113981-999905fffb6fb051.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="法二，定时反弹shell"><a href="#法二，定时反弹shell" class="headerlink" title="法二，定时反弹shell"></a>法二，定时反弹shell</h2><p>kali : 192.168.20.135<br>centos :  192.168.20.130<br>1.开启redis<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;src/redis-server redis.conf</span><br></pre></td></tr></table></figure></p>
+<p>2.与目标主机连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;root@kali:~# redis-cli -h 192.168.20.130</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>kali主机进行监听<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;nc -l -v  -p 4444</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.写入shell并保存</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-efc61a485e2553a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>5.连接<br><img src="https://upload-images.jianshu.io/upload_images/9113981-66af6cfdf69b240a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h2 id="6-修复建议"><a href="#6-修复建议" class="headerlink" title="6.修复建议"></a>6.修复建议</h2><p>修复建议/安全建议<br>1.禁止一些高危命令<br>修改 redis.conf 文件，添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rename-command FLUSHALL &quot;&quot;</span><br><span class="line">rename-command CONFIG   &quot;&quot;</span><br><span class="line">rename-command EVAL     &quot;&quot;</span><br></pre></td></tr></table></figure></p>
 <p>来禁用远程修改 DB 文件地址</p>
 <p>2.以低权限运行 Redis 服务<br>为 Redis 服务创建单独的用户和家目录，并且配置禁止登陆<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ groupadd -r redis &amp;&amp; useradd -r -g redis redis</span><br></pre></td></tr></table></figure></p>
@@ -471,7 +482,7 @@
   <p><span>本文标题:</span><a href="/2018/11/22/RedisBug/">Redis未授权访问漏洞</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
   <p><span>发布时间:</span>2018年11月22日 - 20:11</p>
-  <p><span>最后更新:</span>2018年11月22日 - 20:11</p>
+  <p><span>最后更新:</span>2019年01月06日 - 20:01</p>
   <p><span>原始链接:</span><a href="/2018/11/22/RedisBug/" title="Redis未授权访问漏洞">http://yoursite.com/2018/11/22/RedisBug/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2018/11/22/RedisBug/"  aria-label="复制成功！"></i></span>
   </p>
@@ -631,7 +642,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -754,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-应用介绍"><span class="nav-number">1.</span> <span class="nav-text">1.应用介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-漏洞介绍"><span class="nav-number">2.</span> <span class="nav-text">2. 漏洞介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-未授权访问检测"><span class="nav-number">3.</span> <span class="nav-text">3.未授权访问检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-漏洞利用"><span class="nav-number">4.</span> <span class="nav-text">4.漏洞利用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-漏洞复现"><span class="nav-number">5.</span> <span class="nav-text">5.漏洞复现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1配置目标机器"><span class="nav-number">5.1.</span> <span class="nav-text">5.1配置目标机器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2攻击机配置"><span class="nav-number">5.2.</span> <span class="nav-text">5.2攻击机配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-修复建议"><span class="nav-number">6.</span> <span class="nav-text">6.修复建议</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-应用介绍"><span class="nav-number">1.</span> <span class="nav-text">1.应用介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-漏洞介绍"><span class="nav-number">2.</span> <span class="nav-text">2. 漏洞介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-未授权访问检测"><span class="nav-number">3.</span> <span class="nav-text">3.未授权访问检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-漏洞利用"><span class="nav-number">4.</span> <span class="nav-text">4.漏洞利用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-漏洞复现"><span class="nav-number">5.</span> <span class="nav-text">5.漏洞复现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1配置目标机器"><span class="nav-number">5.1.</span> <span class="nav-text">5.1配置目标机器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2攻击机配置"><span class="nav-number">5.2.</span> <span class="nav-text">5.2攻击机配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#法二，定时反弹shell"><span class="nav-number">6.</span> <span class="nav-text">法二，定时反弹shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-修复建议"><span class="nav-number">7.</span> <span class="nav-text">6.修复建议</span></a></li></ol></div>
             
 
           </div>
@@ -775,7 +786,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

